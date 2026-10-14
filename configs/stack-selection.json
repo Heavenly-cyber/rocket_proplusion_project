@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "stage": "02",
+  "tag": "v0.2.0",
+  "selection_date": "2026-10-14",
+  "status": "selected_versions_not_yet_container_verified",
+  "base_commit": "d4b28f834d75086e5f1752b4b7b48ecc4dc07684",
+  "python": {
+    "version": "3.13.16",
+    "container_image_candidate": "python:3.13.16-slim-trixie",
+    "image_digest": null,
+    "digest_status": "must_resolve_and_commit_in_stage03_before_research_run"
+  },
+  "uv": {
+    "version": "0.13.1",
+    "image_candidate": "ghcr.io/astral-sh/uv:0.13.1",
+    "image_digest": null,
+    "source": "https://github.com/astral-sh/uv/releases/tag/0.13.1"
+  },
+  "llama_cpp": {
+    "release": "v0.6.0",
+    "source_commit": null,
+    "source_pin_status": "full_commit_required_before_stage03_build",
+    "source": "https://github.com/ggml-org/llama.cpp/releases/tag/v0.6.0",
+    "backend": "cpu",
+    "native_cpu_build": false
+  },
+  "host_tools": {
+    "docker_engine_selected_version": "29.9.0",
+    "docker_compose_selected_version": "5.6.0",
+    "github_cli_selected_version": "2.102.0",
+    "host_installation_status": "not_installed_by_stage02",
+    "pop_os_base": "ubuntu-noble-24.04",
+    "docker_access_policy": "explicit_sudo_for_daemon_management_and_nonroot_job_containers"
+  },
+  "dependencies": [
+    {
+      "name": "numpy",
+      "version": "2.5.4",
+      "purpose": "arrays, numerical scoring, deterministic benchmark data",
+      "requires_python": ">=3.12",
+      "source": "https://pypi.org/project/numpy/2.5.4/"
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.1",
+      "purpose": "area-Mach root solving and independent reference checks",
+      "requires_python": ">=3.12",
+      "source": "https://pypi.org/project/scipy/1.18.1/"
+    },
+    {
+      "name": "bm25s",
+      "version": "0.3.13",
+      "purpose": "lightweight sparse lexical retrieval",
+      "requires_python": ">=3.8",
+      "source": "https://pypi.org/project/bm25s/0.3.13/"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.1",
+      "purpose": "question, response, and run-manifest validation",
+      "requires_python": ">=3.10",
+      "source": "https://pypi.org/project/pydantic/2.14.1/"
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "purpose": "local llama-server requests and bounded public artifact downloads",
+      "requires_python": ">=3.8",
+      "source": "https://pypi.org/project/httpx/0.28.1/"
+    },
+    {
+      "name": "pypdf",
+      "version": "6.20.1",
+      "purpose": "text-bearing PDF extraction with page provenance",
+      "requires_python": ">=3.9",
+      "source": "https://pypi.org/project/pypdf/6.20.1/"
+    },
+    {
+      "name": "pint",
+      "version": "0.26.1",
+      "purpose": "strict quantity parsing and unit conversion",
+      "requires_python": ">=3.12",
+      "source": "https://pypi.org/project/pint/0.26.1/"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.11.2",
+      "purpose": "exportable static charts using the noninteractive Agg backend",
+      "requires_python": ">=3.11",
+      "source": "https://pypi.org/project/matplotlib/3.11.2/"
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1",
+      "purpose": "development: numerical-reference and lifecycle tests",
+      "requires_python": ">=3.10",
+      "source": "https://pypi.org/project/pytest/9.1.1/"
+    },
+    {
+      "name": "ruff",
+      "version": "0.17.0",
+      "purpose": "development: code checks and formatting",
+      "requires_python": ">=3.7",
+      "source": "https://pypi.org/project/ruff/0.17.0/"
+    }
+  ],
+  "dependency_lock": {
+    "path": "uv.lock",
+    "status": "not_generated_until_stage03_container_resolver"
+  },
+  "model": {
+    "original_model": "Qwen/Qwen3.5-4B",
+    "quantization_publisher": "unsloth",
+    "artifact_repository": "unsloth/Qwen3.5-4B-GGUF",
+    "revision": "e87f176479d0855a907a41277aca2f8ee7a09523",
+    "filename": "Qwen3.5-4B-Q4_K_M.gguf",
+    "quantization": "Q4_K_M",
+    "size_bytes": 2740937888,
+    "sha256": "00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4",
+    "source": "https://huggingface.co/api/models/unsloth/Qwen3.5-4B-GGUF?blobs=true",
+    "download_url": "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/e87f176479d0855a907a41277aca2f8ee7a09523/Qwen3.5-4B-Q4_K_M.gguf",
+    "license": "Apache-2.0",
+    "input_modality": "text_only",
+    "downloaded": false,
+    "inference_verified": false
+  },
+  "retrieval": {
+    "algorithm": "BM25",
+    "library": "bm25s",
+    "method": "lucene",
+    "k1": 1.2,
+    "b": 0.75,
+    "top_k": 3,
+    "stemming": false,
+    "stopword_removal": false,
+    "dense_embeddings": false,
+    "domain_performance_measured": false
+  },
+  "preconditions_for_research": [
+    "Docker installed and reachable using the chosen access mode",
+    "uv.lock generated and committed through containerized resolution",
+    "base image digests and full llama.cpp source commit resolved and committed",
+    "model file downloaded in a container and verified against the recorded checksum",
+    "container build, API template, limits, permissions, and cleanup checks passed",
+    "benchmark and source hashes frozen at Stage04"
+  ]
+}

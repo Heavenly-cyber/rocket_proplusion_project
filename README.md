@@ -1,29 +1,32 @@
 # RocketNozzle-LLM
 
-Rocket Propulsion term-paper project: evaluate local LLM reliability on rocket-nozzle performance, units, evidence support, and model applicability.
+Rocket Propulsion term-paper project: evaluate local LLM reliability on rocket-nozzle numbers, units, evidence support, and model applicability.
 
-**Current stage:** `v0.1.0`, proposal/documentation only. No inference experiment, frozen dependency environment, or measured result exists yet.
+**Current checkpoint:** `v0.2.0`, tool selection saved. The environment and model study have not been built/run yet.
 
-Read [the project manifesto](docs/PROJECT_MANIFESTO.md), [literature search](docs/LITERATURE_SEARCH.md), and [Stage 01 manual](docs/STAGE_01_MANUAL.md).
+Read [the manifesto](docs/PROJECT_MANIFESTO.md), [literature search](docs/LITERATURE_SEARCH.md), [stack decision](docs/STAGE_02_STACK_DECISION.md), and [Stage 02 manual](docs/STAGE_02_MANUAL.md).
 
-The requested local directory is `~/git_work/rocket_proplusion_project/`. Generated research outputs will use `resutls/` and operational logs will use `logs/`, preserving the requested spelling. Scientific tasks will run in temporary Docker containers; exact dependencies and commands are selected in the next stage after a system check.
+## Selected stack
+
+- Python 3.13.16 and uv 0.13.1 inside Docker.
+- CPU llama.cpp v0.6.0 with a pinned Qwen3.5-4B Q4_K_M GGUF.
+- BM25 lexical retrieval; SciPy/Pint references and unit checks.
+- Strict JSON records, headless charts, temporary containers, persistent scoped outputs.
+
+Exact selected versions are in `configs/stack-selection.json`. Model identity is fixed; transitive lock, container digests, full inference source commit, and runtime verification are Stage 03 work. `configs/cpu-profile.json` describes provisional limits/sampling; `configs/host-profile.json` records the returned machine summary without credentials.
 
 ## Current commands
-
-After applying the Stage 01 ZIP:
 
 ```bash
 cd "$HOME/git_work/rocket_proplusion_project"
 git status --short
-git log -1 --oneline
+git log -2 --oneline
 git tag --list
-python3 scripts/system_report.py
+python3 scripts/stage02_preflight.py
 ```
 
-The last command only inspects prerequisites and writes an ignored diagnostic file under `logs/`. It does not install packages, start containers, or print credentials.
+The preflight only inspects host prerequisites and writes under ignored `logs/`. Research commands will be provided with the Docker scaffold. Outputs use `resutls/`; operational logs use `logs/`, preserving the requested spelling.
 
 ## Next checkpoint
 
-Return the Stage 01 installer output. Stage 02 will document the selected stack and exact versions. Later patches build the reproducible scaffold, reviewed benchmark, actual LLM runs, and final term-paper report in sequence.
-
-The intended GitHub owner is [Heavenly-Cyber](https://github.com/Heavenly-Cyber). No remote repository is created by this patch. We will verify the signed-in account before creating/pushing it.
+Return the Stage 02 patch output. Stage 03 will install/verify Docker, generate the lock in containers, build/check the scaffold, and prepare GitHub setup for [Heavenly-Cyber](https://github.com/Heavenly-Cyber).

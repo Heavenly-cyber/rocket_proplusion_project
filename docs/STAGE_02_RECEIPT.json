@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "stage": "02",
+  "tag": "v0.2.0",
+  "date": "2026-10-14",
+  "base_commit": "d4b28f834d75086e5f1752b4b7b48ecc4dc07684",
+  "checkpoint_type": "selected_stack_and_protocol",
+  "container_build_verified": false,
+  "dependency_lock_generated": false,
+  "model_downloaded": false,
+  "model_inference_executed": false,
+  "research_measurements_exist": false,
+  "remote_repository_created_by_this_patch": false,
+  "next_stage": "03_docker_prerequisite_locked_scaffold_after_returned_output"
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "name": "cpu_16gb_initial",
+  "status": "planned_limits_not_benchmarked",
+  "model_service": {
+    "cpu_threads": 6,
+    "cpu_limit": 6,
+    "memory_limit_gib": 8,
+    "parallel_requests": 1,
+    "context_tokens": 4096,
+    "gpu_layers": 0,
+    "read_only_model_mount": true
+  },
+  "research_job": {
+    "cpu_limit": 2,
+    "memory_limit_gib": 2,
+    "max_prompt_tokens": 2800,
+    "max_output_tokens": 768,
+    "request_timeout_seconds": 300,
+    "retry_on_network_failure": 1,
+    "batch_concurrency": 1
+  },
+  "generation": {
+    "thinking_enabled": false,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "presence_penalty": 1.5,
+    "repeat_seeds": [
+      17,
+      43,
+      89
+    ],
+    "apply_same_settings_to_both_conditions": true
+  },
+  "lifecycle": {
+    "compose_project_per_run": true,
+    "published_ports": false,
+    "network": "internal_job_network",
+    "model_restart_policy": "no",
+    "job_remove_on_exit": true,
+    "cleanup_on_success_error_interrupt": true,
+    "cleanup_recovery_command_required": true,
+    "prune_unrelated_resources": false
+  },
+  "paths": {
+    "results": "resutls/{run_id}",
+    "logs": "logs/{run_id}",
+    "models": "models/",
+    "index": "data/index/",
+    "cache": "cache/",
+    "temporary": "tmp/"
+  },
+  "capabilities": {
+    "job_user": "host_uid_and_gid_under_rootful_engine",
+    "drop_all_capabilities": true,
+    "no_new_privileges": true,
+    "read_only_rootfs": true,
+    "docker_socket_mount": false,
+    "model_output_code_execution": false
+  },
+  "note": "Limits and sampling are provisional protocol settings. Freeze validated values before evaluation; a change creates a new configuration version."
+}

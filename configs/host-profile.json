@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "source": "user_returned_stage01_report",
+  "reported_at_utc": "2026-10-14T16:02:21.774800+00:00",
+  "os": "Pop!_OS 24.04 LTS",
+  "architecture": "x86_64",
+  "cpu_threads": 12,
+  "ram_gib": 15.27,
+  "free_disk_gib": 160.96,
+  "host_python": "3.12.3",
+  "host_git": "2.43.0",
+  "docker_installed": false,
+  "docker_compose_installed": false,
+  "uv_installed": false,
+  "github_cli_installed": false,
+  "nvidia_smi_installed": false,
+  "gpu_hardware_presence": "not_established_by_report",
+  "preferred_execution": "cpu",
+  "requested_repo_directory": "~/git_work/rocket_proplusion_project",
+  "requested_results_directory": "resutls",
+  "intended_github_owner": "Heavenly-Cyber"
+}
