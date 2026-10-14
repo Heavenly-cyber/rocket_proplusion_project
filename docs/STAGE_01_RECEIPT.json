@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "stage": "01",
+  "release_tag": "v0.1.0",
+  "checkpoint_type": "proposal_and_protocol",
+  "date": "2026-10-14",
+  "selected_course_topic": "ML-Based Rocket Nozzle Performance Prediction",
+  "working_title": "Reliability of Local Large Language Models for Rocket Nozzle Performance Prediction",
+  "github_owner_intended": "Heavenly-Cyber",
+  "repository_directory": "~/git_work/rocket_proplusion_project",
+  "results_directory": "resutls",
+  "logs_directory": "logs",
+  "implementation_exists": false,
+  "research_measurements_exist": false,
+  "gap_status": "preliminary_bounded_literature_synthesis",
+  "next_stage": "02_stack_decision_after_user_returns_system_summary"
+}

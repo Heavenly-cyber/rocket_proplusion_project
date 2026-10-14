@@ -1,0 +1,43 @@
+# Generated outputs stay local; retain folder placeholders.
+/resutls/*
+!/resutls/.gitkeep
+/logs/*
+!/logs/.gitkeep
+
+# Models, downloaded or restricted sources, indices, caches, temporary files.
+/models/
+/data/raw/
+/data/processed/
+/data/index/
+/cache/
+/tmp/
+
+# Python/package/build products (future project tasks run in containers).
+__pycache__/
+*.py[cod]
+/.venv/
+/.pytest_cache/
+/.ruff_cache/
+/.mypy_cache/
+/build/
+/dist/
+*.egg-info/
+.coverage
+htmlcov/
+
+# Secrets/local overrides; never commit credentials.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Editor/OS temporary files.
+.DS_Store
+*~
+*.swp
+*.swo
+
+# uv.lock, original benchmarks, source code, and reviewed configs stay tracked.
