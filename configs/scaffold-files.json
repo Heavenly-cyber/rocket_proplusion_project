@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "stage": "03",
+  "base_commit": "4ea278f083c11d3fbc9044d1fadfaea88681f41f",
+  "files": [
+    {
+      "path": ".dockerignore",
+      "sha256": "57a5b4b842cebebe94f68fd9aab2851953405b2ee7d7d29de4e49940eb078255"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "aff85b58d20eede40578f5b3c22aab4917be2b46395a061b5ecdb0180c6d1d7f"
+    },
+    {
+      "path": "README.md",
+      "sha256": "ae2c14dc371be43f790805ecc266414e0721c51a1fd14aa44edda07fd419f504"
+    },
+    {
+      "path": "configs/cpu-profile.json",
+      "sha256": "302bb4f15f3e77f125642867a719ed7e8c672176fccce4be01fc440cabad3964"
+    },
+    {
+      "path": "configs/host-profile.json",
+      "sha256": "68f7fb6195d97b4e266def09d8a53f4c1957247e66074b333a7f283f389d9795"
+    },
+    {
+      "path": "configs/stack-selection.json",
+      "sha256": "bc68dfb1e54d2499bb1851655da464b4270078c3cc9f3c425434cb975c52c07b"
+    },
+    {
+      "path": "docker/bootstrap.Dockerfile",
+      "sha256": "949671a4c7fb473af929b4b078d1dc77787252a86014c78e37f0786001c47d98"
+    },
+    {
+      "path": "docker/debian.sources",
+      "sha256": "571346cacec76fb774207c4f63ecef7d50402d08f9cc2e1d7e09ffa358530db8"
+    },
+    {
+      "path": "docker/llama.Dockerfile",
+      "sha256": "714a9a6fbcbeb7ec6880f268d5c4e2f161c7232c5c6e56e04a99e5e4d969a493"
+    },
+    {
+      "path": "docker/worker.Dockerfile",
+      "sha256": "e4fe0de6f21d170657ff608f5eb5f5c0750ddb4d9c226813585ba0c3bc1a5fb4"
+    },
+    {
+      "path": "docs/CHANGELOG.md",
+      "sha256": "bf1972791b6a3cd7865ef8990ccd4eda69743a9f0b7d47f56012648e880338a8"
+    },
+    {
+      "path": "docs/LITERATURE_SEARCH.md",
+      "sha256": "e9103244f4b59835364003b45e6c6b6d23f831be0414be7d266cc8cf4e35336a"
+    },
+    {
+      "path": "docs/PROJECT_MANIFESTO.md",
+      "sha256": "ed5a57369727e38aedd538c50e3770fb5293d3f8e78aceb1fa5f4c0d278d7c92"
+    },
+    {
+      "path": "docs/STAGE_01_MANUAL.md",
+      "sha256": "bd6012c8784df73387b506699df164f479673a0a0ab6df3ab727e4426317d883"
+    },
+    {
+      "path": "docs/STAGE_01_RECEIPT.json",
+      "sha256": "ed93e6f768cd42f7419b01b89cb28bcc052121c74fb6537e31af547cac1bd530"
+    },
+    {
+      "path": "docs/STAGE_01_VALIDATION.md",
+      "sha256": "f3e91702d480a437f10fa5165ea1be8f0684d13eed887a74c1b7e1a5f5a407ad"
+    },
+    {
+      "path": "docs/STAGE_02_MANUAL.md",
+      "sha256": "333b4b94ca258dcb9dbb779e3e44c7c0a482665f328355a5f8fedfdd72300d4e"
+    },
+    {
+      "path": "docs/STAGE_02_RECEIPT.json",
+      "sha256": "c98005374511b181391d9df77d2f3a1ae2f81cefee01db1c4553a50dd6e9a8e5"
+    },
+    {
+      "path": "docs/STAGE_02_STACK_DECISION.md",
+      "sha256": "d3fe833ee9185cf3d926c053caa9fe005b914061fe3e4fcdd1911ba2652445b6"
+    },
+    {
+      "path": "docs/STAGE_02_VALIDATION.md",
+      "sha256": "1c9b3cf660f82e776851e7cac25180247dbdf33409412b74efbe69ccc412dfb6"
+    },
+    {
+      "path": "docs/STAGE_03_MANUAL.md",
+      "sha256": "39f0ba8ed8280b4f7e9d9aec26487cea48c0f1467910c488cea5ea42302cbb86"
+    },
+    {
+      "path": "docs/STAGE_03_RECEIPT.json",
+      "sha256": "13745bc3c14406e48cb8bd380c3a6438541d29ca64eb56abb9ad7e3385be40ee"
+    },
+    {
+      "path": "docs/STAGE_03_VALIDATION.md",
+      "sha256": "aa296bee942239c74e2cf63a0d6f5381154d977225471c002ebda544930408e6"
+    },
+    {
+      "path": "docs/references.bib",
+      "sha256": "e6c9e120a3fab31ecf172aee6c93b11425abde3679c964a0eeabbe8fda3ec9e5"
+    },
+    {
+      "path": "docs/releases/v0.1.0.md",
+      "sha256": "e9b3a153252b10c28f195924f17a59941165154133b146731bf67454e0d645eb"
+    },
+    {
+      "path": "docs/releases/v0.2.0.md",
+      "sha256": "6e4a0c9c49bb7a2488a66ccce2a36a33d96c46bc4c030dac7f88bcde13f468dd"
+    },
+    {
+      "path": "docs/releases/v0.3.0.md",
+      "sha256": "bf26a8aa784d861706ee49c3be90e60e40fc622a0dbd730d61220c0d91a4d060"
+    },
+    {
+      "path": "logs/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "46ba72aeff075111a998b404a771cacaf2a12c827ce019871d1aa62b20250471"
+    },
+    {
+      "path": "resutls/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "scripts/container_jobs.py",
+      "sha256": "501778436f7d0e6cdb355802849b1559cf35c95b9f6484b0815845680c048d2d"
+    },
+    {
+      "path": "scripts/container_prepare.py",
+      "sha256": "eace887d7db3c20d13dfbbfa120bc6c35e0f95e689f3054340a138ff15063bfa"
+    },
+    {
+      "path": "scripts/environment.py",
+      "sha256": "78324d8e8243ed91bd72c1de6e80c852a8af4623b5d59d754e8aae60268417d8"
+    },
+    {
+      "path": "scripts/github_publish.py",
+      "sha256": "c2525369b23c8ac3f8ccafaab03a4f63e39c873fca97ab2d39c19bff01c3d64b"
+    },
+    {
+      "path": "scripts/host_common.py",
+      "sha256": "f082ef4b48e6684077dcf81ab6b164d73f03a66312ae487cd499cef4c0c25de6"
+    },
+    {
+      "path": "scripts/host_tools.py",
+      "sha256": "cac261627449fa8dd023b0afde34957698019f3bbc22948e29694e636aa36d76"
+    },
+    {
+      "path": "scripts/model_session.py",
+      "sha256": "2e0020880d46dee0b5c2934131cdc210c48f5773da7ee4835d5a7addc6a6503b"
+    },
+    {
+      "path": "scripts/project.py",
+      "sha256": "907bb5e3bdd30c8bd409b3ba04ccc0fb00bead32f0d789061b06585a41bc3163"
+    },
+    {
+      "path": "scripts/stage02_preflight.py",
+      "sha256": "825e71d09e3caebdc7bc9439629c6830395907507528125723b65856a0c090b6"
+    },
+    {
+      "path": "scripts/system_report.py",
+      "sha256": "0f59e0321c9420ff37740b4fff742d2dc96d390cd9edd94bc2159bc9e4210192"
+    },
+    {
+      "path": "src/rocket_nozzle_llm/__init__.py",
+      "sha256": "4bc85bc14e36e666db5048fffc33c0b1cff29336e5b7df599c46754077d0e761"
+    },
+    {
+      "path": "src/rocket_nozzle_llm/__main__.py",
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+    },
+    {
+      "path": "src/rocket_nozzle_llm/cli.py",
+      "sha256": "3ec1c1c3305cb906e793f87b598e5597f0f6a9ffeba86a8532c5d1e6d0d62749"
+    },
+    {
+      "path": "src/rocket_nozzle_llm/records.py",
+      "sha256": "db478ce0a863cf0a91b510f3a189f73d73a10cd93ecd17e9aadeb3d872492d84"
+    },
+    {
+      "path": "tests/test_container_contract.py",
+      "sha256": "1168ba7093a27d5b9e23a94a71d3f20ae2fb4a4697000e42bc6b78896ad42f17"
+    }
+  ],
+  "self_integrity": "scaffold-files.json is checked by the ZIP and Git working-tree/commit checks"
+}

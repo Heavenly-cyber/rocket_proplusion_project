@@ -1,11 +1,19 @@
-# Checkpoints
+# Changelog
 
-## v0.2.0 — tool selection
+## v0.3.0 — created only after local Stage 03 checks pass
 
-Selected a CPU Qwen3.5-4B Q4_K_M/llama.cpp setup, Python/uv inside Docker, lexical BM25 retrieval, strict schemas and unit/reference checks, current direct package pins, and scoped resource/output/cleanup policies. Recorded the actual returned Pop!_OS profile. Added a read-only preflight and guarded patch workflow.
+- Container scaffold, Python dependency pins, signed host installation, and recoverable Git checkpoints.
+- Container-generated transitive lock, immutable base image digests, full llama.cpp source revision, and signed Debian snapshot.
+- Restricted disposable worker/model sessions, real isolation/library checks, pinned model download/API readiness, scoped cleanup.
+- Private Heavenly-Cyber repository setup and source releases for saved major tags.
+- No scientific accuracy results, corpus, benchmark, or proposed gap solution yet.
 
-No scientific execution or container-build claim is made. Transitive lock, image digests, full inference-source commit, package installation, and runtime checks remain Stage 03 work. Local tags are pending GitHub publication.
+## v0.2.0 — 2026-10-14
 
-## v0.1.0 — proposal
+- Saved a Pop!_OS/CPU-compatible tool decision, exact direct package versions, fixed GGUF identity, and provisional runtime protocol.
+- Read-only machine inspection; no installations, container builds, or model execution.
 
-Saved the nozzle-LLM reliability proposal, bounded research gap, literature evidence, procedure diagrams, evaluation plan, and initial Git checkpoint. User-reported saved commit: `d4b28f834d75086e5f1752b4b7b48ecc4dc07684`.
+## v0.1.0 — 2026-10-14
+
+- Topic choice, research-gap manifesto with procedure diagrams, recent primary-source literature review, references, and staged development plan.
+- Git initialization, output/log folder conventions, ignore rules, and machine diagnostic.

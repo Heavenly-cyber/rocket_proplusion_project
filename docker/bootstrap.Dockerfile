@@ -1,0 +1,8 @@
+ARG PYTHON_IMAGE
+ARG UV_IMAGE
+FROM ${UV_IMAGE} AS uv
+FROM ${PYTHON_IMAGE}
+COPY --from=uv /uv /uvx /usr/local/bin/
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 UV_PYTHON_DOWNLOADS=never
+WORKDIR /work
+ENTRYPOINT ["python", "/input/scripts/container_prepare.py"]

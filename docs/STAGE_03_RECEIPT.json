@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "stage": "03",
+  "base_tag": "v0.2.0",
+  "base_commit": "4ea278f083c11d3fbc9044d1fadfaea88681f41f",
+  "intended_tag_after_local_verification": "v0.3.0",
+  "github_owner": "Heavenly-Cyber",
+  "github_repository": "rocket_proplusion_project",
+  "github_visibility": "private",
+  "payload_status": "scaffold_prepared_local_container_execution_pending",
+  "scientific_results": false,
+  "runtime_verification_receipt": "docs/STAGE_03_VERIFICATION.json",
+  "generated_results_folder": "resutls/",
+  "generated_logs_folder": "logs/"
+}
