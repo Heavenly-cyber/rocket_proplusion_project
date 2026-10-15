@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "engine": "29.9.0",
+  "compose": "5.6.0",
+  "github_cli": "2.102.0",
+  "apt_packages": {
+    "docker-ce": "5:29.9.0-1~ubuntu.24.04~noble",
+    "docker-ce-cli": "5:29.9.0-1~ubuntu.24.04~noble",
+    "containerd.io": "2.4.2-2~ubuntu.24.04~noble",
+    "docker-buildx-plugin": "0.38.0-1~ubuntu.24.04~noble",
+    "docker-compose-plugin": "5.6.0-1~ubuntu.24.04~noble",
+    "gh": "2.102.0"
+  },
+  "cgroup_version": "2",
+  "access": "explicit_sudo_local_unix_socket",
+  "job_user": "host_uid_gid"
+}
