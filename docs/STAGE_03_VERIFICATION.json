@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "stage": "03",
+  "status": "passed",
+  "scientific_results": false,
+  "platform": "linux/amd64",
+  "python": "3.13.16",
+  "uv": "0.13.1",
+  "uv_lock_sha256": "1d61509065de71d49fb26e4f7e8df6912f6584f9c3ca3dffeed839eefd94de1a",
+  "llama_cpp_source_commit": "d81235049384534c167caea52b85a694f6103d14",
+  "model_sha256": "00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4",
+  "checks": {
+    "pytest": {
+      "run_id": "tests-20261015t105852_288999z-4096a53a",
+      "result_path": "resutls/tests-20261015t105852_288999z-4096a53a",
+      "log_path": "logs/tests-20261015t105852_288999z-4096a53a",
+      "exit_code": 0,
+      "container_removed": true
+    },
+    "ruff": {
+      "run_id": "lint-20261015t105856_916062z-dd16de4d",
+      "result_path": "resutls/lint-20261015t105856_916062z-dd16de4d",
+      "log_path": "logs/lint-20261015t105856_916062z-dd16de4d",
+      "exit_code": 0,
+      "container_removed": true
+    },
+    "worker": {
+      "run_id": "worker-20261015t105857_443509z-e140bc22",
+      "result_path": "resutls/worker-20261015t105857_443509z-e140bc22",
+      "log_path": "logs/worker-20261015t105857_443509z-e140bc22",
+      "exit_code": 0,
+      "container_removed": true
+    },
+    "failure_cleanup": {
+      "run_id": "failure-cleanup-20261015t105859_419325z-5a27805f",
+      "result_path": "resutls/failure-cleanup-20261015t105859_419325z-5a27805f",
+      "log_path": "logs/failure-cleanup-20261015t105859_419325z-5a27805f",
+      "exit_code": 7,
+      "container_removed": true
+    },
+    "gap_export": {
+      "run_id": "proposal-20261015t105900_579739z-fd6c3db0",
+      "result_path": "resutls/proposal-20261015t105900_579739z-fd6c3db0",
+      "log_path": "logs/proposal-20261015t105900_579739z-fd6c3db0",
+      "exit_code": 0,
+      "container_removed": true
+    },
+    "model_file": {
+      "run_id": "model-download-20261015t105901_532890z-6a392701",
+      "result_path": "resutls/model-download-20261015t105901_532890z-6a392701",
+      "log_path": "logs/model-download-20261015t105901_532890z-6a392701",
+      "exit_code": 0,
+      "container_removed": true
+    },
+    "local_api": {
+      "run_id": "llm-20261015t110442_100671z-2aa9be61",
+      "result_path": "resutls/llm-20261015t110442_100671z-2aa9be61",
+      "log_path": "logs/llm-20261015t110442_100671z-2aa9be61",
+      "exit_code": 0,
+      "containers_and_network_removed": true
+    }
+  },
+  "all_project_containers_removed": true,
+  "limits": "Initial Linux amd64 software readiness only; CPU runtime and answer accuracy are unmeasured."
+}
