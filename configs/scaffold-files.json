@@ -13,7 +13,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "6d8a25c732a2cbaed414f6f5c59ed160aa91a62b07648b2fa1cc8ffd47454609"
+      "sha256": "4058240c6ecc7bcb4cb7c4ce96ad424cc692e9187010614976529460e51c24aa"
     },
     {
       "path": "configs/cpu-profile.json",
@@ -93,7 +93,7 @@
     },
     {
       "path": "docs/STAGE_03_MANUAL.md",
-      "sha256": "1e262cbec5c935163dcead97dd9742043aed17ea53e6c3aee13028855f90126d"
+      "sha256": "b30607946071d76ce3354bcd122e7aeb7d618152f860f104dd2f124cc5f8cba1"
     },
     {
       "path": "docs/STAGE_03_RECEIPT.json",
@@ -110,6 +110,10 @@
     {
       "path": "docs/STAGE_03_REPAIR_03.md",
       "sha256": "19e9fd0ff38a409ec98882ecedbb6383fa396576e2fe2709e1dd013513a7a00c"
+    },
+    {
+      "path": "docs/STAGE_03_REPAIR_04.md",
+      "sha256": "9ae7d2f759e84a1599599f6438b3f33f2770a379289847679fd57b91fff62817"
     },
     {
       "path": "docs/STAGE_03_VALIDATION.md",
@@ -148,6 +152,10 @@
       "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
+      "path": "scripts/container_isolation.py",
+      "sha256": "f7ed04b06de9a865ce48edb798eb4f6edb1e115b129d98462d5f83a87ddfc675"
+    },
+    {
       "path": "scripts/container_jobs.py",
       "sha256": "8fda9efa53d796c45194d4c9288098f1f1226d4eccffe83562a792f2be67d14a"
     },
@@ -165,7 +173,7 @@
     },
     {
       "path": "scripts/host_common.py",
-      "sha256": "6a112bc7ae4e10823667d16853a91f2b163ea81d7510f7c0d794fbe37805a6aa"
+      "sha256": "744d1bd13105ee566c77ffe3fd067a62edf810b5626487db9b395e4d667b0859"
     },
     {
       "path": "scripts/host_tools.py",
@@ -177,7 +185,7 @@
     },
     {
       "path": "scripts/project.py",
-      "sha256": "9ad9932b6feea450a30f4ee3a65727f3cfa85e8153d7fc871fe2d4af0ffa409f"
+      "sha256": "19063b6bafe06b22a764999288b73be022f2d1182233bfa6df15d86147179217"
     },
     {
       "path": "scripts/stage02_preflight.py",
@@ -209,7 +217,7 @@
     },
     {
       "path": "tests/test_container_contract.py",
-      "sha256": "1168ba7093a27d5b9e23a94a71d3f20ae2fb4a4697000e42bc6b78896ad42f17"
+      "sha256": "68547d0c3fe50206e1c6811cf955d6b9e36aaf84c9c0d0a8d9278300f31a8f10"
     },
     {
       "path": "tests/test_docker_inspection.py",
@@ -224,12 +232,16 @@
       "sha256": "b9a7465f6b895c47fc3af6199216cccf0581db65adf0bc928cb99319cc455ff9"
     },
     {
+      "path": "tests/test_mount_visibility.py",
+      "sha256": "81d2473312d0f9864b59c68cb62933cd9056c4837d38b8b3320a59e0d0fb49a9"
+    },
+    {
       "path": "tests/test_snapshot_recovery.py",
       "sha256": "55312e66fd94364e1e2c22b04028731aeb9ecb330b2dda3cd33744b7886cb511"
     },
     {
       "path": "tests/test_terminal_runner.py",
-      "sha256": "953f0504642efa8b7546902148734ef62aecc5d3455fa9d8d07a455eaaa79214"
+      "sha256": "8cf9438b8a05fb09809f09532c7e57ea73c08264bb7eb17edd75570153271619"
     }
   ],
   "self_integrity": "scaffold-files.json is checked by the ZIP and Git working-tree/commit checks",
@@ -250,5 +262,11 @@
     "saved_dependency_commit_prefix": "3909600",
     "saved_dependency_parent": "3a03de17b89a9fc8d430a7bda144058ed5c5a8ca",
     "message": "fix: resume pinned snapshot builds and reuse verified worker"
+  },
+  "minor_repair_04": {
+    "id": "04",
+    "saved_build_commit_prefix": "45a9266",
+    "saved_build_parent": "98aff7d773eff0db2bd645107f669903af8f15c2",
+    "message": "fix: verify isolation and terminal fixtures as nonroot"
   }
 }

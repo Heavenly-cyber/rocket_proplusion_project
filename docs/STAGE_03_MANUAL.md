@@ -1,37 +1,33 @@
 # Stage 03 — locked environment, disposable containers, and GitHub
 
-> **Corrected installer 03a:** the original recovery 03 ZIP stopped before application because it compared the Python range as literal text. Your actual lock uses `==3.13.*`. Use `rocket-project-stage-03-repair-03a.zip`; its preflight checks preserve the existing lock bytes and remain anchored to `3909600`.
+> **Current recovery 04:** llama.cpp compiled and `configs/build-receipt.json` was saved in commit `45a9266`, after recovery 03 commit `98aff7d773eff0db2bd645107f669903af8f15c2`. The next Docker test run reported 35 passes and five failures caused by test assumptions about nonroot access and temporary-file execution. Use `rocket-project-stage-03-repair-04.zip` to save the test repair and resume. See [STAGE_03_REPAIR_04.md](STAGE_03_REPAIR_04.md). Available completed images and all immutable pins are retained.
 
-> **Current recovery 03:** dependency resolution is saved at `3909600` and the worker image built successfully. The llama.cpp build then stopped on Debian snapshot connection timeouts. Apply `rocket-project-stage-03-repair-03a.zip` for bounded same-snapshot retries and verified worker reuse. See [recovery 03](STAGE_03_REPAIR_03.md). The [presentation alignment](PRESENTATION_ALIGNMENT.md) maps the supplied course guidelines; scientific work remains pending.
+> **Earlier recovery history:** [recovery 01](STAGE_03_REPAIR_01.md) repaired sudo terminal access; [recovery 02](STAGE_03_REPAIR_02.md) repaired Docker cleanup inspection and supported the existing SSH origin; [recovery 03](STAGE_03_REPAIR_03.md) repaired fixed-snapshot downloads and worker reuse. Installer 03a accepted the actual valid `==3.13.*` lock. Those ZIPs are anchored to earlier checkpoints; use recovery 04 for the current checkpoint and subsequent retries.
 
-> **Docker inspection repair 02:** host tools are installed and saved at `d64ebbc`. If setup stops with `Docker inspection failed; absence cannot be verified` after removing its builder, apply `rocket-project-stage-03-repair-02.zip`. It saves a minor fix for missing-resource detection, checks both builder/container and state-volume cleanup, and retains detailed inspection diagnostics. See [STAGE_03_REPAIR_02.md](STAGE_03_REPAIR_02.md). Use recovery 02 for later ZIP retries.
+> **Existing SSH origin:** `git@github.com:Heavenly-cyber/rocket_proplusion_project.git` is retained. No second remote-add command is needed. The [presentation alignment](PRESENTATION_ALIGNMENT.md) maps the supplied course guidelines. Model readiness and scientific evaluation remain pending.
 
-> **Existing SSH origin:** recovery 02 also accepts and preserves `git@github.com:Heavenly-cyber/rocket_proplusion_project.git`. No second remote-add command is needed. Fetch and push URLs, GitHub identity, repository ownership/visibility, and existing history are checked before publication.
-
-> **Earlier terminal repair 01:** the first scaffold at `a194902efa08dd12c5d25138bb063a717f473bc6` detached sudo from the controlling terminal. That issue was fixed and the host tools installed. [Recovery 01](STAGE_03_REPAIR_01.md) documents the earlier checkpoint; use recovery 02 for the current installed-host checkpoint and later retries.
-
-Prepared 2026-10-14 for the returned Pop!_OS 24.04 x86_64 checkpoint:
+Original environment recorded 2026-10-14; recovery checkpoint updated 2026-10-15 for Pop!_OS 24.04 x86_64:
 
 - Stage 02 commit: `4ea278f083c11d3fbc9044d1fadfaea88681f41f`.
 - Annotated tag: `v0.2.0`; branch `main`; clean working tree.
 - Local project: `~/git_work/rocket_proplusion_project/`.
 - Host Python 3.12.3 runs the installer/orchestrator; research dependencies use container Python 3.13.16.
 - 12 logical CPU threads, about 15.27 GiB physical RAM, last reported 7.89 GiB available RAM.
-- Docker, Compose, and GitHub CLI were absent. No GPU, host uv, Node, or pnpm is required.
+- Docker, Compose, and GitHub CLI were initially absent and were installed in the saved host-tools checkpoint. No GPU, host uv, Node, or pnpm is required.
 
 ## Apply this patch
 
-For the current returned dependency-lock checkpoint, save `rocket-project-stage-03-repair-03a.zip` into `~/Downloads/` and run:
+For the current returned image-build checkpoint, save `rocket-project-stage-03-repair-04.zip` into `~/Downloads/` and run:
 
 ```bash
-python3 "$HOME/Downloads/rocket-project-stage-03-repair-03a.zip"
+python3 "$HOME/Downloads/rocket-project-stage-03-repair-04.zip"
 ```
 
 Run from your normal account. Do not put `sudo` before `python3`. The launcher requests sudo for signed APT installation and its local rootful Docker commands. Passwords are entered only in your terminal. Keep the terminal open and use the **Heavenly-Cyber** account during the GitHub sign-in flow. No model/provider API key is required.
 
 The ZIP is an executable Python ZIP application. Do not unzip it into the project: its installer verifies the saved base, payload checksums, safe paths, and existing work before applying. It will not absorb unrelated changes, change Git author identity, disable signing/hooks, rewrite earlier tags, force-push, or remove conflicting installed packages. Existing conflicting files or installations produce a diagnostic and remain intact.
 
-Recovery 03 specifically requires host Python 3.11+ for saved-lock TOML validation; your reported Python 3.12.3 is supported. Older recovery ZIPs apply to earlier checkpoints. After applying recovery 03, use it or the repository launcher for retries.
+Recovery 04 requires host Python 3.11+ for saved-lock TOML validation; your reported Python 3.12.3 is supported. It verifies the saved build receipt against the returned source, package inventories, transport receipts, runtime fingerprint, and image identities before saving the fix. After applying recovery 04, use it or the repository launcher for retries.
 
 Network is needed for initial signed APT packages, fixed container images, dependency resolution, source compilation, the 2,740,937,888-byte model, and GitHub. Budget additional image/compiler storage beyond the model and allow time for a CPU source build. Exact download/build duration depends on connection and CPU; no speed claim has been measured. Before the model check, close large applications if currently available RAM is below 6 GiB.
 
@@ -182,7 +178,7 @@ python3 scripts/project.py publish
 
 Choose Heavenly-Cyber during sign-in. If multiple accounts are already authenticated, `gh auth switch --hostname github.com --user Heavenly-Cyber` selects the intended account without logging out others. Do not paste tokens, sudo passwords, or authentication codes into this conversation.
 
-To save sources without prerequisites/model processing, use `python3 "$HOME/Downloads/rocket-project-stage-03.zip" --save-only`. This intentionally leaves Stage 03 incomplete and creates no `v0.3.0`. To complete local checks but defer publication, use `--local-only`; publish later with the command above.
+To save sources without prerequisites/model processing, use `python3 "$HOME/Downloads/rocket-project-stage-03-repair-04.zip" --save-only`. This intentionally leaves Stage 03 incomplete and creates no `v0.3.0`. To complete local checks but defer publication, use `--local-only`; publish later with the command above.
 
 | Diagnostic | Response |
 | --- | --- |

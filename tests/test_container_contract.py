@@ -1,5 +1,6 @@
 """Real isolation and library checks, run in the bounded offline worker."""
 
+import importlib.util
 import os
 from pathlib import Path
 
@@ -22,10 +23,17 @@ def test_root_filesystem_is_read_only():
 
 
 def test_no_host_secrets_or_docker_socket_are_mounted():
+    source = Path(__file__).resolve().parents[1] / "scripts/container_isolation.py"
+    spec = importlib.util.spec_from_file_location("container_isolation", source)
+    isolation = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(isolation)
+    # /root is intentionally inaccessible to this nonroot process. Its mount
+    # metadata is still visible; permission denial is never treated as absence.
+    assert isolation.sensitive_mounts(Path("/proc/self/mountinfo").read_text()) == ()
     assert not Path("/var/run/docker.sock").exists()
+    assert not Path("/run/docker.sock").exists()
     assert not Path("/app/.git").exists()
     assert not Path("/app/.env").exists()
-    assert not Path("/root/.config/gh").exists()
     assert not Path("/models").exists()
 
 

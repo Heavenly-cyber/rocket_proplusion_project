@@ -1,4 +1,4 @@
-"""Real Linux PTY regression checks using harmless executables named sudo.
+"""Real Linux PTY regression checks using harmless fixtures named sudo.
 
 These tests never invoke sudo, install a package, or use a real credential.
 They also run in the restricted worker before the Stage 03 major tag.
@@ -63,18 +63,32 @@ def _pty_command(arguments, *, send=None, markers=(), timeout=12):
 def _shim(root, name, body):
     path = root / name
     path.write_text("#!" + sys.executable + "\n" + body)
-    path.chmod(0o755)
+    # Fixtures are input data interpreted by the installed Python executable.
+    # They deliberately have no execute bits and work on restricted /tmp.
+    path.chmod(0o600)
     return path
 
 
 def _runner_code(root, arguments, *, logged=True, timeout=5, expect_timeout=False):
+    fixture_arguments = [str(arg) for arg in arguments]
     code = (
-        "import importlib.util,json; from pathlib import Path; "
+        "import importlib.util,json,sys; from pathlib import Path; "
         "spec=importlib.util.spec_from_file_location('terminal_common'," + repr(str(COMMON)) + "); "
         "module=importlib.util.module_from_spec(spec); spec.loader.exec_module(module); "
         "module.ROOT=Path(" + repr(str(root)) + "); runner=module.Runner();\n"
     )
-    action = "runner.run(" + repr([str(arg) for arg in arguments]) + ",logged=" + repr(logged) + ",timeout=" + repr(timeout) + ")"
+    # Runner still sees the original argv[0] and selects its real sudo/ordinary
+    # session policy. Only the final exec target is adapted for this fixture;
+    # every Popen option, including start_new_session, is passed unchanged.
+    code += (
+        "fixture_arguments=" + repr(fixture_arguments) + "\n"
+        "original_popen=module.subprocess.Popen\n"
+        "def interpret_fixture(argv,**options):\n"
+        "    assert argv==fixture_arguments, 'Unexpected fixture launch'\n"
+        "    return original_popen([sys.executable,'-B',*argv],**options)\n"
+        "module.subprocess.Popen=interpret_fixture\n"
+    )
+    action = "runner.run(" + repr(fixture_arguments) + ",logged=" + repr(logged) + ",timeout=" + repr(timeout) + ")"
     if expect_timeout:
         code += "try:\n    " + action + "\nexcept module.ProjectError:\n    print('LAUNCHER_ALIVE_AFTER_TIMEOUT',flush=True)\nelse:\n    raise AssertionError('Timeout did not occur')\n"
     else:

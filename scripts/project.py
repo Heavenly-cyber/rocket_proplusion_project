@@ -13,7 +13,7 @@ sys.dont_write_bytecode = True
 from container_jobs import Jobs
 from environment import ensure_images, resolve_environment
 from github_publish import publish
-from host_common import ROOT, MESSAGES, SOURCE_MESSAGE, REPAIR_MESSAGE, REPAIR_FILES, REPAIR_02_MESSAGE, REPAIR_02_FILES, REPAIR_03_MESSAGE, REPAIR_03_FILES, ProjectError, Runner, folder, resume_checkpoint, safe, save_checkpoint, sha, write_json
+from host_common import ROOT, MESSAGES, SOURCE_MESSAGE, REPAIR_MESSAGE, REPAIR_FILES, REPAIR_02_MESSAGE, REPAIR_02_FILES, REPAIR_03_MESSAGE, REPAIR_03_FILES, REPAIR_04_MESSAGE, REPAIR_04_FILES, ProjectError, Runner, folder, resume_checkpoint, safe, save_checkpoint, sha, write_json
 from host_tools import ensure_tools
 from model_session import probe_session
 
@@ -44,6 +44,7 @@ def guard(runner):
     allowed = {REPAIR_MESSAGE: REPAIR_FILES,
                REPAIR_02_MESSAGE: REPAIR_02_FILES,
                REPAIR_03_MESSAGE: REPAIR_03_FILES,
+               REPAIR_04_MESSAGE: REPAIR_04_FILES,
                MESSAGES["host"]: {"configs/host-tools.lock.json"},
                MESSAGES["pins"]: {"configs/environment-lock.json", "uv.lock"},
                MESSAGES["images"]: {"configs/build-receipt.json"},
@@ -65,6 +66,8 @@ def guard(runner):
             raise ProjectError("The Docker inspection repair is not the expected minor source checkpoint.")
         elif message == REPAIR_03_MESSAGE and (index != 5 or paths != REPAIR_03_FILES):
             raise ProjectError("The snapshot repair is not the expected minor source checkpoint.")
+        elif message == REPAIR_04_MESSAGE and (index != 7 or paths != REPAIR_04_FILES):
+            raise ProjectError("The nonroot test repair is not the expected minor source checkpoint.")
         previous = commit
     changes = runner.git("status", "--porcelain", "--untracked-files=all")
     if changes:

@@ -35,6 +35,12 @@ REPAIR_03_FILES = {
     "docs/STAGE_03_REPAIR_03.md", "docs/PRESENTATION_ALIGNMENT.md",
     "docs/requirements/final-presentation-guidelines.pdf", "docs/STAGE_03_MANUAL.md", "README.md",
 }
+REPAIR_04_MESSAGE = "fix: verify isolation and terminal fixtures as nonroot"
+REPAIR_04_FILES = {
+    "scripts/host_common.py", "scripts/project.py", "scripts/container_isolation.py",
+    "tests/test_container_contract.py", "tests/test_terminal_runner.py", "tests/test_mount_visibility.py",
+    "configs/scaffold-files.json", "docs/STAGE_03_REPAIR_04.md", "docs/STAGE_03_MANUAL.md", "README.md",
+}
 MESSAGES = {
     "host": "build: save verified host tool versions",
     "pins": "build: freeze container digests source revision and uv lock",

@@ -6,9 +6,9 @@ Start with [the manifesto](docs/PROJECT_MANIFESTO.md), [literature review](docs/
 
 ## Current stage
 
-**Installer correction 03a:** use `rocket-project-stage-03-repair-03a.zip`. The original recovery 03 ZIP rejected uv's valid `==3.13.*` range before applying files. The corrected launcher is tested with your actual saved lock and preserves its exact bytes. See [recovery 03](docs/STAGE_03_REPAIR_03.md).
+**Current recovery 04:** the worker was reused, llama.cpp compiled successfully, and image receipts were committed at `45a9266`. Verification then reported 35 passes and five test failures. Apply `rocket-project-stage-03-repair-04.zip` to repair the nonroot mount check and temporary terminal fixtures, then resume the actual container/model checks. See [recovery 04](docs/STAGE_03_REPAIR_04.md).
 
-**Current Stage 03 snapshot recovery:** dependency locking is saved at `3909600`, and the worker image built. Apply `rocket-project-stage-03-repair-03a.zip` to recover the llama.cpp build after Debian snapshot connection timeouts, with verified reuse of completed worker work. See [recovery 03](docs/STAGE_03_REPAIR_03.md). Use recovery 03 or the repository launcher for retries at this checkpoint.
+The patch saves one minor source commit. Saved images are reused when still present; `uv.lock`, image identities, model selection, Docker settings, and the existing SSH `origin` are retained. Earlier recovery ZIPs belong to earlier checkpoints.
 
 The supplied final-presentation guidelines are mapped to project evidence in [PRESENTATION_ALIGNMENT.md](docs/PRESENTATION_ALIGNMENT.md). Proposed methods and expected outcomes remain separate from demonstrated results.
 
@@ -25,7 +25,7 @@ This is the Stage 03 environment scaffold. A local `v0.3.0` tag is created only 
 Run the downloaded patch from your normal Pop!_OS user account:
 
 ```bash
-python3 "$HOME/Downloads/rocket-project-stage-03-repair-03a.zip"
+python3 "$HOME/Downloads/rocket-project-stage-03-repair-04.zip"
 ```
 
 After the scaffold is saved, the same workflow is available in the repository:
