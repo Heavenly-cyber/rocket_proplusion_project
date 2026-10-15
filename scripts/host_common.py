@@ -20,6 +20,13 @@ REPAIR_FILES = {
     "tests/test_terminal_runner.py", "docs/STAGE_03_REPAIR_01.md",
     "docs/STAGE_03_MANUAL.md", "README.md",
 }
+REPAIR_02_MESSAGE = "fix: verify Docker cleanup and preserve SSH origin"
+REPAIR_02_FILES = {
+    "scripts/host_common.py", "scripts/project.py", "scripts/container_jobs.py",
+    "scripts/github_publish.py", "configs/scaffold-files.json",
+    "tests/test_docker_inspection.py", "tests/test_github_remote.py",
+    "docs/STAGE_03_REPAIR_02.md", "docs/STAGE_03_MANUAL.md", "README.md",
+}
 MESSAGES = {
     "host": "build: save verified host tool versions",
     "pins": "build: freeze container digests source revision and uv lock",

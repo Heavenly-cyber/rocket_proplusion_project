@@ -13,7 +13,7 @@ sys.dont_write_bytecode = True
 from container_jobs import Jobs
 from environment import ensure_images, resolve_environment
 from github_publish import publish
-from host_common import ROOT, MESSAGES, SOURCE_MESSAGE, REPAIR_MESSAGE, REPAIR_FILES, ProjectError, Runner, folder, resume_checkpoint, safe, save_checkpoint, sha, write_json
+from host_common import ROOT, MESSAGES, SOURCE_MESSAGE, REPAIR_MESSAGE, REPAIR_FILES, REPAIR_02_MESSAGE, REPAIR_02_FILES, ProjectError, Runner, folder, resume_checkpoint, safe, save_checkpoint, sha, write_json
 from host_tools import ensure_tools
 from model_session import probe_session
 
@@ -42,6 +42,7 @@ def guard(runner):
         raise ProjectError("Save the Stage 03 ZIP scaffold before launching setup.")
     previous = base
     allowed = {REPAIR_MESSAGE: REPAIR_FILES,
+               REPAIR_02_MESSAGE: REPAIR_02_FILES,
                MESSAGES["host"]: {"configs/host-tools.lock.json"},
                MESSAGES["pins"]: {"configs/environment-lock.json", "uv.lock"},
                MESSAGES["images"]: {"configs/build-receipt.json"},
@@ -59,6 +60,8 @@ def guard(runner):
             raise ProjectError("This Stage 03 launcher does not apply to later/unrelated commits.")
         elif message == REPAIR_MESSAGE and (index != 1 or paths != REPAIR_FILES):
             raise ProjectError("The terminal repair is not the expected minor source checkpoint.")
+        elif message == REPAIR_02_MESSAGE and (index != 3 or paths != REPAIR_02_FILES):
+            raise ProjectError("The Docker inspection repair is not the expected minor source checkpoint.")
         previous = commit
     changes = runner.git("status", "--porcelain", "--untracked-files=all")
     if changes:

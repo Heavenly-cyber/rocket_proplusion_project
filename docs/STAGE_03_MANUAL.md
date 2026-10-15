@@ -1,6 +1,10 @@
 # Stage 03 — locked environment, disposable containers, and GitHub
 
-> **Terminal repair 01:** the first scaffold is saved at `a194902efa08dd12c5d25138bb063a717f473bc6`, but its detached sudo subprocesses cannot read the controlling terminal. Apply `rocket-project-stage-03-repair-01.zip` as described in [STAGE_03_REPAIR_01.md](STAGE_03_REPAIR_01.md). The repair saves one minor Git commit and continues this same stage. Use the recovery ZIP for subsequent retries; the original ZIP rejects changed source files by design.
+> **Docker inspection repair 02:** host tools are installed and saved at `d64ebbc`. If setup stops with `Docker inspection failed; absence cannot be verified` after removing its builder, apply `rocket-project-stage-03-repair-02.zip`. It saves a minor fix for missing-resource detection, checks both builder/container and state-volume cleanup, and retains detailed inspection diagnostics. See [STAGE_03_REPAIR_02.md](STAGE_03_REPAIR_02.md). Use recovery 02 for later ZIP retries.
+
+> **Existing SSH origin:** recovery 02 also accepts and preserves `git@github.com:Heavenly-cyber/rocket_proplusion_project.git`. No second remote-add command is needed. Fetch and push URLs, GitHub identity, repository ownership/visibility, and existing history are checked before publication.
+
+> **Earlier terminal repair 01:** the first scaffold at `a194902efa08dd12c5d25138bb063a717f473bc6` detached sudo from the controlling terminal. That issue was fixed and the host tools installed. [Recovery 01](STAGE_03_REPAIR_01.md) documents the earlier checkpoint; use recovery 02 for the current installed-host checkpoint and later retries.
 
 Prepared 2026-10-14 for the returned Pop!_OS 24.04 x86_64 checkpoint:
 
@@ -13,10 +17,10 @@ Prepared 2026-10-14 for the returned Pop!_OS 24.04 x86_64 checkpoint:
 
 ## Apply this patch
 
-Save `rocket-project-stage-03.zip` into `~/Downloads/` and run:
+For the returned installed-host checkpoint, save `rocket-project-stage-03-repair-02.zip` into `~/Downloads/` and run:
 
 ```bash
-python3 "$HOME/Downloads/rocket-project-stage-03.zip"
+python3 "$HOME/Downloads/rocket-project-stage-03-repair-02.zip"
 ```
 
 Run from your normal account. Do not put `sudo` before `python3`. The launcher requests sudo for signed APT installation and its local rootful Docker commands. Passwords are entered only in your terminal. Keep the terminal open and use the **Heavenly-Cyber** account during the GitHub sign-in flow. No model/provider API key is required.
@@ -190,6 +194,8 @@ To save sources without prerequisites/model processing, use `python3 "$HOME/Down
 ## GitHub publication
 
 The account must match `Heavenly-Cyber` (case-insensitive). The default repository is private: `https://github.com/Heavenly-Cyber/rocket_proplusion_project`. An existing repository must have the expected owner/visibility and either be empty or have known ancestor history on `main`. An existing unrelated `origin` is preserved. The launcher pushes main and `v0.1.0`, `v0.2.0`, `v0.3.0` atomically, without force. Earlier tags remain unchanged.
+
+The configured SSH `origin` is supported and kept. GitHub CLI signs API operations; Git uses the host's SSH key/agent for that remote. If the bounded SSH check fails, complete `ssh -T git@github.com` locally and rerun publication; no key is uploaded or remote rewritten by the project. See recovery 02 for the exact behavior.
 
 It creates releases for those major versions with source ZIPs built from each saved Git tag. Generated model files, caches, runtime results, logs, and credentials are excluded from release archives. Minor setup work is represented by commits, not extra version tags. A repeated publish verifies existing release-asset digests and does not clobber them. Authentication is managed by host GitHub CLI; no global Git credential configuration is changed by the script. GitHub's own login flow may configure its host credential helper as part of authentication.
 

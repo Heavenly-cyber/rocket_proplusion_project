@@ -13,7 +13,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "a445703870fc8a8b9ace67a8779944c53e5839344ea14008d54e4093fba21109"
+      "sha256": "b713bb4c1f5af099ae395e567172d7ff3a8c9cea646aa2dbcf7568efd66844a8"
     },
     {
       "path": "configs/cpu-profile.json",
@@ -85,7 +85,7 @@
     },
     {
       "path": "docs/STAGE_03_MANUAL.md",
-      "sha256": "ba9de97a35d0bbec29a01e2e6244682fb8217be63cb82a156785eed927dd94a6"
+      "sha256": "edfeed376920e69340caa930982dcb69db1efc51e5f4ed8c8943e7e73e77f107"
     },
     {
       "path": "docs/STAGE_03_RECEIPT.json",
@@ -94,6 +94,10 @@
     {
       "path": "docs/STAGE_03_REPAIR_01.md",
       "sha256": "37e4ca5b80adfd5d8aa7b227d4c12671ae407c1742d5ad24fe4642c1f791dd63"
+    },
+    {
+      "path": "docs/STAGE_03_REPAIR_02.md",
+      "sha256": "960c224cdcbac09cd1757f0626ea4fecc86e3afb849a11b75996b38eacedd396"
     },
     {
       "path": "docs/STAGE_03_VALIDATION.md",
@@ -129,7 +133,7 @@
     },
     {
       "path": "scripts/container_jobs.py",
-      "sha256": "501778436f7d0e6cdb355802849b1559cf35c95b9f6484b0815845680c048d2d"
+      "sha256": "8fda9efa53d796c45194d4c9288098f1f1226d4eccffe83562a792f2be67d14a"
     },
     {
       "path": "scripts/container_prepare.py",
@@ -141,11 +145,11 @@
     },
     {
       "path": "scripts/github_publish.py",
-      "sha256": "c2525369b23c8ac3f8ccafaab03a4f63e39c873fca97ab2d39c19bff01c3d64b"
+      "sha256": "449a61a6bf37f37c68c2d16ac3321614ebe1fc4abc27bc43f8e37c94c1c5d623"
     },
     {
       "path": "scripts/host_common.py",
-      "sha256": "7b60589e1dfd7fb3c67986aeb49965298f59752cca500d1a1e0607f43a501b46"
+      "sha256": "7a54e89e2a094711d48a07667993c59a65b150e71b84d7e0f8fefab675959a5d"
     },
     {
       "path": "scripts/host_tools.py",
@@ -157,7 +161,7 @@
     },
     {
       "path": "scripts/project.py",
-      "sha256": "aadd69db7af4fc27b4ba09967fa439c5f52a4cc1635409512fdb06693f00e41d"
+      "sha256": "a357857d9f11e34bc3b8910899e89460a9b701014175d5ed2d7c3e34cd4c56b3"
     },
     {
       "path": "scripts/stage02_preflight.py",
@@ -188,6 +192,14 @@
       "sha256": "1168ba7093a27d5b9e23a94a71d3f20ae2fb4a4697000e42bc6b78896ad42f17"
     },
     {
+      "path": "tests/test_docker_inspection.py",
+      "sha256": "8b2d64a5672bf4ba947d8a27e8b21e59682394fb5a1b31fdd95fa33322f02c2b"
+    },
+    {
+      "path": "tests/test_github_remote.py",
+      "sha256": "93ccc34100fd7312be8e35fcdca0e4c040fd5d2a4224c010f938dc9644202d86"
+    },
+    {
       "path": "tests/test_terminal_runner.py",
       "sha256": "953f0504642efa8b7546902148734ef62aecc5d3455fa9d8d07a455eaaa79214"
     }
@@ -197,5 +209,12 @@
     "id": "01",
     "saved_scaffold_commit": "a194902efa08dd12c5d25138bb063a717f473bc6",
     "message": "fix: preserve terminal access for Stage 03 sudo commands"
+  },
+  "minor_repair_02": {
+    "id": "02",
+    "saved_host_tools_commit_prefix": "d64ebbc",
+    "saved_host_tools_parent": "2fce1783ca6cac16c873ecd0bd5ed00438e91d82",
+    "message": "fix: verify Docker cleanup and preserve SSH origin",
+    "host_tools_message": "build: save verified host tool versions"
   }
 }

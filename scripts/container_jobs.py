@@ -2,6 +2,7 @@
 
 import json
 import os
+import re
 import uuid
 from contextlib import contextmanager
 
@@ -22,6 +23,30 @@ def mount(source, destination, read_only=False):
     return ["--mount", "type=bind,src=" + str(source) + ",dst=" + destination + (",readonly" if read_only else "")]
 
 
+def missing_resource(output, resource, kind=None):
+    """Recognize an explicit not-found response for this exact resource only."""
+    matched = False
+    allowed = {"object", kind} if kind else {"object", "container", "image"}
+    for line in output.splitlines():
+        line = line.strip()
+        if not line or line in {"[]", "[", "]"}:
+            continue
+        match = re.fullmatch(
+            r"(?:error(?: response from daemon)?:\s*)?no such (object|container|image|volume):\s*(.+)",
+            line, flags=re.IGNORECASE,
+        )
+        if match and match.group(1).casefold() in allowed and match.group(2) == resource:
+            matched = True
+            continue
+        match = re.fullmatch(r"(?:error response from daemon:\s*)?get (.+): no such volume", line, flags=re.IGNORECASE)
+        if kind == "volume" and match and match.group(1) == resource:
+            matched = True
+            continue
+        # A connection/permission error alongside not-found text is still a failure.
+        return False
+    return matched
+
+
 class Jobs:
     def __init__(self, runner, docker):
         self.runner = runner
@@ -30,13 +55,31 @@ class Jobs:
     def call(self, *args, **kwargs):
         return self.runner.run(self.docker + list(args), **kwargs)
 
-    def inspect(self, resource):
-        code, data = self.call("inspect", resource, check=False, logged=False)
+    def inspect(self, resource, kind=None):
+        if kind not in {None, "container", "image", "volume"}:
+            raise ProjectError("Unsupported Docker inspection kind.")
+        arguments = [kind, "inspect", resource] if kind else ["inspect", resource]
+        code, data = self.call(*arguments, check=False, logged=False)
         if code:
-            if "No such object" in data or "No such container" in data or "No such image" in data:
+            absent = code == 1 and missing_resource(data, resource, kind)
+            diagnostic = "logs/setup/docker-inspection/" + stamp() + ".json"
+            write_json(diagnostic, {"resource": resource, "kind": kind or "auto", "exit_code": code,
+                                   "classification": "explicitly_absent" if absent else "inspection_failed",
+                                   "docker_output": data})
+            if absent:
                 return None
-            raise ProjectError("Docker inspection failed; absence cannot be verified.")
-        return json.loads(data)[0]
+            raise ProjectError("Docker inspection failed for " + resource + "; absence cannot be verified. "
+                               "Diagnostic: " + diagnostic + ". Docker output: " + data.strip()[-1200:])
+        try:
+            values = json.loads(data)
+            if not isinstance(values, list) or len(values) != 1 or not isinstance(values[0], dict):
+                raise ValueError("Expected one Docker inspection object.")
+        except ValueError as error:
+            diagnostic = "logs/setup/docker-inspection/" + stamp() + ".json"
+            write_json(diagnostic, {"resource": resource, "kind": kind or "auto", "exit_code": code,
+                                   "classification": "invalid_json", "docker_output": data})
+            raise ProjectError("Docker inspection returned invalid JSON. Diagnostic: " + diagnostic) from error
+        return values[0]
 
     def assert_contract(self, item, memory, cpus, network=None):
         host = item["HostConfig"]
@@ -136,9 +179,9 @@ class Jobs:
         finally:
             # Remove only the unique builder this invocation recorded; keep no builder state volume.
             self.call("buildx", "rm", "--force", name, check=False, timeout=90)
-            remains = self.inspect("buildx_buildkit_" + name + "0")
-            code, _ = self.call("volume", "inspect", "buildx_buildkit_" + name + "0_state", check=False, logged=False)
-            removed = remains is None and code != 0
+            remains = self.inspect("buildx_buildkit_" + name + "0", kind="container")
+            volume = self.inspect("buildx_buildkit_" + name + "0_state", kind="volume")
+            removed = remains is None and volume is None
             write_json(journal, {"owner": OWNER, "builder": name, "status": "removed" if removed else "cleanup_failed"})
             if not removed:
                 raise ProjectError("BuildKit cleanup failed; run the scoped cleanup command.")
@@ -164,8 +207,10 @@ class Jobs:
                 if not builder.startswith("rocket-build-") or len(builder) != len("rocket-build-") + 12:
                     raise ProjectError("Unexpected saved builder name; preserved.")
                 self.call("buildx", "rm", "--force", builder, check=False, timeout=90)
-                if self.inspect("buildx_buildkit_" + builder + "0"):
-                    raise ProjectError("The recorded builder could not be removed.")
+                remaining_container = self.inspect("buildx_buildkit_" + builder + "0", kind="container")
+                remaining_volume = self.inspect("buildx_buildkit_" + builder + "0_state", kind="volume")
+                if remaining_container is not None or remaining_volume is not None:
+                    raise ProjectError("The recorded builder container or state volume could not be removed.")
                 write_json(str(path.relative_to(ROOT)), {"owner": OWNER, "builder": builder, "status": "removed"})
         _, remains = self.call("ps", "-aq", "--filter", "label=" + OWNER_KEY + "=" + OWNER, logged=False)
         if remains.strip():

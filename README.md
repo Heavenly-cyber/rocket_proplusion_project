@@ -6,7 +6,11 @@ Start with [the manifesto](docs/PROJECT_MANIFESTO.md), [literature review](docs/
 
 ## Current stage
 
-**Stage 03 terminal recovery:** if the scaffold is saved at `a194902efa08dd12c5d25138bb063a717f473bc6` and sudo reports that a terminal is required, apply `rocket-project-stage-03-repair-01.zip`. See [the recovery instructions](docs/STAGE_03_REPAIR_01.md). After that repair, use its ZIP or `python3 scripts/project.py setup` for retries; the original ZIP preserves its original file hashes and rejects repaired files.
+**Stage 03 Docker inspection recovery:** after host installation is saved at `d64ebbc`, apply `rocket-project-stage-03-repair-02.zip` to update cleanup verification. See [recovery 02](docs/STAGE_03_REPAIR_02.md). Use that recovery ZIP or `python3 scripts/project.py setup` for subsequent retries.
+
+Recovery 02 also supports your existing SSH `origin`, `git@github.com:Heavenly-cyber/rocket_proplusion_project.git`, and preserves it while checking both fetch and push destinations before publication.
+
+**Earlier terminal recovery:** if only the scaffold at `a194902efa08dd12c5d25138bb063a717f473bc6` is saved and sudo reports that a terminal is required, see [recovery 01](docs/STAGE_03_REPAIR_01.md). For the current installed-host checkpoint, use recovery 02 above. Earlier ZIPs retain their original source hashes and reject later repaired files.
 
 This is the Stage 03 environment scaffold. A local `v0.3.0` tag is created only after Docker builds, isolation/library checks, GGUF checksum verification, a local model API check, and container cleanup actually pass. The resulting `docs/STAGE_03_VERIFICATION.json` records what ran. GitHub publication follows those checks. Stage 04 creates the reviewed corpus and benchmark; evaluation scores do not exist yet.
 
@@ -15,7 +19,7 @@ This is the Stage 03 environment scaffold. A local `v0.3.0` tag is created only 
 Run the downloaded patch from your normal Pop!_OS user account:
 
 ```bash
-python3 "$HOME/Downloads/rocket-project-stage-03.zip"
+python3 "$HOME/Downloads/rocket-project-stage-03-repair-02.zip"
 ```
 
 After the scaffold is saved, the same workflow is available in the repository:
