@@ -13,7 +13,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "ae2c14dc371be43f790805ecc266414e0721c51a1fd14aa44edda07fd419f504"
+      "sha256": "a445703870fc8a8b9ace67a8779944c53e5839344ea14008d54e4093fba21109"
     },
     {
       "path": "configs/cpu-profile.json",
@@ -85,11 +85,15 @@
     },
     {
       "path": "docs/STAGE_03_MANUAL.md",
-      "sha256": "39f0ba8ed8280b4f7e9d9aec26487cea48c0f1467910c488cea5ea42302cbb86"
+      "sha256": "ba9de97a35d0bbec29a01e2e6244682fb8217be63cb82a156785eed927dd94a6"
     },
     {
       "path": "docs/STAGE_03_RECEIPT.json",
       "sha256": "13745bc3c14406e48cb8bd380c3a6438541d29ca64eb56abb9ad7e3385be40ee"
+    },
+    {
+      "path": "docs/STAGE_03_REPAIR_01.md",
+      "sha256": "37e4ca5b80adfd5d8aa7b227d4c12671ae407c1742d5ad24fe4642c1f791dd63"
     },
     {
       "path": "docs/STAGE_03_VALIDATION.md",
@@ -141,7 +145,7 @@
     },
     {
       "path": "scripts/host_common.py",
-      "sha256": "f082ef4b48e6684077dcf81ab6b164d73f03a66312ae487cd499cef4c0c25de6"
+      "sha256": "7b60589e1dfd7fb3c67986aeb49965298f59752cca500d1a1e0607f43a501b46"
     },
     {
       "path": "scripts/host_tools.py",
@@ -153,7 +157,7 @@
     },
     {
       "path": "scripts/project.py",
-      "sha256": "907bb5e3bdd30c8bd409b3ba04ccc0fb00bead32f0d789061b06585a41bc3163"
+      "sha256": "aadd69db7af4fc27b4ba09967fa439c5f52a4cc1635409512fdb06693f00e41d"
     },
     {
       "path": "scripts/stage02_preflight.py",
@@ -182,7 +186,16 @@
     {
       "path": "tests/test_container_contract.py",
       "sha256": "1168ba7093a27d5b9e23a94a71d3f20ae2fb4a4697000e42bc6b78896ad42f17"
+    },
+    {
+      "path": "tests/test_terminal_runner.py",
+      "sha256": "953f0504642efa8b7546902148734ef62aecc5d3455fa9d8d07a455eaaa79214"
     }
   ],
-  "self_integrity": "scaffold-files.json is checked by the ZIP and Git working-tree/commit checks"
+  "self_integrity": "scaffold-files.json is checked by the ZIP and Git working-tree/commit checks",
+  "minor_repair": {
+    "id": "01",
+    "saved_scaffold_commit": "a194902efa08dd12c5d25138bb063a717f473bc6",
+    "message": "fix: preserve terminal access for Stage 03 sudo commands"
+  }
 }

@@ -13,7 +13,7 @@ sys.dont_write_bytecode = True
 from container_jobs import Jobs
 from environment import ensure_images, resolve_environment
 from github_publish import publish
-from host_common import ROOT, MESSAGES, SOURCE_MESSAGE, ProjectError, Runner, folder, resume_checkpoint, safe, save_checkpoint, sha, write_json
+from host_common import ROOT, MESSAGES, SOURCE_MESSAGE, REPAIR_MESSAGE, REPAIR_FILES, ProjectError, Runner, folder, resume_checkpoint, safe, save_checkpoint, sha, write_json
 from host_tools import ensure_tools
 from model_session import probe_session
 
@@ -41,7 +41,8 @@ def guard(runner):
     if not history:
         raise ProjectError("Save the Stage 03 ZIP scaffold before launching setup.")
     previous = base
-    allowed = {MESSAGES["host"]: {"configs/host-tools.lock.json"},
+    allowed = {REPAIR_MESSAGE: REPAIR_FILES,
+               MESSAGES["host"]: {"configs/host-tools.lock.json"},
                MESSAGES["pins"]: {"configs/environment-lock.json", "uv.lock"},
                MESSAGES["images"]: {"configs/build-receipt.json"},
                MESSAGES["verification"]: {"docs/STAGE_03_VERIFICATION.json"}}
@@ -56,6 +57,8 @@ def guard(runner):
                 raise ProjectError("The first Stage 03 source checkpoint differs.")
         elif message not in allowed or not paths <= allowed[message]:
             raise ProjectError("This Stage 03 launcher does not apply to later/unrelated commits.")
+        elif message == REPAIR_MESSAGE and (index != 1 or paths != REPAIR_FILES):
+            raise ProjectError("The terminal repair is not the expected minor source checkpoint.")
         previous = commit
     changes = runner.git("status", "--porcelain", "--untracked-files=all")
     if changes:
@@ -167,6 +170,7 @@ def main():
         runner = Runner()
         def stop(signum, frame):
             raise KeyboardInterrupt
+        signal.signal(signal.SIGINT, stop)
         signal.signal(signal.SIGTERM, stop)
         try:
             if args.command in {"setup", "verify"}:

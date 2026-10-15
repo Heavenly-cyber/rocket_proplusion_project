@@ -1,5 +1,7 @@
 # Stage 03 — locked environment, disposable containers, and GitHub
 
+> **Terminal repair 01:** the first scaffold is saved at `a194902efa08dd12c5d25138bb063a717f473bc6`, but its detached sudo subprocesses cannot read the controlling terminal. Apply `rocket-project-stage-03-repair-01.zip` as described in [STAGE_03_REPAIR_01.md](STAGE_03_REPAIR_01.md). The repair saves one minor Git commit and continues this same stage. Use the recovery ZIP for subsequent retries; the original ZIP rejects changed source files by design.
+
 Prepared 2026-10-14 for the returned Pop!_OS 24.04 x86_64 checkpoint:
 
 - Stage 02 commit: `4ea278f083c11d3fbc9044d1fadfaea88681f41f`.

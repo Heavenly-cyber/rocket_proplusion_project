@@ -6,6 +6,8 @@ Start with [the manifesto](docs/PROJECT_MANIFESTO.md), [literature review](docs/
 
 ## Current stage
 
+**Stage 03 terminal recovery:** if the scaffold is saved at `a194902efa08dd12c5d25138bb063a717f473bc6` and sudo reports that a terminal is required, apply `rocket-project-stage-03-repair-01.zip`. See [the recovery instructions](docs/STAGE_03_REPAIR_01.md). After that repair, use its ZIP or `python3 scripts/project.py setup` for retries; the original ZIP preserves its original file hashes and rejects repaired files.
+
 This is the Stage 03 environment scaffold. A local `v0.3.0` tag is created only after Docker builds, isolation/library checks, GGUF checksum verification, a local model API check, and container cleanup actually pass. The resulting `docs/STAGE_03_VERIFICATION.json` records what ran. GitHub publication follows those checks. Stage 04 creates the reviewed corpus and benchmark; evaluation scores do not exist yet.
 
 ## One-command setup and reproduction

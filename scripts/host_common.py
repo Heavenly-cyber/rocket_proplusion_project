@@ -1,5 +1,6 @@
 """Host orchestration only: paths, saved checkpoints, and child processes."""
 
+import codecs
 import hashlib
 import json
 import os
@@ -13,6 +14,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_MESSAGE = "feat: save Stage 03 container scaffold and recovery commands"
+REPAIR_MESSAGE = "fix: preserve terminal access for Stage 03 sudo commands"
+REPAIR_FILES = {
+    "scripts/host_common.py", "scripts/project.py", "configs/scaffold-files.json",
+    "tests/test_terminal_runner.py", "docs/STAGE_03_REPAIR_01.md",
+    "docs/STAGE_03_MANUAL.md", "README.md",
+}
 MESSAGES = {
     "host": "build: save verified host tool versions",
     "pins": "build: freeze container digests source revision and uv lock",
@@ -74,13 +81,20 @@ class Runner:
         if logged:
             with self.log.open("a", encoding="utf-8") as stream:
                 stream.write("COMMAND " + json.dumps(args) + "\n")
+        # sudo reads credentials from the controlling terminal, not from our output pipe.
+        # A new session loses that terminal and also changes tty-scoped sudo timestamps.
+        detached = Path(args[0]).name != "sudo"
         process = subprocess.Popen(args, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                   text=True, errors="replace", start_new_session=True)
+                                   start_new_session=detached)
         lines = queue.Queue()
 
         def reader():
-            for line in process.stdout:
-                lines.put(line)
+            decoder = codecs.getincrementaldecoder("utf-8")(errors="replace")
+            while block := process.stdout.read1(4096):
+                lines.put(decoder.decode(block))
+            final = decoder.decode(b"", final=True)
+            if final:
+                lines.put(final)
             lines.put(None)
 
         thread = threading.Thread(target=reader, daemon=True)
@@ -111,11 +125,18 @@ class Runner:
             code = process.wait()
         except BaseException:
             try:
-                os.killpg(process.pid, signal.SIGTERM)
+                if detached:
+                    os.killpg(process.pid, signal.SIGTERM)
+                else:
+                    # This child shares our foreground process group; never kill that group.
+                    process.terminate()
                 process.wait(timeout=5)
             except (ProcessLookupError, subprocess.TimeoutExpired):
                 try:
-                    os.killpg(process.pid, signal.SIGKILL)
+                    if detached:
+                        os.killpg(process.pid, signal.SIGKILL)
+                    else:
+                        process.kill()
                 except ProcessLookupError:
                     pass
                 process.wait()
