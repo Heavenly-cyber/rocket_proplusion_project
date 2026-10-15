@@ -13,7 +13,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "b713bb4c1f5af099ae395e567172d7ff3a8c9cea646aa2dbcf7568efd66844a8"
+      "sha256": "6d8a25c732a2cbaed414f6f5c59ed160aa91a62b07648b2fa1cc8ffd47454609"
     },
     {
       "path": "configs/cpu-profile.json",
@@ -36,8 +36,12 @@
       "sha256": "571346cacec76fb774207c4f63ecef7d50402d08f9cc2e1d7e09ffa358530db8"
     },
     {
+      "path": "docker/install_snapshot.py",
+      "sha256": "5b0a96bb07bfd955bba5c9ae4b725cf87f9d73ba2810b74cbdb174e5d22a690b"
+    },
+    {
       "path": "docker/llama.Dockerfile",
-      "sha256": "714a9a6fbcbeb7ec6880f268d5c4e2f161c7232c5c6e56e04a99e5e4d969a493"
+      "sha256": "3c847e393530be7e111effecb240f126ab6f5acdf574af246a6d369e7eeb50fd"
     },
     {
       "path": "docker/worker.Dockerfile",
@@ -50,6 +54,10 @@
     {
       "path": "docs/LITERATURE_SEARCH.md",
       "sha256": "e9103244f4b59835364003b45e6c6b6d23f831be0414be7d266cc8cf4e35336a"
+    },
+    {
+      "path": "docs/PRESENTATION_ALIGNMENT.md",
+      "sha256": "db7e4f9ec115051ca9b6277450f99a0903f6a6c7a7e4a091e99076f54d3f20d8"
     },
     {
       "path": "docs/PROJECT_MANIFESTO.md",
@@ -85,7 +93,7 @@
     },
     {
       "path": "docs/STAGE_03_MANUAL.md",
-      "sha256": "edfeed376920e69340caa930982dcb69db1efc51e5f4ed8c8943e7e73e77f107"
+      "sha256": "1e262cbec5c935163dcead97dd9742043aed17ea53e6c3aee13028855f90126d"
     },
     {
       "path": "docs/STAGE_03_RECEIPT.json",
@@ -98,6 +106,10 @@
     {
       "path": "docs/STAGE_03_REPAIR_02.md",
       "sha256": "960c224cdcbac09cd1757f0626ea4fecc86e3afb849a11b75996b38eacedd396"
+    },
+    {
+      "path": "docs/STAGE_03_REPAIR_03.md",
+      "sha256": "19e9fd0ff38a409ec98882ecedbb6383fa396576e2fe2709e1dd013513a7a00c"
     },
     {
       "path": "docs/STAGE_03_VALIDATION.md",
@@ -118,6 +130,10 @@
     {
       "path": "docs/releases/v0.3.0.md",
       "sha256": "bf26a8aa784d861706ee49c3be90e60e40fc622a0dbd730d61220c0d91a4d060"
+    },
+    {
+      "path": "docs/requirements/final-presentation-guidelines.pdf",
+      "sha256": "8b5b33dd9c769027b70dccf9333d3a8b1a59b1b5017cad70d74198acef08a067"
     },
     {
       "path": "logs/.gitkeep",
@@ -141,7 +157,7 @@
     },
     {
       "path": "scripts/environment.py",
-      "sha256": "78324d8e8243ed91bd72c1de6e80c852a8af4623b5d59d754e8aae60268417d8"
+      "sha256": "724a6a4e7ca8e58a27946f9e0763055cfa0c889fdc6ef2b9c2a397912c47a281"
     },
     {
       "path": "scripts/github_publish.py",
@@ -149,7 +165,7 @@
     },
     {
       "path": "scripts/host_common.py",
-      "sha256": "7a54e89e2a094711d48a07667993c59a65b150e71b84d7e0f8fefab675959a5d"
+      "sha256": "6a112bc7ae4e10823667d16853a91f2b163ea81d7510f7c0d794fbe37805a6aa"
     },
     {
       "path": "scripts/host_tools.py",
@@ -161,7 +177,7 @@
     },
     {
       "path": "scripts/project.py",
-      "sha256": "a357857d9f11e34bc3b8910899e89460a9b701014175d5ed2d7c3e34cd4c56b3"
+      "sha256": "9ad9932b6feea450a30f4ee3a65727f3cfa85e8153d7fc871fe2d4af0ffa409f"
     },
     {
       "path": "scripts/stage02_preflight.py",
@@ -170,6 +186,10 @@
     {
       "path": "scripts/system_report.py",
       "sha256": "0f59e0321c9420ff37740b4fff742d2dc96d390cd9edd94bc2159bc9e4210192"
+    },
+    {
+      "path": "scripts/worker_probe.py",
+      "sha256": "64a00ce158986ec9942f51ae1446a203991feab5a2224e92f5c7a23a72e03203"
     },
     {
       "path": "src/rocket_nozzle_llm/__init__.py",
@@ -200,6 +220,14 @@
       "sha256": "93ccc34100fd7312be8e35fcdca0e4c040fd5d2a4224c010f938dc9644202d86"
     },
     {
+      "path": "tests/test_image_recovery.py",
+      "sha256": "b9a7465f6b895c47fc3af6199216cccf0581db65adf0bc928cb99319cc455ff9"
+    },
+    {
+      "path": "tests/test_snapshot_recovery.py",
+      "sha256": "55312e66fd94364e1e2c22b04028731aeb9ecb330b2dda3cd33744b7886cb511"
+    },
+    {
       "path": "tests/test_terminal_runner.py",
       "sha256": "953f0504642efa8b7546902148734ef62aecc5d3455fa9d8d07a455eaaa79214"
     }
@@ -216,5 +244,11 @@
     "saved_host_tools_parent": "2fce1783ca6cac16c873ecd0bd5ed00438e91d82",
     "message": "fix: verify Docker cleanup and preserve SSH origin",
     "host_tools_message": "build: save verified host tool versions"
+  },
+  "minor_repair_03": {
+    "id": "03",
+    "saved_dependency_commit_prefix": "3909600",
+    "saved_dependency_parent": "3a03de17b89a9fc8d430a7bda144058ed5c5a8ca",
+    "message": "fix: resume pinned snapshot builds and reuse verified worker"
   }
 }

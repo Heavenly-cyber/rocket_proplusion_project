@@ -1,5 +1,9 @@
 # Stage 03 — locked environment, disposable containers, and GitHub
 
+> **Corrected installer 03a:** the original recovery 03 ZIP stopped before application because it compared the Python range as literal text. Your actual lock uses `==3.13.*`. Use `rocket-project-stage-03-repair-03a.zip`; its preflight checks preserve the existing lock bytes and remain anchored to `3909600`.
+
+> **Current recovery 03:** dependency resolution is saved at `3909600` and the worker image built successfully. The llama.cpp build then stopped on Debian snapshot connection timeouts. Apply `rocket-project-stage-03-repair-03a.zip` for bounded same-snapshot retries and verified worker reuse. See [recovery 03](STAGE_03_REPAIR_03.md). The [presentation alignment](PRESENTATION_ALIGNMENT.md) maps the supplied course guidelines; scientific work remains pending.
+
 > **Docker inspection repair 02:** host tools are installed and saved at `d64ebbc`. If setup stops with `Docker inspection failed; absence cannot be verified` after removing its builder, apply `rocket-project-stage-03-repair-02.zip`. It saves a minor fix for missing-resource detection, checks both builder/container and state-volume cleanup, and retains detailed inspection diagnostics. See [STAGE_03_REPAIR_02.md](STAGE_03_REPAIR_02.md). Use recovery 02 for later ZIP retries.
 
 > **Existing SSH origin:** recovery 02 also accepts and preserves `git@github.com:Heavenly-cyber/rocket_proplusion_project.git`. No second remote-add command is needed. Fetch and push URLs, GitHub identity, repository ownership/visibility, and existing history are checked before publication.
@@ -17,15 +21,17 @@ Prepared 2026-10-14 for the returned Pop!_OS 24.04 x86_64 checkpoint:
 
 ## Apply this patch
 
-For the returned installed-host checkpoint, save `rocket-project-stage-03-repair-02.zip` into `~/Downloads/` and run:
+For the current returned dependency-lock checkpoint, save `rocket-project-stage-03-repair-03a.zip` into `~/Downloads/` and run:
 
 ```bash
-python3 "$HOME/Downloads/rocket-project-stage-03-repair-02.zip"
+python3 "$HOME/Downloads/rocket-project-stage-03-repair-03a.zip"
 ```
 
 Run from your normal account. Do not put `sudo` before `python3`. The launcher requests sudo for signed APT installation and its local rootful Docker commands. Passwords are entered only in your terminal. Keep the terminal open and use the **Heavenly-Cyber** account during the GitHub sign-in flow. No model/provider API key is required.
 
 The ZIP is an executable Python ZIP application. Do not unzip it into the project: its installer verifies the saved base, payload checksums, safe paths, and existing work before applying. It will not absorb unrelated changes, change Git author identity, disable signing/hooks, rewrite earlier tags, force-push, or remove conflicting installed packages. Existing conflicting files or installations produce a diagnostic and remain intact.
+
+Recovery 03 specifically requires host Python 3.11+ for saved-lock TOML validation; your reported Python 3.12.3 is supported. Older recovery ZIPs apply to earlier checkpoints. After applying recovery 03, use it or the repository launcher for retries.
 
 Network is needed for initial signed APT packages, fixed container images, dependency resolution, source compilation, the 2,740,937,888-byte model, and GitHub. Budget additional image/compiler storage beyond the model and allow time for a CPU source build. Exact download/build duration depends on connection and CPU; no speed claim has been measured. Before the model check, close large applications if currently available RAM is below 6 GiB.
 

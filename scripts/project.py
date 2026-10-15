@@ -13,7 +13,7 @@ sys.dont_write_bytecode = True
 from container_jobs import Jobs
 from environment import ensure_images, resolve_environment
 from github_publish import publish
-from host_common import ROOT, MESSAGES, SOURCE_MESSAGE, REPAIR_MESSAGE, REPAIR_FILES, REPAIR_02_MESSAGE, REPAIR_02_FILES, ProjectError, Runner, folder, resume_checkpoint, safe, save_checkpoint, sha, write_json
+from host_common import ROOT, MESSAGES, SOURCE_MESSAGE, REPAIR_MESSAGE, REPAIR_FILES, REPAIR_02_MESSAGE, REPAIR_02_FILES, REPAIR_03_MESSAGE, REPAIR_03_FILES, ProjectError, Runner, folder, resume_checkpoint, safe, save_checkpoint, sha, write_json
 from host_tools import ensure_tools
 from model_session import probe_session
 
@@ -43,6 +43,7 @@ def guard(runner):
     previous = base
     allowed = {REPAIR_MESSAGE: REPAIR_FILES,
                REPAIR_02_MESSAGE: REPAIR_02_FILES,
+               REPAIR_03_MESSAGE: REPAIR_03_FILES,
                MESSAGES["host"]: {"configs/host-tools.lock.json"},
                MESSAGES["pins"]: {"configs/environment-lock.json", "uv.lock"},
                MESSAGES["images"]: {"configs/build-receipt.json"},
@@ -62,6 +63,8 @@ def guard(runner):
             raise ProjectError("The terminal repair is not the expected minor source checkpoint.")
         elif message == REPAIR_02_MESSAGE and (index != 3 or paths != REPAIR_02_FILES):
             raise ProjectError("The Docker inspection repair is not the expected minor source checkpoint.")
+        elif message == REPAIR_03_MESSAGE and (index != 5 or paths != REPAIR_03_FILES):
+            raise ProjectError("The snapshot repair is not the expected minor source checkpoint.")
         previous = commit
     changes = runner.git("status", "--porcelain", "--untracked-files=all")
     if changes:
@@ -89,8 +92,11 @@ def guard(runner):
 def verify(jobs, images):
     worker = images["worker"]["id"]
     checks = {}
-    checks["pytest"] = jobs.job(worker, ["-m", "pytest", "/app/tests", "-q"], kind="tests", entrypoint="/opt/venv/bin/python")
-    checks["ruff"] = jobs.job(worker, ["check", "--no-cache", "/app/src", "/app/scripts", "/app/tests"], kind="lint", entrypoint="/opt/venv/bin/ruff")
+    # Cached dependency/runtime images can retain earlier orchestration files.
+    # Run the current committed host tests/scripts through read-only code mounts.
+    code_mounts = [(safe(name), "/app/" + name, True) for name in ("scripts", "tests", "docker")]
+    checks["pytest"] = jobs.job(worker, ["-m", "pytest", "/app/tests", "-q"], kind="tests", entrypoint="/opt/venv/bin/python", extra_mounts=code_mounts)
+    checks["ruff"] = jobs.job(worker, ["check", "--no-cache", "/app/src", "/app/scripts", "/app/tests", "/app/docker/install_snapshot.py"], kind="lint", entrypoint="/opt/venv/bin/ruff", extra_mounts=code_mounts)
     checks["worker"] = jobs.job(worker, ["smoke"], kind="worker")
     checks["failure_cleanup"] = jobs.job(worker, ["fail"], kind="failure-cleanup", expected_exit=7)
     checks["gap_export"] = jobs.job(worker, ["about"], kind="proposal")

@@ -6,6 +6,12 @@ Start with [the manifesto](docs/PROJECT_MANIFESTO.md), [literature review](docs/
 
 ## Current stage
 
+**Installer correction 03a:** use `rocket-project-stage-03-repair-03a.zip`. The original recovery 03 ZIP rejected uv's valid `==3.13.*` range before applying files. The corrected launcher is tested with your actual saved lock and preserves its exact bytes. See [recovery 03](docs/STAGE_03_REPAIR_03.md).
+
+**Current Stage 03 snapshot recovery:** dependency locking is saved at `3909600`, and the worker image built. Apply `rocket-project-stage-03-repair-03a.zip` to recover the llama.cpp build after Debian snapshot connection timeouts, with verified reuse of completed worker work. See [recovery 03](docs/STAGE_03_REPAIR_03.md). Use recovery 03 or the repository launcher for retries at this checkpoint.
+
+The supplied final-presentation guidelines are mapped to project evidence in [PRESENTATION_ALIGNMENT.md](docs/PRESENTATION_ALIGNMENT.md). Proposed methods and expected outcomes remain separate from demonstrated results.
+
 **Stage 03 Docker inspection recovery:** after host installation is saved at `d64ebbc`, apply `rocket-project-stage-03-repair-02.zip` to update cleanup verification. See [recovery 02](docs/STAGE_03_REPAIR_02.md). Use that recovery ZIP or `python3 scripts/project.py setup` for subsequent retries.
 
 Recovery 02 also supports your existing SSH `origin`, `git@github.com:Heavenly-cyber/rocket_proplusion_project.git`, and preserves it while checking both fetch and push destinations before publication.
@@ -19,7 +25,7 @@ This is the Stage 03 environment scaffold. A local `v0.3.0` tag is created only 
 Run the downloaded patch from your normal Pop!_OS user account:
 
 ```bash
-python3 "$HOME/Downloads/rocket-project-stage-03-repair-02.zip"
+python3 "$HOME/Downloads/rocket-project-stage-03-repair-03a.zip"
 ```
 
 After the scaffold is saved, the same workflow is available in the repository:

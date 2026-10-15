@@ -1,9 +1,17 @@
 ARG PYTHON_IMAGE
-FROM ${PYTHON_IMAGE} AS compiler
-ARG LLAMA_COMMIT
+FROM ${PYTHON_IMAGE} AS runtime
 COPY docker/debian.sources /etc/apt/sources.list.d/debian.sources
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ca-certificates git cmake build-essential \
+COPY docker/install_snapshot.py /usr/local/lib/rocket/install_snapshot.py
+RUN ROCKET_CONTAINER_BUILD=1 python /usr/local/lib/rocket/install_snapshot.py \
+      --role runtime --receipt /SNAPSHOT_FETCH_RUNTIME.json \
+    && dpkg-query -W > /RUNTIME_PACKAGES.txt \
+    && rm -rf /var/lib/apt/lists/*
+
+# Deriving the compiler from runtime serializes the two APT download phases.
+FROM runtime AS compiler
+ARG LLAMA_COMMIT
+RUN ROCKET_CONTAINER_BUILD=1 python /usr/local/lib/rocket/install_snapshot.py \
+      --role compiler --receipt /SNAPSHOT_FETCH_COMPILER.json \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /source
 RUN test "${#LLAMA_COMMIT}" = 40 \
@@ -19,12 +27,10 @@ RUN test "${#LLAMA_COMMIT}" = 40 \
     && cmake --build build --target llama-server --parallel 2 \
     && printf '%s\n' "$LLAMA_COMMIT" > build/bin/SOURCE_COMMIT \
     && dpkg-query -W > build/bin/COMPILER_PACKAGES.txt
-FROM ${PYTHON_IMAGE}
-COPY docker/debian.sources /etc/apt/sources.list.d/debian.sources
-RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 \
-    && dpkg-query -W > /RUNTIME_PACKAGES.txt \
-    && rm -rf /var/lib/apt/lists/*
+
+FROM runtime
 COPY --from=compiler /source/build/bin/ /opt/llama/
+COPY --from=compiler /SNAPSHOT_FETCH_COMPILER.json /opt/llama/SNAPSHOT_FETCH_COMPILER.json
 ENV LD_LIBRARY_PATH=/opt/llama GGML_BACKEND_DIR=/opt/llama HOME=/tmp/home
 USER 65532:65532
 ENTRYPOINT ["/opt/llama/llama-server"]

@@ -27,6 +27,14 @@ REPAIR_02_FILES = {
     "tests/test_docker_inspection.py", "tests/test_github_remote.py",
     "docs/STAGE_03_REPAIR_02.md", "docs/STAGE_03_MANUAL.md", "README.md",
 }
+REPAIR_03_MESSAGE = "fix: resume pinned snapshot builds and reuse verified worker"
+REPAIR_03_FILES = {
+    "scripts/host_common.py", "scripts/project.py", "scripts/environment.py", "scripts/worker_probe.py",
+    "docker/llama.Dockerfile", "docker/install_snapshot.py", "configs/scaffold-files.json",
+    "tests/test_snapshot_recovery.py", "tests/test_image_recovery.py",
+    "docs/STAGE_03_REPAIR_03.md", "docs/PRESENTATION_ALIGNMENT.md",
+    "docs/requirements/final-presentation-guidelines.pdf", "docs/STAGE_03_MANUAL.md", "README.md",
+}
 MESSAGES = {
     "host": "build: save verified host tool versions",
     "pins": "build: freeze container digests source revision and uv lock",

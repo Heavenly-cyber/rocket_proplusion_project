@@ -7,6 +7,8 @@ from host_common import ROOT, MESSAGES, ProjectError, commit_files, folder, safe
 
 CANDIDATES = {"python": "python:3.13.16-slim-trixie", "uv": "ghcr.io/astral-sh/uv:0.13.1",
               "buildkit": "moby/buildkit:v0.34.0"}
+OBSERVED_WORKER = "sha256:1effcc868f455330e55678fc4adbeebcf30c95512515e9b87aa3848b1a3905fe"
+OBSERVED_WORKER_MANIFEST = "sha256:1921a773615c43c11d0212aa511709efabbed307d9b23f2f68bae23c848b92cb"
 
 
 def pull_pin(jobs, candidate):
@@ -92,6 +94,60 @@ def resolve_environment(jobs):
     return locked
 
 
+def worker_specification(locked):
+    selection = json.loads(safe("configs/stack-selection.json").read_text())
+    names = {"pyproject.toml", "uv.lock", "configs/stack-selection.json", "configs/cpu-profile.json"}
+    names.update(path.relative_to(ROOT).as_posix() for path in safe("src").rglob("*")
+                 if path.is_file() and "__pycache__" not in path.parts)
+    files = {name: sha(safe(name).read_bytes()) for name in sorted(names)}
+    specification = {"python": locked["python"], "uv": locked["uv"], "files": files,
+                     "dependencies": {item["name"]: item["version"] for item in selection["dependencies"]},
+                     "base_images": locked["base_images"],
+                     "worker_dockerfile_sha256": sha(safe("docker/worker.Dockerfile").read_bytes())}
+    specification["runtime_sha256"] = sha(json.dumps(specification, sort_keys=True).encode())
+    return specification
+
+
+def verify_worker(jobs, image, specification):
+    report = jobs.job(image["id"], ["-c", safe("scripts/worker_probe.py").read_text()],
+                      kind="worker-cache-check", entrypoint="/opt/venv/bin/python", timeout=120,
+                      env={"ROCKET_WORKER_INPUTS": json.dumps(specification, sort_keys=True)})
+    proof = json.loads(safe(report["result_path"] + "/worker-inputs.json").read_text())
+    if proof.get("status") != "passed" or proof.get("runtime_sha256") != specification["runtime_sha256"]:
+        raise ProjectError("Worker runtime verification failed; image was preserved.")
+    write_json("tmp/setup/worker-image.json", {"image": image, "runtime_sha256": specification["runtime_sha256"],
+               "proof": report, "host_validation_source": "current_committed_readonly_code_mounts"})
+    return image
+
+
+def cached_worker(jobs, specification, token):
+    pending = safe("tmp/setup/worker-image.json")
+    candidates = []
+    if pending.exists():
+        record = json.loads(pending.read_text())
+        if record.get("runtime_sha256") == specification["runtime_sha256"]:
+            candidates.append(record["image"])
+    candidates.extend({"tag": "rocket-nozzle-worker:" + token, "id": identity}
+                      for identity in (OBSERVED_WORKER_MANIFEST, OBSERVED_WORKER))
+    seen = set()
+    for image in candidates:
+        if image["id"] in seen:
+            continue
+        seen.add(image["id"])
+        if not re.fullmatch(r"sha256:[0-9a-f]{64}", image["id"]):
+            raise ProjectError("Invalid saved worker image identity; preserved.")
+        item = jobs.inspect(image["id"], kind="image")
+        if item is None:
+            continue
+        accepted_ids = {OBSERVED_WORKER, OBSERVED_WORKER_MANIFEST} if image["id"] in {OBSERVED_WORKER, OBSERVED_WORKER_MANIFEST} else {image["id"]}
+        if item.get("Id") not in accepted_ids or item.get("Architecture") != "amd64":
+            raise ProjectError("Cached worker identity or architecture differs; preserved.")
+        verified = verify_worker(jobs, {"tag": image["tag"], "id": item["Id"]}, specification)
+        print("WORKER_IMAGE_REUSED: immutable runtime inputs verified; Python packages were not downloaded again.")
+        return verified
+    return None
+
+
 def ensure_images(jobs, locked):
     path = safe("configs/build-receipt.json")
     intended = safe("tmp/setup/build-receipt-intent.json")
@@ -105,9 +161,14 @@ def ensure_images(jobs, locked):
             # Rebuilding a clone is recorded locally, without editing the released receipt.
             print("Released source is pinned; rebuilding images missing from this Docker host.")
     token = sha((locked["uv_lock_sha256"] + locked["llama_cpp_source_commit"]).encode())[:16]
+    specification = worker_specification(locked)
+    worker = cached_worker(jobs, specification, token)
     with jobs.builder(locked["base_images"]["buildkit"]) as builder:
+        if worker is None:
+            worker = build(jobs, builder, "docker/worker.Dockerfile", "rocket-nozzle-worker:" + token, locked["base_images"])
+            verify_worker(jobs, worker, specification)
         images = {
-            "worker": build(jobs, builder, "docker/worker.Dockerfile", "rocket-nozzle-worker:" + token, locked["base_images"]),
+            "worker": worker,
             "llama": build(jobs, builder, "docker/llama.Dockerfile", "rocket-nozzle-llama:" + token, locked["base_images"], locked["llama_cpp_source_commit"]),
         }
     # The binary and its dynamically loaded CPU backends are checked in an offline container.
@@ -120,9 +181,16 @@ def ensure_images(jobs, locked):
     data = (ROOT / report["log_path"] / "container.log").read_text()
     if not data.startswith(locked["llama_cpp_source_commit"] + "\n"):
         raise ProjectError("Compiled llama source differs from the environment lock.")
+    transport = jobs.job(images["llama"]["id"], ["-c", "import json; from pathlib import Path; print(json.dumps({name:json.loads(Path(path).read_text()) for name,path in {'runtime':'/SNAPSHOT_FETCH_RUNTIME.json','compiler':'/opt/llama/SNAPSHOT_FETCH_COMPILER.json'}.items()}))"],
+                         kind="snapshot-receipt", entrypoint="/usr/local/bin/python", timeout=90)
+    downloads = json.loads((ROOT / transport["log_path"] / "container.log").read_text())
+    if set(downloads) != {"runtime", "compiler"} or any(value.get("status") != "passed" or value.get("snapshot") != locked["debian_snapshot"] for value in downloads.values()):
+        raise ProjectError("Debian snapshot download receipts differ from the lock.")
     receipt = {"schema_version": 1, "source_commit": locked["llama_cpp_source_commit"],
                "uv_lock_sha256": locked["uv_lock_sha256"], "images": images,
-               "compiler_and_runtime_packages": data.splitlines()[1:], "binary_check": "offline_llama_server_help_passed"}
+               "compiler_and_runtime_packages": data.splitlines()[1:], "binary_check": "offline_llama_server_help_passed",
+               "worker_runtime_sha256": specification["runtime_sha256"], "snapshot_downloads": downloads,
+               "host_validation_source": "current_committed_readonly_code_mounts"}
     if path.exists() and jobs.runner.run(["git", "rev-parse", "--verify", "--quiet", "refs/tags/v0.3.0"], check=False, logged=False)[0] == 0:
         write_json("logs/setup/rebuilt-images.json", receipt)
     else:
