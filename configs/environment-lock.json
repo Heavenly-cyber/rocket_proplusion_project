@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "platform": "linux/amd64",
+  "python": "3.13.16",
+  "uv": "0.13.1",
+  "base_images": {
+    "python": "python@sha256:70729b46c69b4f1e97c4822c1af3df53a1476cf5ddc6c087c0c10bc3a5678c2f",
+    "uv": "ghcr.io/astral-sh/uv@sha256:4a1f3666816dafadd20ceb71eac9a7d56d7ef30279f7d64048519ab901ada336",
+    "buildkit": "moby/buildkit@sha256:b059f8d7226d0b326bc871af489a5dddf65e36af4d20d14251b072974d9ee87c"
+  },
+  "llama_cpp_release": "v0.6.0",
+  "llama_cpp_source_commit": "d81235049384534c167caea52b85a694f6103d14",
+  "debian_snapshot": "20261014T000000Z",
+  "uv_lock_sha256": "1d61509065de71d49fb26e4f7e8df6912f6584f9c3ca3dffeed839eefd94de1a",
+  "dependency_resolution": "temporary_nonroot_container"
+}
