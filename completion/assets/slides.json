@@ -1,0 +1,524 @@
+[
+  {
+    "title": "Local LLM Reliability\nfor Ideal Rocket Nozzles",
+    "kind": "cover",
+    "body": [
+      "Ideal Rocket-Nozzle Performance:\nAn Evidence and Physics Audit",
+      "Heavenly\nAerospace Engineering, IIT Kharagpur",
+      "Rocket Propulsion term paper\n{{DATE}}"
+    ],
+    "rows": [],
+    "notes": "Introduce the project as an evaluation of a pretrained local model. The course topic is ML-Based Rocket Nozzle Performance Prediction. This is an ideal-flow answer audit. Actual results in this deck come from run {{RUN_ID}}. Scientific source commit {{SOURCE_COMMIT}}. The experiment fingerprint is {{FINGERPRINT}}.",
+    "foot": ""
+  },
+  {
+    "title": "Research question",
+    "kind": "body",
+    "body": [
+      "Does technical retrieval help a small local LLM produce physically valid nozzle answers?",
+      "The comparison checks values, units and applicability, with a separate audit of evidence IDs.",
+      "Same model and question inputs in both conditions. An independent evaluator checks the outputs."
+    ],
+    "rows": [],
+    "notes": "The deterministic solver is an evaluator after generation. It does not supply a numerical answer to either answering condition. State the run profile: {{PROFILE}}. Completion: {{COMPLETED}}/{{SCHEDULED}} responses.",
+    "foot": ""
+  },
+  {
+    "title": "Why this topic fits rocket propulsion",
+    "kind": "body",
+    "body": [
+      "Thrust connects mass flow, exhaust speed and exit pressure to an interpretable propulsion quantity.",
+      "Ideal nozzle equations make a bounded numerical reference possible.",
+      "A local model and a short fixed corpus make the comparison feasible on the existing CPU setup."
+    ],
+    "rows": [],
+    "notes": "NASA Glenn: https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/ and https://www.grc.nasa.gov/www/k-12/rocket/astar.html",
+    "foot": ""
+  },
+  {
+    "title": "Motivation and significance",
+    "kind": "body",
+    "body": [
+      "A plausible number can hide a missing pressure-thrust term or a wrong unit conversion.",
+      "Retrieving an equation does not ensure correct arithmetic or a valid flow assumption.",
+      "Retaining wrong answers makes the failure observable and useful for engineering education."
+    ],
+    "rows": [],
+    "notes": "Use a concrete example: cm^2 requires a squared-length conversion, and chamber stagnation pressure cannot be substituted for exit static pressure. This project measures the tested setting and does not qualify real-engine designs.",
+    "foot": ""
+  },
+  {
+    "title": "Related research",
+    "kind": "table",
+    "body": [],
+    "rows": [
+      [
+        "Study",
+        "Approach",
+        "Relevance"
+      ],
+      [
+        "Yang et al., 2026",
+        "Combustion knowledge injection",
+        "Domain retrieval and evaluation"
+      ],
+      [
+        "ThermoQA, 2026",
+        "Programmatic thermo references",
+        "Numerical reasoning benchmark"
+      ],
+      [
+        "PhyNiKCE, 2026",
+        "Physics constraints in CFD agents",
+        "Explicit physical validation"
+      ],
+      [
+        "ChatCFD, 2025 / 2026",
+        "Structured CFD automation",
+        "Nozzle precedent already exists"
+      ]
+    ],
+    "notes": "Primary records rechecked on 5 November 2026. The first three records are 2026 preprints. Their reported scores do not transfer to this project. https://arxiv.org/abs/2603.04452 https://arxiv.org/abs/2604.19758 https://arxiv.org/abs/2602.11666 https://arxiv.org/abs/2506.02019",
+    "foot": "A scoped review. No first-ever LLM or nozzle claim."
+  },
+  {
+    "title": "The bounded research gap",
+    "kind": "body",
+    "body": [
+      "Within the reviewed studies, this joint local-model evaluation remains insufficiently characterised.",
+      "The focus combines nozzle values, dimensions, applicability, missing inputs and evidence traceability.",
+      "The contribution is a controlled, inspectable measurement for one quantized local model."
+    ],
+    "rows": [],
+    "notes": "Ordinary RAG, physics checking and LLM applications to nozzles already have precedent. Avoid saying no previous work exists. The working gap can narrow if the baseline performs well.",
+    "foot": ""
+  },
+  {
+    "title": "Governing physical relations",
+    "kind": "table",
+    "body": [],
+    "rows": [
+      [
+        "Quantity",
+        "Ideal relation"
+      ],
+      [
+        "Axial thrust",
+        "F = mdot Ve + (pe - pa) Ae"
+      ],
+      [
+        "Exit temperature",
+        "Te = T0 / [1 + (gamma - 1) Me^2 / 2]"
+      ],
+      [
+        "Exit speed",
+        "Ve = Me sqrt(gamma R Te)"
+      ],
+      [
+        "Choked mass flow",
+        "mdot = p0 At / sqrt(T0) sqrt(gamma/R)\n[2/(gamma+1)]^[(gamma+1)/(2(gamma-1))]"
+      ]
+    ],
+    "notes": "Define p0,T0 as chamber stagnation conditions, pe as exit static pressure, pa as ambient pressure, R as the specific gas constant. A complete area-Mach expression appears in the appendix. NASA Glenn: https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/ and https://www.grc.nasa.gov/www/k-12/rocket/astar.html",
+    "foot": "Fixed gas properties and a stated choking / branch assumption are required."
+  },
+  {
+    "title": "Assumptions and validity limits",
+    "kind": "table",
+    "body": [],
+    "rows": [
+      [
+        "Included in the reference",
+        "Outside this reference"
+      ],
+      [
+        "Steady one-dimensional ideal gas",
+        "Transient and multidimensional flow"
+      ],
+      [
+        "Constant gamma and composition",
+        "Dissociation and variable specific heats"
+      ],
+      [
+        "Sonic throat, shock-free supersonic branch",
+        "Unchoked throat and internal shock"
+      ],
+      [
+        "Momentum and pressure thrust",
+        "Viscous loss and nozzle separation"
+      ]
+    ],
+    "notes": "Supplied-state thrust questions use the stated exit quantities directly. Applicability questions ask whether the specifically requested ideal formula can be applied, rather than whether a richer model could ever solve the problem. NASA Glenn: https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/ and https://www.grc.nasa.gov/www/k-12/rocket/astar.html",
+    "foot": ""
+  },
+  {
+    "title": "Worked ideal-nozzle example",
+    "kind": "table",
+    "body": [],
+    "rows": [
+      [
+        "Input",
+        "Computed reference"
+      ],
+      [
+        "p0 = 1 MPa, T0 = 900 K",
+        "Me = {{WORK_MACH}}, Te = {{WORK_TE}} K"
+      ],
+      [
+        "At = 0.001 m^2, Ae/At = 1.6875",
+        "Ve = {{WORK_VE}} m/s"
+      ],
+      [
+        "gamma = 1.4, R = 287 J/(kg K)",
+        "pe = {{WORK_PE}} kPa, mdot = {{WORK_MDOT}} kg/s"
+      ],
+      [
+        "pa = 100 kPa",
+        "Total thrust = {{WORK_F}} N"
+      ]
+    ],
+    "notes": "All values on this slide are generated from the local reference job. They are theoretical ideal-flow results, separate from model inference and engine measurements. Show the saved worked-example.json. NASA Glenn: https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/ and https://www.grc.nasa.gov/www/k-12/rocket/astar.html",
+    "foot": "The pressure contribution is included in total thrust."
+  },
+  {
+    "title": "Reference verification",
+    "kind": "body",
+    "body": [
+      "35 supersonic area-Mach roots: bisection cross-checked with SciPy brentq.",
+      "Analytic identity: gamma = 1.4 and Me = 2 give Ae/At = 1.6875.",
+      "Mass continuity and an independent energy relation provide further checks.",
+      "Current local tests: {{TEST_COUNT}} passed. Reference checks: {{REFERENCE_STATUS}}."
+    ],
+    "rows": [],
+    "notes": "A root cross-check shares the stated area relation and tests numerical solving. The analytic identity, energy relation and continuity add separate consistency constraints. They establish ideal implementation consistency, not real-engine fidelity. Tests are the current recorded laptop run, not a stale readiness count.",
+    "foot": ""
+  },
+  {
+    "title": "Controlled answering experiment",
+    "kind": "table",
+    "body": [],
+    "rows": [
+      [
+        "Element",
+        "Frozen choice"
+      ],
+      [
+        "Model",
+        "Qwen3.5-4B Q4_K_M, llama.cpp CPU"
+      ],
+      [
+        "Condition A",
+        "Same question, no supplied passages"
+      ],
+      [
+        "Condition B",
+        "Same question, BM25 top three passages"
+      ],
+      [
+        "Evaluation",
+        "Independent reference after saving the response"
+      ]
+    ],
+    "notes": "The answering prompt never receives gold values, reference metadata or issue labels for its particular case. Both conditions see the same allowed issue-code vocabulary. Full payloads, raw responses and retrieved passage IDs persist. BM25S source: https://github.com/xhluca/bm25s",
+    "foot": "Same quantization, generation settings and matched seeds in both conditions."
+  },
+  {
+    "title": "Frozen benchmark",
+    "kind": "table",
+    "body": [],
+    "rows": [
+      [
+        "Family",
+        "Evaluation purpose",
+        "Evaluation cases"
+      ],
+      [
+        "Choked mass flow",
+        "Stagnation inputs and sonic throat",
+        "6"
+      ],
+      [
+        "Thrust",
+        "Momentum and pressure terms",
+        "6"
+      ],
+      [
+        "Exit speed",
+        "Supersonic area-Mach branch",
+        "6"
+      ],
+      [
+        "Mixed units",
+        "Conversions before calculation",
+        "6"
+      ],
+      [
+        "Applicability / missing inputs",
+        "Correct abstention in two families",
+        "12"
+      ]
+    ],
+    "notes": "48 original template-generated cases contain 12 development and 36 evaluation cases. Full mode uses 36 x 2 x 3 = 216 responses. Seeds are 17, 43 and 89, preserving the committed CPU profile. The 12-response presentation profile is an optional pilot. Templates and repeated seeds are correlated. Human question review remains pending.",
+    "foot": "This run: {{PROFILE}}. {{CASE_COUNT}} evaluation cases, {{SEED_COUNT}} seed(s), {{SCHEDULED}} requests."
+  },
+  {
+    "title": "Evaluation criteria",
+    "kind": "table",
+    "body": [],
+    "rows": [
+      [
+        "Criterion",
+        "Frozen rule"
+      ],
+      [
+        "Combined correctness",
+        "Valid JSON, correct decision and issue, correct converted value"
+      ],
+      [
+        "Numerical tolerance",
+        "max(atol, 1% of absolute reference)"
+      ],
+      [
+        "Units",
+        "Pint dimension check and conversion to reference SI unit"
+      ],
+      [
+        "Evidence audit",
+        "Retrieved reference recall and cited-ID precision"
+      ],
+      [
+        "Failure handling",
+        "Wrong / malformed answers remain incorrect"
+      ]
+    ],
+    "notes": "Strict seven-field JSON is part of the measured interface. Numerical cases require the issue none, compatible units and a finite number. Abstention cases require the correct decision and issue. Citation scores are separate from primary correctness. ID matching does not prove claim support. Unavailable requests make the run partial.",
+    "foot": ""
+  },
+  {
+    "title": "Reproducible execution",
+    "kind": "body",
+    "body": [
+      "The frozen source and benchmark checkpoint precedes model inference.",
+      "Bounded nonroot Docker jobs use a private internal network and expose no host API port.",
+      "Raw requests, answers, scores and plots persist in resutls/. Operational records persist in logs/.",
+      "Interrupted compatible runs resume. Every saved checkpoint triggers a normal Git push attempt."
+    ],
+    "rows": [],
+    "notes": "The cache retains the model and images, while only this invocation's project containers and network are removed. A Git publication failure is separate from local scientific completion. The manifest records model, source and dependency identities.",
+    "foot": ""
+  },
+  {
+    "title": "Measured overall reliability",
+    "kind": "table",
+    "body": [],
+    "rows": [
+      [
+        "Metric",
+        "LLM only",
+        "BM25 RAG"
+      ],
+      [
+        "Correct / scheduled",
+        "{{BASE_CORRECT}} / {{PER_CONDITION}}",
+        "{{RAG_CORRECT}} / {{PER_CONDITION}}"
+      ],
+      [
+        "Combined accuracy",
+        "{{BASE_ACCURACY}}%",
+        "{{RAG_ACCURACY}}%"
+      ],
+      [
+        "Schema-valid responses",
+        "{{BASE_SCHEMA}}",
+        "{{RAG_SCHEMA}}"
+      ],
+      [
+        "Median request wall time",
+        "{{BASE_LATENCY}} s",
+        "{{RAG_LATENCY}} s"
+      ]
+    ],
+    "notes": "Actual run {{RUN_ID}}. Status {{STATUS}}. RAG minus baseline = {{DELTA}} percentage points. Request wall time includes request processing and response generation, not model loading, test or rendering time. Repeated seeds are correlated. The complete HTML report retains all answers.",
+    "foot": "{{COMPLETED}} / {{SCHEDULED}} recorded responses. RAG difference: {{DELTA}} percentage points."
+  },
+  {
+    "title": "Measured accuracy by question family",
+    "kind": "chart",
+    "body": [],
+    "rows": [],
+    "notes": "The native chart contains percentages calculated from the actual run, with all scheduled requests in each denominator. In a complete full run each family-condition cell has 18 responses. No confidence interval or significance claim is made because templates and repeated seeds are correlated.",
+    "foot": "Correct / scheduled responses (%). Family counts remain visible in the saved report."
+  },
+  {
+    "title": "Paired outcomes and failure audit",
+    "kind": "table",
+    "body": [],
+    "rows": [
+      [
+        "Paired outcome / error",
+        "Count"
+      ],
+      [
+        "Both conditions correct",
+        "{{BOTH_CORRECT}}"
+      ],
+      [
+        "RAG alone correct / baseline alone correct",
+        "{{RAG_ONLY}} / {{BASE_ONLY}}"
+      ],
+      [
+        "Both conditions incorrect",
+        "{{BOTH_WRONG}}"
+      ],
+      [
+        "Schema failures, baseline / RAG",
+        "{{BASE_SCHEMA_FAIL}} / {{RAG_SCHEMA_FAIL}}"
+      ],
+      [
+        "Numerical or unit failures, baseline / RAG",
+        "{{BASE_CALC_FAIL}} / {{RAG_CALC_FAIL}}"
+      ]
+    ],
+    "notes": "Paired outcomes match the same case and seed. Error categories are mutually exclusive first-failure labels in the frozen evaluator. Do not infer that every numerical failure has the same cause. The raw response and separate unit fields support further review.",
+    "foot": ""
+  },
+  {
+    "title": "One recorded paired example",
+    "kind": "example",
+    "body": [
+      "{{EXAMPLE_QUESTION}}",
+      "Independent target: {{EXAMPLE_REFERENCE}}",
+      "LLM only: {{EXAMPLE_BASE}}",
+      "BM25 RAG: {{EXAMPLE_RAG}}"
+    ],
+    "rows": [],
+    "notes": "Selection is deterministic: choose the first numerical evaluation case where the conditions differ or either fails, otherwise the first numerical case. It is an explanatory example, not an unbiased estimate. The excerpt shortens long responses. Full raw text and prompts are in the HTML report. Case {{EXAMPLE_ID}}. Do not invent a failure if both conditions are correct.",
+    "foot": "{{EXAMPLE_ID}}. Short excerpts. Full question and raw responses are retained."
+  },
+  {
+    "title": "Expected and observed outcomes",
+    "kind": "table",
+    "body": [],
+    "rows": [
+      [
+        "Before measurement",
+        "After this run"
+      ],
+      [
+        "Retrieval may improve equation access",
+        "{{OBSERVED_RESULT}}"
+      ],
+      [
+        "Arithmetic or applicability errors may remain",
+        "{{OBSERVED_ERRORS}}"
+      ],
+      [
+        "Zero or negative RAG benefit is plausible",
+        "No minimum accuracy gain was promised"
+      ],
+      [
+        "Planned full coverage: 216 responses",
+        "Recorded coverage: {{COMPLETED}} / {{SCHEDULED}}"
+      ]
+    ],
+    "notes": "The professor guidelines require expected results to be distinguished from demonstrated results. Quantitative expectations concern planned coverage, while accuracy is measured. A descriptive RAG benefit in this benchmark does not establish that retrieval causes broader engineering improvements.",
+    "foot": ""
+  },
+  {
+    "title": "Potential impact and limitations",
+    "kind": "body",
+    "body": [
+      "The result is an inspectable audit connecting a local LLM to explicit nozzle physics.",
+      "It separates formatting, numerical, dimensional and applicability failures.",
+      "Limits: one model, correlated original templates, a short corpus and an ideal physical domain.",
+      "Next work: expert review and a controlled test of a calculator or input validator."
+    ],
+    "rows": [],
+    "notes": "Human review of physical explanations and citation support is pending. Future tools or models are proposals, not measured remedies in this implementation. The project is useful for teaching and early research, not operational engine design.",
+    "foot": ""
+  },
+  {
+    "title": "Demonstration and reproduction",
+    "kind": "body",
+    "body": [
+      "Show the saved Git checkpoints and docs/final/FINAL_MANIFEST.json.",
+      "Explain worked-example.json and its ideal-flow assumptions.",
+      "Open study-report.html and compare the paired raw answers.",
+      "Use scripts/complete_project.py publish to retry a pending Git push."
+    ],
+    "rows": [],
+    "notes": "The saved evidence package includes the actual responses and plots. Do not rerun a long inference experiment during the talk. The command all resumes a compatible full study. The presentation profile is a separately identified small pilot. No manual approval is needed between implementation steps.",
+    "foot": ""
+  },
+  {
+    "title": "Appendix: full protocol",
+    "kind": "table",
+    "body": [],
+    "rows": [
+      [
+        "Protocol item",
+        "Recorded setting"
+      ],
+      [
+        "Evaluation schedule",
+        "36 cases x 2 conditions x 3 seeds = 216"
+      ],
+      [
+        "Seeds and generation",
+        "17, 43, 89. Temperature 0.7, top-p 0.8, top-k 20"
+      ],
+      [
+        "Output / context budget",
+        "768 output tokens, 4096 context, one request at a time"
+      ],
+      [
+        "Retrieval",
+        "Lucene BM25, k1=1.2, b=0.75, top-k=3"
+      ],
+      [
+        "Human review",
+        "Physical reasoning and claim support pending"
+      ]
+    ],
+    "notes": "Presence penalty is 1.5. Thinking is disabled with the selected chat template. CPU threads are 6. Service memory cap 8 GiB, worker cap 2 GiB. These are limits, not measured peak use. The full protocol JSON records all settings and a source fingerprint. No incorrect observed answer is selectively retried.",
+    "foot": ""
+  },
+  {
+    "title": "Appendix: area-Mach derivation",
+    "kind": "body",
+    "body": [
+      "Ae/At = (1/Me) [(2/(gamma+1))\n(1+(gamma-1)Me^2/2)]^[(gamma+1)/(2(gamma-1))]",
+      "At gamma = 1.4 and Me = 2:\nAe/At = (1/2) (1.5)^3 = 1.6875",
+      "Te/T0 = 1/1.8 = 5/9"
+    ],
+    "rows": [],
+    "notes": "NASA Glenn: https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/ and https://www.grc.nasa.gov/www/k-12/rocket/astar.html Two branches exist when area ratio exceeds 1. The numerical benchmark explicitly requests a shock-free supersonic exit.",
+    "foot": ""
+  },
+  {
+    "title": "References: related research",
+    "kind": "body",
+    "body": [
+      "[1] Yang et al., 2026. Combustion knowledge injection and evaluation\narxiv.org/abs/2603.04452",
+      "[2] Duzkar, 2026. ThermoQA\narxiv.org/abs/2604.19758",
+      "[3] Fan et al., 2026. PhyNiKCE\narxiv.org/abs/2602.11666",
+      "[4] Fan et al., 2025 / 2026 revision. ChatCFD\narxiv.org/abs/2506.02019"
+    ],
+    "rows": [],
+    "notes": "Full titles and clickable URLs are in the term paper. Primary source records rechecked 5 November 2026. Research metrics from these papers are not used as this project's results.",
+    "foot": ""
+  },
+  {
+    "title": "References: physics and implementation",
+    "kind": "body",
+    "body": [
+      "[5] NASA Glenn. Thrust Equations Summary\nwww1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/",
+      "[6] NASA Glenn. Compressible Area Ratio\nwww.grc.nasa.gov/www/k-12/rocket/astar.html",
+      "[7] BM25S implementation\ngithub.com/xhluca/bm25s",
+      "[8] NIST. Guide for the Use of SI, SP 811\nwww.nist.gov/pml/special-publication-811"
+    ],
+    "rows": [],
+    "notes": "The nine required content points follow the supplied Rocket Propulsion final-presentation guidelines, preserved with the source material. Full source and measurement identities are in the final manifest.",
+    "foot": ""
+  }
+]

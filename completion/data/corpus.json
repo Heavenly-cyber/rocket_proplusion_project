@@ -1,0 +1,42 @@
+[
+  {
+    "id": "N01",
+    "source": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/",
+    "text": "Axial nozzle thrust F = mdot*Ve + (pe-pa)*Ae. mdot is mass flow in kg/s, Ve exit velocity in m/s, pe exit static pressure and pa ambient pressure in Pa, Ae exit area in m^2. Both terms have units N. Pressure thrust can be positive, zero, or negative. Do not omit it merely because exhaust velocity is given."
+  },
+  {
+    "id": "N02",
+    "source": "https://www.grc.nasa.gov/www/k-12/airplane/mflchk.html",
+    "text": "For steady one-dimensional calorically perfect ideal gas with a choked sonic throat, mdot = p0*At/sqrt(T0)*sqrt(gamma/R)*(2/(gamma+1))^((gamma+1)/(2*(gamma-1))). p0 and T0 are stagnation conditions in Pa and K, At is throat area in m^2, R is specific gas constant in J/(kg*K), gamma>1. This choked formula requires throat Mach number 1."
+  },
+  {
+    "id": "N03",
+    "source": "https://www.grc.nasa.gov/www/k-12/rocket/astar.html",
+    "text": "The ideal isentropic area-Mach relation is Ae/At = (1/Me)*[(2/(gamma+1))*(1+(gamma-1)*Me^2/2)]^((gamma+1)/(2*(gamma-1))). Ratios greater than 1 have subsonic and supersonic roots. A stated shock-free supersonic nozzle requires Me>1. At the sonic throat the ratio is 1."
+  },
+  {
+    "id": "N04",
+    "source": "https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html",
+    "text": "For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first."
+  },
+  {
+    "id": "N05",
+    "source": "https://www.nist.gov/pml/special-publication-811",
+    "text": "Use coherent SI units in products: 1 kPa=1000 Pa, 1 MPa=1000000 Pa, 1 cm^2=0.0001 m^2, 1 g/s=0.001 kg/s, 1 km/s=1000 m/s, 1 kN=1000 N. Convert area as a squared length. A numerical answer needs a dimensionally compatible unit."
+  },
+  {
+    "id": "N06",
+    "source": "https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html",
+    "text": "A single shock-free constant-gamma isentropic model has a restricted domain. An internal normal shock breaks isentropic evolution across the whole nozzle. Strongly changing specific heats invalidate a single constant gamma. A subsonic unchoked throat invalidates the sonic-throat choked mass-flow formula. A request that insists on these incompatible assumptions requires abstention with the specific issue. This is an applicability rubric for this benchmark, not a general prohibition on solving such flows with richer models."
+  },
+  {
+    "id": "N07",
+    "source": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/",
+    "text": "Missing required inputs prevent a unique numerical answer. Supplied-state thrust needs mdot, Ve, pe, pa and Ae unless a term is explicitly specified as zero. Choked mass flow needs p0, T0, At, gamma and R. Exit speed from area ratio needs T0, gamma, R and the stated branch. Do not assume standard air properties or atmospheric pressure when the question forbids assumptions."
+  },
+  {
+    "id": "N08",
+    "source": "https://www.grc.nasa.gov/www/k-12/rocket/astar.html",
+    "text": "Mass continuity requires mdot=rho_e*Ve*Ae with rho_e=pe/(R*Te). The ideal formula ignores viscous loss, heat transfer, multidimensional effects, separation, variable chemistry and combustion dynamics. An ideal reference can test computational consistency without validating a real rocket engine."
+  }
+]

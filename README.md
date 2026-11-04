@@ -1,3 +1,19 @@
+<!-- ROCKET_FINAL_WORKFLOW -->
+# Complete measured project
+
+Run `python3 -B scripts/complete_project.py all` to finish the full 216-response
+local-LLM study, resume saved inference, run current container checks, generate
+the measured final presentation and save/push each checkpoint. Use `status`
+for saved evidence and `publish` to retry Git publication without inference.
+
+The project end result is **Local LLM Reliability for Ideal Rocket Nozzles**.
+The full protocol, deliverables and limitations are in
+[docs/final/PROTOCOL.md](docs/final/PROTOCOL.md). Final outputs appear in
+`docs/final/`, with raw local runs in `resutls/` and logs in `logs/`.
+The old Stage 03 launcher below guards its historical checkpoint only.
+
+---
+
 # RocketNozzle-LLM
 
 Rocket Propulsion term-paper project: measure local LLM reliability on rocket-nozzle numbers, units, evidence, and model applicability. The selected topic is **ML-Based Rocket Nozzle Performance Prediction**, adapted into a reproducible LLM-only versus BM25-RAG study.

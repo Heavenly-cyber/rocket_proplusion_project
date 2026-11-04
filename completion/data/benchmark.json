@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "mass_flow-01",
+    "family": "mass_flow",
+    "split": "development",
+    "question": "A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=600000 Pa, T0=700 K, throat area At=0.0003 m^2, gamma=1.2, specific R=280 J/(kg*K). Calculate mass flow in kg/s.",
+    "reference": {
+      "kind": "mass_flow",
+      "inputs": {
+        "p0": 600000.0,
+        "T0": 700,
+        "At": 0.00030000000000000003,
+        "gamma": 1.2,
+        "R": 280
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N02"
+      ]
+    }
+  },
+  {
+    "id": "thrust-01",
+    "family": "thrust",
+    "split": "development",
+    "question": "For the supplied ideal nozzle exit state, mdot=1 kg/s, Ve=900 m/s, pe=80000 Pa, ambient pa=100000 Pa and Ae=0.002 m^2. Calculate axial thrust in N including momentum and pressure contributions.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 1.0,
+        "Ve": 900,
+        "pe": 80000,
+        "pa": 100000,
+        "Ae": 0.002
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01"
+      ]
+    }
+  },
+  {
+    "id": "exit_velocity-01",
+    "family": "exit_velocity",
+    "split": "development",
+    "question": "A steady, shock-free, calorically perfect ideal nozzle has a sonic throat and a supersonic exit. Ae/At=1.4, chamber stagnation T0=800 K, gamma=1.4, specific R=300 J/(kg*K). Calculate exit speed in m/s using the supersonic area-Mach branch.",
+    "reference": {
+      "kind": "velocity",
+      "inputs": {
+        "p0": 1000000.0,
+        "T0": 800,
+        "At": 0.001,
+        "gamma": 1.4,
+        "R": 300,
+        "epsilon": 1.4,
+        "pa": 0
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N03",
+        "N04"
+      ]
+    }
+  },
+  {
+    "id": "mixed_units-01",
+    "family": "mixed_units",
+    "split": "development",
+    "question": "A nozzle exit state is supplied: mdot=850 g/s, Ve=1.1 km/s, exit static pressure pe=160 kPa, ambient pressure pa=0.08 MPa and Ae=18 cm^2. Calculate total axial thrust in N including pressure thrust. Convert every unit consistently.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 0.85,
+        "Ve": 1100.0,
+        "pe": 160000,
+        "pa": 80000.0,
+        "Ae": 0.0018000000000000002
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01",
+        "N05"
+      ]
+    }
+  },
+  {
+    "id": "applicability-01",
+    "family": "applicability",
+    "split": "development",
+    "question": "An internal normal shock is explicitly present in the divergent nozzle. Given p0=0.8 MPa, T0=900 K, At=0.001 m^2, Ae/At=3, nominal gamma=1.4 and R=287 J/(kg*K). Calculate exit speed by applying one shock-free isentropic area-Mach relation from reservoir to exit. If the specified reference model is inapplicable, abstain and identify the relevant issue.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "internal_shock",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N06"
+      ]
+    }
+  },
+  {
+    "id": "missing_inputs-01",
+    "family": "missing_inputs",
+    "split": "development",
+    "question": "A sonic-throat ideal-gas nozzle has p0=1 MPa, T0=1000 K, gamma=1.4 and R=287 J/(kg*K). The throat area is not supplied. Calculate mass flow in kg/s. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "missing_inputs",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N07",
+        "N02"
+      ]
+    }
+  },
+  {
+    "id": "mass_flow-02",
+    "family": "mass_flow",
+    "split": "development",
+    "question": "A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=800000 Pa, T0=800 K, throat area At=0.0004 m^2, gamma=1.3, specific R=300 J/(kg*K). Calculate mass flow in kg/s.",
+    "reference": {
+      "kind": "mass_flow",
+      "inputs": {
+        "p0": 800000.0,
+        "T0": 800,
+        "At": 0.0004,
+        "gamma": 1.3,
+        "R": 300
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N02"
+      ]
+    }
+  },
+  {
+    "id": "thrust-02",
+    "family": "thrust",
+    "split": "development",
+    "question": "For the supplied ideal nozzle exit state, mdot=1.25 kg/s, Ve=1000 m/s, pe=100000 Pa, ambient pa=60000 Pa and Ae=0.0025 m^2. Calculate axial thrust in N including momentum and pressure contributions.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 1.25,
+        "Ve": 1000,
+        "pe": 100000,
+        "pa": 60000,
+        "Ae": 0.0025
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01"
+      ]
+    }
+  },
+  {
+    "id": "exit_velocity-02",
+    "family": "exit_velocity",
+    "split": "development",
+    "question": "A steady, shock-free, calorically perfect ideal nozzle has a sonic throat and a supersonic exit. Ae/At=1.6, chamber stagnation T0=950 K, gamma=1.3, specific R=310 J/(kg*K). Calculate exit speed in m/s using the supersonic area-Mach branch.",
+    "reference": {
+      "kind": "velocity",
+      "inputs": {
+        "p0": 1000000.0,
+        "T0": 950,
+        "At": 0.001,
+        "gamma": 1.3,
+        "R": 310,
+        "epsilon": 1.6,
+        "pa": 0
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N03",
+        "N04"
+      ]
+    }
+  },
+  {
+    "id": "mixed_units-02",
+    "family": "mixed_units",
+    "split": "development",
+    "question": "A nozzle exit state is supplied: mdot=975 g/s, Ve=1.22 km/s, exit static pressure pe=175 kPa, ambient pressure pa=0.1 MPa and Ae=22 cm^2. Calculate total axial thrust in N including pressure thrust. Convert every unit consistently.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 0.975,
+        "Ve": 1220.0000000000002,
+        "pe": 175000,
+        "pa": 100000.0,
+        "Ae": 0.0022
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01",
+        "N05"
+      ]
+    }
+  },
+  {
+    "id": "applicability-02",
+    "family": "applicability",
+    "split": "development",
+    "question": "Measured specific heats vary strongly along the nozzle and no caloric or thermochemical model is supplied. Given p0=0.9 MPa, T0=950 K, At=0.001 m^2, Ae/At=3, nominal gamma=1.4 and R=287 J/(kg*K). Calculate an exact exit speed using one constant-gamma calorically perfect gas model. If the specified reference model is inapplicable, abstain and identify the relevant issue.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "variable_gamma",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N06"
+      ]
+    }
+  },
+  {
+    "id": "missing_inputs-02",
+    "family": "missing_inputs",
+    "split": "development",
+    "question": "A choked ideal nozzle has p0=1.2 MPa, At=0.0005 m^2, gamma=1.3 and R=300 J/(kg*K). Chamber stagnation temperature is not supplied. Calculate mass flow. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "missing_inputs",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N07",
+        "N02"
+      ]
+    }
+  },
+  {
+    "id": "mass_flow-03",
+    "family": "mass_flow",
+    "split": "evaluation",
+    "question": "A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=1e+06 Pa, T0=900 K, throat area At=0.0005 m^2, gamma=1.4, specific R=320 J/(kg*K). Calculate mass flow in kg/s.",
+    "reference": {
+      "kind": "mass_flow",
+      "inputs": {
+        "p0": 1000000.0,
+        "T0": 900,
+        "At": 0.0005,
+        "gamma": 1.4,
+        "R": 320
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N02"
+      ]
+    }
+  },
+  {
+    "id": "thrust-03",
+    "family": "thrust",
+    "split": "evaluation",
+    "question": "For the supplied ideal nozzle exit state, mdot=1.5 kg/s, Ve=1100 m/s, pe=120000 Pa, ambient pa=100000 Pa and Ae=0.003 m^2. Calculate axial thrust in N including momentum and pressure contributions.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 1.5,
+        "Ve": 1100,
+        "pe": 120000,
+        "pa": 100000,
+        "Ae": 0.003
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01"
+      ]
+    }
+  },
+  {
+    "id": "exit_velocity-03",
+    "family": "exit_velocity",
+    "split": "evaluation",
+    "question": "A steady, shock-free, calorically perfect ideal nozzle has a sonic throat and a supersonic exit. Ae/At=1.8, chamber stagnation T0=1100 K, gamma=1.2, specific R=320 J/(kg*K). Calculate exit speed in m/s using the supersonic area-Mach branch.",
+    "reference": {
+      "kind": "velocity",
+      "inputs": {
+        "p0": 1000000.0,
+        "T0": 1100,
+        "At": 0.001,
+        "gamma": 1.2,
+        "R": 320,
+        "epsilon": 1.8,
+        "pa": 0
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N03",
+        "N04"
+      ]
+    }
+  },
+  {
+    "id": "mixed_units-03",
+    "family": "mixed_units",
+    "split": "evaluation",
+    "question": "A nozzle exit state is supplied: mdot=1100 g/s, Ve=1.34 km/s, exit static pressure pe=190 kPa, ambient pressure pa=0.08 MPa and Ae=26 cm^2. Calculate total axial thrust in N including pressure thrust. Convert every unit consistently.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 1.1,
+        "Ve": 1340.0,
+        "pe": 190000,
+        "pa": 80000.0,
+        "Ae": 0.0026000000000000003
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01",
+        "N05"
+      ]
+    }
+  },
+  {
+    "id": "applicability-03",
+    "family": "applicability",
+    "split": "evaluation",
+    "question": "The throat Mach number is prescribed as 0.6 and the flow is explicitly unchoked. Given p0=1 MPa, T0=1000 K, At=0.001 m^2, Ae/At=3, nominal gamma=1.4 and R=287 J/(kg*K). Calculate mass flow with the sonic-throat choked mass-flow formula. If the specified reference model is inapplicable, abstain and identify the relevant issue.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "unchoked",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N06"
+      ]
+    }
+  },
+  {
+    "id": "missing_inputs-03",
+    "family": "missing_inputs",
+    "split": "evaluation",
+    "question": "A supplied nozzle exit state has mdot=2 kg/s, Ve=1200 m/s, pe=150 kPa and Ae=0.004 m^2. Ambient pressure is not supplied. Calculate total thrust including pressure thrust. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "missing_inputs",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N07",
+        "N01"
+      ]
+    }
+  },
+  {
+    "id": "mass_flow-04",
+    "family": "mass_flow",
+    "split": "evaluation",
+    "question": "A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=1.2e+06 Pa, T0=1000 K, throat area At=0.0006 m^2, gamma=1.25, specific R=340 J/(kg*K). Calculate mass flow in kg/s.",
+    "reference": {
+      "kind": "mass_flow",
+      "inputs": {
+        "p0": 1200000.0000000002,
+        "T0": 1000,
+        "At": 0.0006000000000000001,
+        "gamma": 1.25,
+        "R": 340
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N02"
+      ]
+    }
+  },
+  {
+    "id": "thrust-04",
+    "family": "thrust",
+    "split": "evaluation",
+    "question": "For the supplied ideal nozzle exit state, mdot=1.75 kg/s, Ve=1200 m/s, pe=140000 Pa, ambient pa=60000 Pa and Ae=0.0035 m^2. Calculate axial thrust in N including momentum and pressure contributions.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 1.75,
+        "Ve": 1200,
+        "pe": 140000,
+        "pa": 60000,
+        "Ae": 0.0035
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01"
+      ]
+    }
+  },
+  {
+    "id": "exit_velocity-04",
+    "family": "exit_velocity",
+    "split": "evaluation",
+    "question": "A steady, shock-free, calorically perfect ideal nozzle has a sonic throat and a supersonic exit. Ae/At=2.2, chamber stagnation T0=1250 K, gamma=1.4, specific R=330 J/(kg*K). Calculate exit speed in m/s using the supersonic area-Mach branch.",
+    "reference": {
+      "kind": "velocity",
+      "inputs": {
+        "p0": 1000000.0,
+        "T0": 1250,
+        "At": 0.001,
+        "gamma": 1.4,
+        "R": 330,
+        "epsilon": 2.2,
+        "pa": 0
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N03",
+        "N04"
+      ]
+    }
+  },
+  {
+    "id": "mixed_units-04",
+    "family": "mixed_units",
+    "split": "evaluation",
+    "question": "A nozzle exit state is supplied: mdot=1225 g/s, Ve=1.46 km/s, exit static pressure pe=205 kPa, ambient pressure pa=0.1 MPa and Ae=30 cm^2. Calculate total axial thrust in N including pressure thrust. Convert every unit consistently.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 1.225,
+        "Ve": 1460.0,
+        "pe": 205000,
+        "pa": 100000.0,
+        "Ae": 0.003
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01",
+        "N05"
+      ]
+    }
+  },
+  {
+    "id": "applicability-04",
+    "family": "applicability",
+    "split": "evaluation",
+    "question": "An internal normal shock is explicitly present in the divergent nozzle. Given p0=1.1 MPa, T0=1050 K, At=0.001 m^2, Ae/At=3, nominal gamma=1.4 and R=287 J/(kg*K). Calculate exit speed by applying one shock-free isentropic area-Mach relation from reservoir to exit. If the specified reference model is inapplicable, abstain and identify the relevant issue.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "internal_shock",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N06"
+      ]
+    }
+  },
+  {
+    "id": "missing_inputs-04",
+    "family": "missing_inputs",
+    "split": "evaluation",
+    "question": "A supplied nozzle exit state has mdot=1.5 kg/s, Ve=1300 m/s, pe=180 kPa and pa=100 kPa. Exit area is not supplied. Calculate total thrust including pressure thrust. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "missing_inputs",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N07",
+        "N01"
+      ]
+    }
+  },
+  {
+    "id": "mass_flow-05",
+    "family": "mass_flow",
+    "split": "evaluation",
+    "question": "A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=1.4e+06 Pa, T0=1100 K, throat area At=0.0007 m^2, gamma=1.35, specific R=360 J/(kg*K). Calculate mass flow in kg/s.",
+    "reference": {
+      "kind": "mass_flow",
+      "inputs": {
+        "p0": 1400000.0,
+        "T0": 1100,
+        "At": 0.0007,
+        "gamma": 1.35,
+        "R": 360
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N02"
+      ]
+    }
+  },
+  {
+    "id": "thrust-05",
+    "family": "thrust",
+    "split": "evaluation",
+    "question": "For the supplied ideal nozzle exit state, mdot=2 kg/s, Ve=1300 m/s, pe=160000 Pa, ambient pa=100000 Pa and Ae=0.004 m^2. Calculate axial thrust in N including momentum and pressure contributions.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 2.0,
+        "Ve": 1300,
+        "pe": 160000,
+        "pa": 100000,
+        "Ae": 0.004
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01"
+      ]
+    }
+  },
+  {
+    "id": "exit_velocity-05",
+    "family": "exit_velocity",
+    "split": "evaluation",
+    "question": "A steady, shock-free, calorically perfect ideal nozzle has a sonic throat and a supersonic exit. Ae/At=3, chamber stagnation T0=1400 K, gamma=1.25, specific R=340 J/(kg*K). Calculate exit speed in m/s using the supersonic area-Mach branch.",
+    "reference": {
+      "kind": "velocity",
+      "inputs": {
+        "p0": 1000000.0,
+        "T0": 1400,
+        "At": 0.001,
+        "gamma": 1.25,
+        "R": 340,
+        "epsilon": 3,
+        "pa": 0
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N03",
+        "N04"
+      ]
+    }
+  },
+  {
+    "id": "mixed_units-05",
+    "family": "mixed_units",
+    "split": "evaluation",
+    "question": "A nozzle exit state is supplied: mdot=1350 g/s, Ve=1.58 km/s, exit static pressure pe=220 kPa, ambient pressure pa=0.08 MPa and Ae=34 cm^2. Calculate total axial thrust in N including pressure thrust. Convert every unit consistently.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 1.35,
+        "Ve": 1580.0,
+        "pe": 220000,
+        "pa": 80000.0,
+        "Ae": 0.0034000000000000002
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01",
+        "N05"
+      ]
+    }
+  },
+  {
+    "id": "applicability-05",
+    "family": "applicability",
+    "split": "evaluation",
+    "question": "Measured specific heats vary strongly along the nozzle and no caloric or thermochemical model is supplied. Given p0=1.2 MPa, T0=1100 K, At=0.001 m^2, Ae/At=3, nominal gamma=1.4 and R=287 J/(kg*K). Calculate an exact exit speed using one constant-gamma calorically perfect gas model. If the specified reference model is inapplicable, abstain and identify the relevant issue.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "variable_gamma",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N06"
+      ]
+    }
+  },
+  {
+    "id": "missing_inputs-05",
+    "family": "missing_inputs",
+    "split": "evaluation",
+    "question": "An ideal supersonic shock-free nozzle has Ae/At=3, T0=1200 K and gamma=1.3. The specific gas constant and gas composition are not supplied. Calculate exit speed. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "missing_inputs",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N07",
+        "N04"
+      ]
+    }
+  },
+  {
+    "id": "mass_flow-06",
+    "family": "mass_flow",
+    "split": "evaluation",
+    "question": "A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=1.6e+06 Pa, T0=1200 K, throat area At=0.0008 m^2, gamma=1.4, specific R=380 J/(kg*K). Calculate mass flow in kg/s.",
+    "reference": {
+      "kind": "mass_flow",
+      "inputs": {
+        "p0": 1600000.0,
+        "T0": 1200,
+        "At": 0.0008,
+        "gamma": 1.4,
+        "R": 380
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N02"
+      ]
+    }
+  },
+  {
+    "id": "thrust-06",
+    "family": "thrust",
+    "split": "evaluation",
+    "question": "For the supplied ideal nozzle exit state, mdot=2.25 kg/s, Ve=1400 m/s, pe=180000 Pa, ambient pa=60000 Pa and Ae=0.0045 m^2. Calculate axial thrust in N including momentum and pressure contributions.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 2.25,
+        "Ve": 1400,
+        "pe": 180000,
+        "pa": 60000,
+        "Ae": 0.0045000000000000005
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01"
+      ]
+    }
+  },
+  {
+    "id": "exit_velocity-06",
+    "family": "exit_velocity",
+    "split": "evaluation",
+    "question": "A steady, shock-free, calorically perfect ideal nozzle has a sonic throat and a supersonic exit. Ae/At=4, chamber stagnation T0=1550 K, gamma=1.3, specific R=350 J/(kg*K). Calculate exit speed in m/s using the supersonic area-Mach branch.",
+    "reference": {
+      "kind": "velocity",
+      "inputs": {
+        "p0": 1000000.0,
+        "T0": 1550,
+        "At": 0.001,
+        "gamma": 1.3,
+        "R": 350,
+        "epsilon": 4,
+        "pa": 0
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N03",
+        "N04"
+      ]
+    }
+  },
+  {
+    "id": "mixed_units-06",
+    "family": "mixed_units",
+    "split": "evaluation",
+    "question": "A nozzle exit state is supplied: mdot=1475 g/s, Ve=1.7 km/s, exit static pressure pe=235 kPa, ambient pressure pa=0.1 MPa and Ae=38 cm^2. Calculate total axial thrust in N including pressure thrust. Convert every unit consistently.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 1.475,
+        "Ve": 1700.0000000000002,
+        "pe": 235000,
+        "pa": 100000.0,
+        "Ae": 0.0038
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01",
+        "N05"
+      ]
+    }
+  },
+  {
+    "id": "applicability-06",
+    "family": "applicability",
+    "split": "evaluation",
+    "question": "The throat Mach number is prescribed as 0.6 and the flow is explicitly unchoked. Given p0=1.3 MPa, T0=1150 K, At=0.001 m^2, Ae/At=3, nominal gamma=1.4 and R=287 J/(kg*K). Calculate mass flow with the sonic-throat choked mass-flow formula. If the specified reference model is inapplicable, abstain and identify the relevant issue.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "unchoked",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N06"
+      ]
+    }
+  },
+  {
+    "id": "missing_inputs-06",
+    "family": "missing_inputs",
+    "split": "evaluation",
+    "question": "A choked ideal nozzle has p0=900 kPa, T0=800 K, At=0.0008 m^2 and gamma=1.4. The gas constant and composition are not supplied. Calculate mass flow. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "missing_inputs",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N07",
+        "N02"
+      ]
+    }
+  },
+  {
+    "id": "mass_flow-07",
+    "family": "mass_flow",
+    "split": "evaluation",
+    "question": "A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=1.8e+06 Pa, T0=1300 K, throat area At=0.0009 m^2, gamma=1.22, specific R=400 J/(kg*K). Calculate mass flow in kg/s.",
+    "reference": {
+      "kind": "mass_flow",
+      "inputs": {
+        "p0": 1800000.0000000002,
+        "T0": 1300,
+        "At": 0.0009000000000000001,
+        "gamma": 1.22,
+        "R": 400
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N02"
+      ]
+    }
+  },
+  {
+    "id": "thrust-07",
+    "family": "thrust",
+    "split": "evaluation",
+    "question": "For the supplied ideal nozzle exit state, mdot=2.5 kg/s, Ve=1500 m/s, pe=200000 Pa, ambient pa=100000 Pa and Ae=0.005 m^2. Calculate axial thrust in N including momentum and pressure contributions.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 2.5,
+        "Ve": 1500,
+        "pe": 200000,
+        "pa": 100000,
+        "Ae": 0.005
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01"
+      ]
+    }
+  },
+  {
+    "id": "exit_velocity-07",
+    "family": "exit_velocity",
+    "split": "evaluation",
+    "question": "A steady, shock-free, calorically perfect ideal nozzle has a sonic throat and a supersonic exit. Ae/At=6, chamber stagnation T0=1700 K, gamma=1.4, specific R=360 J/(kg*K). Calculate exit speed in m/s using the supersonic area-Mach branch.",
+    "reference": {
+      "kind": "velocity",
+      "inputs": {
+        "p0": 1000000.0,
+        "T0": 1700,
+        "At": 0.001,
+        "gamma": 1.4,
+        "R": 360,
+        "epsilon": 6,
+        "pa": 0
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N03",
+        "N04"
+      ]
+    }
+  },
+  {
+    "id": "mixed_units-07",
+    "family": "mixed_units",
+    "split": "evaluation",
+    "question": "A nozzle exit state is supplied: mdot=1600 g/s, Ve=1.82 km/s, exit static pressure pe=250 kPa, ambient pressure pa=0.08 MPa and Ae=42 cm^2. Calculate total axial thrust in N including pressure thrust. Convert every unit consistently.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 1.6,
+        "Ve": 1820.0,
+        "pe": 250000,
+        "pa": 80000.0,
+        "Ae": 0.004200000000000001
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01",
+        "N05"
+      ]
+    }
+  },
+  {
+    "id": "applicability-07",
+    "family": "applicability",
+    "split": "evaluation",
+    "question": "An internal normal shock is explicitly present in the divergent nozzle. Given p0=1.4 MPa, T0=1200 K, At=0.001 m^2, Ae/At=3, nominal gamma=1.4 and R=287 J/(kg*K). Calculate exit speed by applying one shock-free isentropic area-Mach relation from reservoir to exit. If the specified reference model is inapplicable, abstain and identify the relevant issue.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "internal_shock",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N06"
+      ]
+    }
+  },
+  {
+    "id": "missing_inputs-07",
+    "family": "missing_inputs",
+    "split": "evaluation",
+    "question": "A supplied exit state has Ve=1500 m/s, pe=170 kPa, pa=100 kPa and Ae=0.005 m^2. Mass flow is not supplied. Calculate total thrust. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "missing_inputs",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N07",
+        "N01"
+      ]
+    }
+  },
+  {
+    "id": "mass_flow-08",
+    "family": "mass_flow",
+    "split": "evaluation",
+    "question": "A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=2e+06 Pa, T0=1400 K, throat area At=0.001 m^2, gamma=1.3, specific R=420 J/(kg*K). Calculate mass flow in kg/s.",
+    "reference": {
+      "kind": "mass_flow",
+      "inputs": {
+        "p0": 2000000.0,
+        "T0": 1400,
+        "At": 0.001,
+        "gamma": 1.3,
+        "R": 420
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N02"
+      ]
+    }
+  },
+  {
+    "id": "thrust-08",
+    "family": "thrust",
+    "split": "evaluation",
+    "question": "For the supplied ideal nozzle exit state, mdot=2.75 kg/s, Ve=1600 m/s, pe=220000 Pa, ambient pa=60000 Pa and Ae=0.0055 m^2. Calculate axial thrust in N including momentum and pressure contributions.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 2.75,
+        "Ve": 1600,
+        "pe": 220000,
+        "pa": 60000,
+        "Ae": 0.0055
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01"
+      ]
+    }
+  },
+  {
+    "id": "exit_velocity-08",
+    "family": "exit_velocity",
+    "split": "evaluation",
+    "question": "A steady, shock-free, calorically perfect ideal nozzle has a sonic throat and a supersonic exit. Ae/At=8, chamber stagnation T0=1850 K, gamma=1.22, specific R=370 J/(kg*K). Calculate exit speed in m/s using the supersonic area-Mach branch.",
+    "reference": {
+      "kind": "velocity",
+      "inputs": {
+        "p0": 1000000.0,
+        "T0": 1850,
+        "At": 0.001,
+        "gamma": 1.22,
+        "R": 370,
+        "epsilon": 8,
+        "pa": 0
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N03",
+        "N04"
+      ]
+    }
+  },
+  {
+    "id": "mixed_units-08",
+    "family": "mixed_units",
+    "split": "evaluation",
+    "question": "A nozzle exit state is supplied: mdot=1725 g/s, Ve=1.94 km/s, exit static pressure pe=265 kPa, ambient pressure pa=0.1 MPa and Ae=46 cm^2. Calculate total axial thrust in N including pressure thrust. Convert every unit consistently.",
+    "reference": {
+      "kind": "thrust",
+      "inputs": {
+        "mdot": 1.725,
+        "Ve": 1940.0,
+        "pe": 265000,
+        "pa": 100000.0,
+        "Ae": 0.0046
+      },
+      "decision": "answer",
+      "issue": "none",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N01",
+        "N05"
+      ]
+    }
+  },
+  {
+    "id": "applicability-08",
+    "family": "applicability",
+    "split": "evaluation",
+    "question": "Measured specific heats vary strongly along the nozzle and no caloric or thermochemical model is supplied. Given p0=1.5 MPa, T0=1250 K, At=0.001 m^2, Ae/At=3, nominal gamma=1.4 and R=287 J/(kg*K). Calculate an exact exit speed using one constant-gamma calorically perfect gas model. If the specified reference model is inapplicable, abstain and identify the relevant issue.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "variable_gamma",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N06"
+      ]
+    }
+  },
+  {
+    "id": "missing_inputs-08",
+    "family": "missing_inputs",
+    "split": "evaluation",
+    "question": "An ideal supersonic nozzle has Ae/At=4 and T0=1400 K. Neither gamma nor specific R nor gas composition is supplied. Calculate exit speed. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.",
+    "reference": {
+      "kind": "abstention",
+      "inputs": {},
+      "decision": "abstain",
+      "issue": "missing_inputs",
+      "atol": 1e-06,
+      "relevant_ids": [
+        "N07",
+        "N04"
+      ]
+    }
+  }
+]

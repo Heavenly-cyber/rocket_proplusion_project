@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "name": "ideal-nozzle-reliability-1.0",
+  "default_profile": "full",
+  "case_count": 48,
+  "development_cases": 12,
+  "evaluation_cases": 36,
+  "conditions": [
+    "llm_only",
+    "rag"
+  ],
+  "seeds": [
+    17,
+    43,
+    89
+  ],
+  "schedule_seed": 20261105,
+  "relative_tolerance": 0.01,
+  "retrieval": {
+    "library": "bm25s",
+    "method": "lucene",
+    "k1": 1.2,
+    "b": 0.75,
+    "top_k": 3,
+    "stemming": false,
+    "stopword_removal": false
+  },
+  "generation": {
+    "max_tokens": 768,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "presence_penalty": 1.5
+  },
+  "max_prompt_tokens": 2800,
+  "context_tokens": 4096,
+  "request_timeout_seconds": 300,
+  "network_retries": 1,
+  "threads": 6,
+  "model_memory_gib": 8,
+  "worker_memory_gib": 2,
+  "default_budget_minutes": 720,
+  "human_review": "pending",
+  "scoring": "exact seven-field JSON, correct answer/abstain decision and issue, finite dimensionally converted value within max(atol,0.01*abs(reference)); citation IDs scored separately",
+  "gold_leakage": "Reference inputs, labels and values are not serialized into prompts. The question supplies problem inputs. Gold calculation runs after the raw response is saved."
+}
