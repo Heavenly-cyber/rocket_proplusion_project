@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "utc": "2026-11-04T23:05:52.429354+00:00",
+  "tests_passed": 106,
+  "reference_status": "passed",
+  "tests": {
+    "run_id": "final-tests-20261104t230539_312921z-42fd82ca",
+    "result_path": "resutls/final-tests-20261104t230539_312921z-42fd82ca",
+    "log_path": "logs/final-tests-20261104t230539_312921z-42fd82ca",
+    "exit_code": 0,
+    "container_removed": true
+  },
+  "lint": {
+    "run_id": "final-lint-20261104t230547_503524z-d6eeec1e",
+    "result_path": "resutls/final-lint-20261104t230547_503524z-d6eeec1e",
+    "log_path": "logs/final-lint-20261104t230547_503524z-d6eeec1e",
+    "exit_code": 0,
+    "container_removed": true
+  },
+  "reference": {
+    "run_id": "final-reference-20261104t230548_193291z-cdd5ee28",
+    "result_path": "resutls/final-reference-20261104t230548_193291z-cdd5ee28",
+    "log_path": "logs/final-reference-20261104t230548_193291z-cdd5ee28",
+    "exit_code": 0,
+    "container_removed": true
+  },
+  "images": {
+    "worker": {
+      "tag": "rocket-nozzle-worker:c901f76a66fc3dab",
+      "id": "sha256:1921a773615c43c11d0212aa511709efabbed307d9b23f2f68bae23c848b92cb"
+    },
+    "llama": {
+      "tag": "rocket-nozzle-llama:c901f76a66fc3dab",
+      "id": "sha256:cedce499ef2db40a5c254f1aa1e96b9689eb3e21341b2b164abf0945a0d6dcc5"
+    }
+  },
+  "validation_source": "current checkout mounted read-only, actual laptop execution"
+}

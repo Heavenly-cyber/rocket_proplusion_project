@@ -1,0 +1,272 @@
+{
+  "status": "passed",
+  "independent_root_checks": [
+    {
+      "gamma": 1.15,
+      "epsilon": 1.01,
+      "bisection": 1.1056886450769876,
+      "scipy_brentq": 1.10568864507699,
+      "continuity": 7.0681782535058745e-16
+    },
+    {
+      "gamma": 1.15,
+      "epsilon": 1.5,
+      "bisection": 1.7516665152407613,
+      "scipy_brentq": 1.751666515240762,
+      "continuity": 8.835222816882344e-16
+    },
+    {
+      "gamma": 1.15,
+      "epsilon": 2,
+      "bisection": 2.020941902261021,
+      "scipy_brentq": 2.02094190226102,
+      "continuity": 3.5340891267529372e-16
+    },
+    {
+      "gamma": 1.15,
+      "epsilon": 4,
+      "bisection": 2.5458069581970166,
+      "scipy_brentq": 2.5458069581970153,
+      "continuity": 1.7670445633764686e-16
+    },
+    {
+      "gamma": 1.15,
+      "epsilon": 8,
+      "bisection": 2.99980583572175,
+      "scipy_brentq": 2.99980583572175,
+      "continuity": 5.301133690129406e-16
+    },
+    {
+      "gamma": 1.15,
+      "epsilon": 20,
+      "bisection": 3.557483400353533,
+      "scipy_brentq": 3.5574834003535236,
+      "continuity": 1.4136356507011749e-15
+    },
+    {
+      "gamma": 1.15,
+      "epsilon": 50,
+      "bisection": 4.097351357144323,
+      "scipy_brentq": 4.0973513571443165,
+      "continuity": 1.7670445633764688e-15
+    },
+    {
+      "gamma": 1.2,
+      "epsilon": 1.01,
+      "bisection": 1.1071052537375392,
+      "scipy_brentq": 1.107105253737834,
+      "continuity": 5.220268349598807e-16
+    },
+    {
+      "gamma": 1.2,
+      "epsilon": 1.5,
+      "bisection": 1.771857550934571,
+      "scipy_brentq": 1.771857550934571,
+      "continuity": 0.0
+    },
+    {
+      "gamma": 1.2,
+      "epsilon": 2,
+      "bisection": 2.0550955011468544,
+      "scipy_brentq": 2.055095501146854,
+      "continuity": 1.2180626149063883e-15
+    },
+    {
+      "gamma": 1.2,
+      "epsilon": 4,
+      "bisection": 2.619446776665799,
+      "scipy_brentq": 2.6194467766657987,
+      "continuity": 0.0
+    },
+    {
+      "gamma": 1.2,
+      "epsilon": 8,
+      "bisection": 3.1219034231491367,
+      "scipy_brentq": 3.121903423149141,
+      "continuity": 0.0
+    },
+    {
+      "gamma": 1.2,
+      "epsilon": 20,
+      "bisection": 3.7585049866630635,
+      "scipy_brentq": 3.758504986662611,
+      "continuity": 3.480178899732538e-16
+    },
+    {
+      "gamma": 1.2,
+      "epsilon": 50,
+      "bisection": 4.3958272129358615,
+      "scipy_brentq": 4.395827212935863,
+      "continuity": 2.088107339839523e-15
+    },
+    {
+      "gamma": 1.3,
+      "epsilon": 1.01,
+      "bisection": 1.1098997910357467,
+      "scipy_brentq": 1.1098997910358184,
+      "continuity": 0.0
+    },
+    {
+      "gamma": 1.3,
+      "epsilon": 1.5,
+      "bisection": 1.8126846063890527,
+      "scipy_brentq": 1.8126846063890536,
+      "continuity": 1.6912422017469394e-16
+    },
+    {
+      "gamma": 1.3,
+      "epsilon": 2,
+      "bisection": 2.1250296434599854,
+      "scipy_brentq": 2.125029643459986,
+      "continuity": 1.6912422017469394e-16
+    },
+    {
+      "gamma": 1.3,
+      "epsilon": 4,
+      "bisection": 2.774406186436255,
+      "scipy_brentq": 2.7744061864360683,
+      "continuity": 1.6912422017469394e-16
+    },
+    {
+      "gamma": 1.3,
+      "epsilon": 8,
+      "bisection": 3.385509485774726,
+      "scipy_brentq": 3.3855094857747257,
+      "continuity": 6.764968806987758e-16
+    },
+    {
+      "gamma": 1.3,
+      "epsilon": 20,
+      "bisection": 4.2070450364736125,
+      "scipy_brentq": 4.207045036473613,
+      "continuity": 0.0
+    },
+    {
+      "gamma": 1.3,
+      "epsilon": 50,
+      "bisection": 5.083797269450336,
+      "scipy_brentq": 5.0837972694503355,
+      "continuity": 1.0147453210481637e-15
+    },
+    {
+      "gamma": 1.4,
+      "epsilon": 1.01,
+      "bisection": 1.1126455660114254,
+      "scipy_brentq": 1.1126455660114078,
+      "continuity": 0.0
+    },
+    {
+      "gamma": 1.4,
+      "epsilon": 1.5,
+      "bisection": 1.8541235267373253,
+      "scipy_brentq": 1.854123526737325,
+      "continuity": 1.6480946472446827e-16
+    },
+    {
+      "gamma": 1.4,
+      "epsilon": 2,
+      "bisection": 2.1971981216521863,
+      "scipy_brentq": 2.1971981216521868,
+      "continuity": 3.2961892944893655e-16
+    },
+    {
+      "gamma": 1.4,
+      "epsilon": 4,
+      "bisection": 2.9401791693125965,
+      "scipy_brentq": 2.940179169312438,
+      "continuity": 1.6480946472446827e-16
+    },
+    {
+      "gamma": 1.4,
+      "epsilon": 8,
+      "bisection": 3.6772286298564465,
+      "scipy_brentq": 3.6772286298564443,
+      "continuity": 3.2961892944893655e-16
+    },
+    {
+      "gamma": 1.4,
+      "epsilon": 20,
+      "bisection": 4.7254886296500995,
+      "scipy_brentq": 4.7254886296500995,
+      "continuity": 0.0
+    },
+    {
+      "gamma": 1.4,
+      "epsilon": 50,
+      "bisection": 5.913765282312207,
+      "scipy_brentq": 5.913765282312205,
+      "continuity": 0.0
+    },
+    {
+      "gamma": 1.67,
+      "epsilon": 1.01,
+      "bisection": 1.1198386149386343,
+      "scipy_brentq": 1.1198386149385133,
+      "continuity": 0.0
+    },
+    {
+      "gamma": 1.67,
+      "epsilon": 1.5,
+      "bisection": 1.9692364514769167,
+      "scipy_brentq": 1.9692364514769165,
+      "continuity": 3.1059917132043237e-16
+    },
+    {
+      "gamma": 1.67,
+      "epsilon": 2,
+      "bisection": 2.403857739194512,
+      "scipy_brentq": 2.40385773919487,
+      "continuity": 1.5529958566021619e-16
+    },
+    {
+      "gamma": 1.67,
+      "epsilon": 4,
+      "bisection": 3.447731458169218,
+      "scipy_brentq": 3.4477314581692178,
+      "continuity": 3.1059917132043237e-16
+    },
+    {
+      "gamma": 1.67,
+      "epsilon": 8,
+      "bisection": 4.629394198030912,
+      "scipy_brentq": 4.629394198030906,
+      "continuity": 3.1059917132043237e-16
+    },
+    {
+      "gamma": 1.67,
+      "epsilon": 20,
+      "bisection": 6.5648080111675675,
+      "scipy_brentq": 6.5648080111675675,
+      "continuity": 3.1059917132043237e-16
+    },
+    {
+      "gamma": 1.67,
+      "epsilon": 50,
+      "bisection": 9.114052018721093,
+      "scipy_brentq": 9.114052018721091,
+      "continuity": 1.2423966852817295e-15
+    }
+  ],
+  "worked_example": {
+    "Me": 2.0,
+    "Te": 500.00000000000006,
+    "pe": 127804.52546295096,
+    "Ve": 896.4373932405988,
+    "Ae": 0.0016875,
+    "mdot": 1.3472806631357603,
+    "F": 1254.672902343616,
+    "momentum_thrust": 1207.7527656248863,
+    "pressure_thrust": 46.920136718729744,
+    "Isp": 94.9624184114737,
+    "Cf": 1.254672902343616,
+    "continuity_relative_error": 1.6480946472446827e-16,
+    "epsilon": 1.6875
+  },
+  "checks": [
+    "Mach-two analytic identity",
+    "supersonic brentq cross-check",
+    "mass continuity",
+    "independent energy equation",
+    "pressure thrust"
+  ]
+}

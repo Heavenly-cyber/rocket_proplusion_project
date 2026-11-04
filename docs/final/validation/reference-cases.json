@@ -1,0 +1,290 @@
+[
+  {
+    "case_id": "mass_flow-01",
+    "split": "development",
+    "value": 0.26367886710608734,
+    "unit": "kg/s"
+  },
+  {
+    "case_id": "thrust-01",
+    "split": "development",
+    "value": 860.0,
+    "unit": "N"
+  },
+  {
+    "case_id": "exit_velocity-01",
+    "split": "development",
+    "value": 802.5585519759671,
+    "unit": "m/s"
+  },
+  {
+    "case_id": "mixed_units-01",
+    "split": "development",
+    "value": 1079.0,
+    "unit": "N"
+  },
+  {
+    "case_id": "applicability-01",
+    "split": "development",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "missing_inputs-01",
+    "split": "development",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "mass_flow-02",
+    "split": "development",
+    "value": 0.4358539426959673,
+    "unit": "kg/s"
+  },
+  {
+    "case_id": "thrust-02",
+    "split": "development",
+    "value": 1350.0,
+    "unit": "N"
+  },
+  {
+    "case_id": "exit_velocity-02",
+    "split": "development",
+    "value": 942.7588934330287,
+    "unit": "m/s"
+  },
+  {
+    "case_id": "mixed_units-02",
+    "split": "development",
+    "value": 1354.5000000000002,
+    "unit": "N"
+  },
+  {
+    "case_id": "applicability-02",
+    "split": "development",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "missing_inputs-02",
+    "split": "development",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "mass_flow-03",
+    "split": "evaluation",
+    "value": 0.6379608678300035,
+    "unit": "kg/s"
+  },
+  {
+    "case_id": "thrust-03",
+    "split": "evaluation",
+    "value": 1710.0,
+    "unit": "N"
+  },
+  {
+    "case_id": "exit_velocity-03",
+    "split": "evaluation",
+    "value": 1081.5675992803363,
+    "unit": "m/s"
+  },
+  {
+    "case_id": "mixed_units-03",
+    "split": "evaluation",
+    "value": 1760.0000000000002,
+    "unit": "N"
+  },
+  {
+    "case_id": "applicability-03",
+    "split": "evaluation",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "missing_inputs-03",
+    "split": "evaluation",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "mass_flow-04",
+    "split": "evaluation",
+    "value": 0.8125717011661782,
+    "unit": "kg/s"
+  },
+  {
+    "case_id": "thrust-04",
+    "split": "evaluation",
+    "value": 2380.0,
+    "unit": "N"
+  },
+  {
+    "case_id": "exit_velocity-04",
+    "split": "evaluation",
+    "value": 1219.2622967766713,
+    "unit": "m/s"
+  },
+  {
+    "case_id": "mixed_units-04",
+    "split": "evaluation",
+    "value": 2103.5,
+    "unit": "N"
+  },
+  {
+    "case_id": "applicability-04",
+    "split": "evaluation",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "missing_inputs-04",
+    "split": "evaluation",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "mass_flow-05",
+    "split": "evaluation",
+    "value": 1.0529754441501127,
+    "unit": "kg/s"
+  },
+  {
+    "case_id": "thrust-05",
+    "split": "evaluation",
+    "value": 2840.0,
+    "unit": "N"
+  },
+  {
+    "case_id": "exit_velocity-05",
+    "split": "evaluation",
+    "value": 1430.0659559307949,
+    "unit": "m/s"
+  },
+  {
+    "case_id": "mixed_units-05",
+    "split": "evaluation",
+    "value": 2609.0,
+    "unit": "N"
+  },
+  {
+    "case_id": "applicability-05",
+    "split": "evaluation",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "missing_inputs-05",
+    "split": "evaluation",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "mass_flow-06",
+    "split": "evaluation",
+    "value": 1.29791971120456,
+    "unit": "kg/s"
+  },
+  {
+    "case_id": "thrust-06",
+    "split": "evaluation",
+    "value": 3690.0,
+    "unit": "N"
+  },
+  {
+    "case_id": "exit_velocity-06",
+    "split": "evaluation",
+    "value": 1587.2974515276276,
+    "unit": "m/s"
+  },
+  {
+    "case_id": "mixed_units-06",
+    "split": "evaluation",
+    "value": 3020.5000000000005,
+    "unit": "N"
+  },
+  {
+    "case_id": "applicability-06",
+    "split": "evaluation",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "missing_inputs-06",
+    "split": "evaluation",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "mass_flow-07",
+    "split": "evaluation",
+    "value": 1.465609355982155,
+    "unit": "kg/s"
+  },
+  {
+    "case_id": "thrust-07",
+    "split": "evaluation",
+    "value": 4250.0,
+    "unit": "N"
+  },
+  {
+    "case_id": "exit_velocity-07",
+    "split": "evaluation",
+    "value": 1724.3294940757803,
+    "unit": "m/s"
+  },
+  {
+    "case_id": "mixed_units-07",
+    "split": "evaluation",
+    "value": 3626.0,
+    "unit": "N"
+  },
+  {
+    "case_id": "applicability-07",
+    "split": "evaluation",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "missing_inputs-07",
+    "split": "evaluation",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "mass_flow-08",
+    "split": "evaluation",
+    "value": 1.7403554359455016,
+    "unit": "kg/s"
+  },
+  {
+    "case_id": "thrust-08",
+    "split": "evaluation",
+    "value": 5280.0,
+    "unit": "N"
+  },
+  {
+    "case_id": "exit_velocity-08",
+    "split": "evaluation",
+    "value": 1997.2100029678802,
+    "unit": "m/s"
+  },
+  {
+    "case_id": "mixed_units-08",
+    "split": "evaluation",
+    "value": 4105.5,
+    "unit": "N"
+  },
+  {
+    "case_id": "applicability-08",
+    "split": "evaluation",
+    "value": null,
+    "unit": null
+  },
+  {
+    "case_id": "missing_inputs-08",
+    "split": "evaluation",
+    "value": null,
+    "unit": null
+  }
+]
