@@ -1,0 +1,1082 @@
+[
+  {
+    "case_id": "thrust-06",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-05",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-04",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-05",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-08",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-05",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-07",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-07",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-07",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-03",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-03",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-04",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-07",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-04",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-05",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-05",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-03",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-08",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-06",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-06",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-05",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-07",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-05",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-06",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-08",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-07",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-06",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-05",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-08",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-04",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-06",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-05",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-03",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-03",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-04",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-05",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-07",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-07",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-08",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-03",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-07",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-04",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-08",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-08",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-08",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-05",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-03",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-04",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-08",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-07",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-03",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-04",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-06",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-04",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-03",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-08",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-08",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-03",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-05",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-05",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-05",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-04",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-05",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-04",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-05",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-04",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-06",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-04",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-04",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-06",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-08",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-03",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-08",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-06",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-05",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-06",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-03",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-06",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-04",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-07",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-04",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-05",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-04",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-03",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-06",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-07",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-06",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-07",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-03",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-03",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-07",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-05",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-08",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-08",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-07",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-06",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-08",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-06",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-08",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-03",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-05",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-05",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-05",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-08",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-06",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-08",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-05",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-06",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-04",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-08",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-07",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-03",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-04",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-07",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-03",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-08",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-05",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-06",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-03",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-06",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-05",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-03",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-04",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-04",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-03",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-08",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-04",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-07",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-08",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-04",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-04",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-07",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-08",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-03",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-07",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-07",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-03",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-07",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-07",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-04",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-05",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-04",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-07",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-04",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-06",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-07",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-04",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-03",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-05",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-05",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-05",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-03",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-06",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-04",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-03",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-06",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-07",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-03",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-04",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-03",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-04",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-08",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-07",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-05",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-07",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-06",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-06",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-06",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-03",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-07",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-06",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-07",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-06",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-03",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-06",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-06",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-08",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-06",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-03",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-05",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-06",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-04",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-08",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-08",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-07",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-06",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-03",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "exit_velocity-06",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-03",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-05",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-04",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-05",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-03",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-08",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-04",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-05",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-08",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-06",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-08",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-08",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-08",
+    "seed": 89,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-07",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-08",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mass_flow-05",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-06",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "thrust-04",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "mixed_units-07",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "exit_velocity-07",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-05",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "applicability-03",
+    "seed": 17,
+    "condition": "rag"
+  },
+  {
+    "case_id": "thrust-07",
+    "seed": 89,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mass_flow-04",
+    "seed": 43,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "mixed_units-08",
+    "seed": 43,
+    "condition": "rag"
+  },
+  {
+    "case_id": "missing_inputs-07",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "applicability-08",
+    "seed": 17,
+    "condition": "llm_only"
+  },
+  {
+    "case_id": "missing_inputs-03",
+    "seed": 43,
+    "condition": "llm_only"
+  }
+]

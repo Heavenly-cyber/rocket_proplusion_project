@@ -1,0 +1,94 @@
+{
+  "source_hashes": {
+    "completion/__init__.py": "6d7e116f49d79067cc1985118c3aa9d33a29048ab4f509efca51b0e5a07c0e51",
+    "completion/assets/results_template.pptx": "75dd2b23bda59adffcf4c70de369fdb4927a0fd7a948943b107d7a5c43a09ec1",
+    "completion/assets/slides.json": "b2dafd633d2280850751e0bab6d8875fd7f2b094121b314e755843abf1938b07",
+    "completion/data/benchmark.json": "819a7295f3c7c5a7de3eb2106fe0798c0368866e0aa858f841804542567b98ec",
+    "completion/data/corpus.json": "4815941c609208098f0272770bea07d4aab9f290c888f6474cfa88d0271494fe",
+    "completion/physics.py": "3dae6963b26e5f015b16a187eec96c84a429a3ee97336160114e20a5267c96af",
+    "completion/presentation.py": "4fa3371cfaa0e0c7fd82875e5c276b5e4d2e4c1e6f9c00955230d13c7b2ad1b1",
+    "completion/protocol.py": "2c2933f1eeb59f2a16a01667705f8edae7a5e208feb82f8086306f1024aa28bc",
+    "completion/scoring.py": "b241014ddadfd49a87c3879d0bf9aeeaacdb98b718f88f950780b5af0ad9816a",
+    "completion/worker.py": "51a670db7c15af4a563ae5d4474e8ca8cfefce0106df843bca23ffb8b52a64df",
+    "configs/study-protocol.json": "6dea7f21a869f1c23ddc39db74ed6862b7667fb856ca07dd9fa6cf57ca6b9f3d"
+  },
+  "profile": "full",
+  "images": {
+    "worker": {
+      "tag": "rocket-nozzle-worker:c901f76a66fc3dab",
+      "id": "sha256:1921a773615c43c11d0212aa511709efabbed307d9b23f2f68bae23c848b92cb"
+    },
+    "llama": {
+      "tag": "rocket-nozzle-llama:c901f76a66fc3dab",
+      "id": "sha256:cedce499ef2db40a5c254f1aa1e96b9689eb3e21341b2b164abf0945a0d6dcc5"
+    }
+  },
+  "model_sha256": "00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4",
+  "run_id": "study-full-20261104t230605_054765z-213fdc07",
+  "fingerprint": "c1bf3edb0d2c956e8e7136df9bda87faf5d6bb22e4266dec7b7daa2c39de9954",
+  "source_commit": "d4affd1f11cf62e592aa4134212b00cde7da4f89",
+  "started_utc": "2026-11-04T23:06:05.058337+00:00",
+  "protocol": {
+    "schema_version": 1,
+    "name": "ideal-nozzle-reliability-1.0",
+    "default_profile": "full",
+    "case_count": 48,
+    "development_cases": 12,
+    "evaluation_cases": 36,
+    "conditions": [
+      "llm_only",
+      "rag"
+    ],
+    "seeds": [
+      17,
+      43,
+      89
+    ],
+    "schedule_seed": 20261105,
+    "relative_tolerance": 0.01,
+    "retrieval": {
+      "library": "bm25s",
+      "method": "lucene",
+      "k1": 1.2,
+      "b": 0.75,
+      "top_k": 3,
+      "stemming": false,
+      "stopword_removal": false
+    },
+    "generation": {
+      "max_tokens": 768,
+      "temperature": 0.7,
+      "top_p": 0.8,
+      "top_k": 20,
+      "presence_penalty": 1.5
+    },
+    "max_prompt_tokens": 2800,
+    "context_tokens": 4096,
+    "request_timeout_seconds": 300,
+    "network_retries": 1,
+    "threads": 6,
+    "model_memory_gib": 8,
+    "worker_memory_gib": 2,
+    "default_budget_minutes": 720,
+    "human_review": "pending",
+    "scoring": "exact seven-field JSON, correct answer/abstain decision and issue, finite dimensionally converted value within max(atol,0.01*abs(reference)); citation IDs scored separately",
+    "gold_leakage": "Reference inputs, labels and values are not serialized into prompts. The question supplies problem inputs. Gold calculation runs after the raw response is saved."
+  },
+  "model": {
+    "original_model": "Qwen/Qwen3.5-4B",
+    "quantization_publisher": "unsloth",
+    "artifact_repository": "unsloth/Qwen3.5-4B-GGUF",
+    "revision": "e87f176479d0855a907a41277aca2f8ee7a09523",
+    "filename": "Qwen3.5-4B-Q4_K_M.gguf",
+    "quantization": "Q4_K_M",
+    "size_bytes": 2740937888,
+    "sha256": "00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4",
+    "source": "https://huggingface.co/api/models/unsloth/Qwen3.5-4B-GGUF?blobs=true",
+    "download_url": "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/e87f176479d0855a907a41277aca2f8ee7a09523/Qwen3.5-4B-Q4_K_M.gguf",
+    "license": "Apache-2.0",
+    "input_modality": "text_only",
+    "downloaded": false,
+    "inference_verified": false
+  },
+  "planned_requests": 216
+}
