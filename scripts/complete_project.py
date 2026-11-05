@@ -346,7 +346,7 @@ class Workflow:
         worker_mounts=[{'type':'bind','source':str(p),'target':dest,'read_only':readonly} for p,dest,readonly in self.code_mounts()]
         worker_mounts.append({'type':'bind','source':str(out),'target':'/out'})
         worker=dict(common,image=images['worker']['id'],cpus=2,mem_limit='2g',memswap_limit='2g',
-            entrypoint=['/opt/venv/bin/python'],command=['/app/completion/worker.py','run','--budget-minutes',str(self.args.budget_minutes)],
+            entrypoint=['/opt/venv/bin/python'],command=['/app/scripts/transport_adapter.py','/app/completion/worker.py','run','--budget-minutes',str(self.args.budget_minutes)],
             environment={'PYTHONPATH':'/app:/app/src','PYTHONHASHSEED':'0','PYTHONDONTWRITEBYTECODE':'1',
                          'ROCKET_RUN_MANIFEST':json.dumps(manifest,sort_keys=True)},volumes=worker_mounts)
         document=dict(services=dict(llm=llm,worker=worker),networks=dict(private=dict(internal=True,labels=labels)))
@@ -374,7 +374,7 @@ class Workflow:
                 raise ProjectError('Model network isolation check failed')
             self.jobs.call(*(prefix+['start','llm']),timeout=90)
             code,_=self.jobs.call('start','--attach',ids['worker'],check=False,
-                                 timeout=int(self.args.budget_minutes*60+900))
+                                 timeout=int(self.args.budget_minutes*60+2400))
             item=self.jobs.inspect(ids['worker'])
             if code or item['State']['ExitCode'] or item['State'].get('OOMKilled'):
                 raise ProjectError('Experiment worker failed; saved responses are resumable. See '+str(log))
@@ -395,7 +395,7 @@ class Workflow:
         summary=json.loads((out/'summary.json').read_text())
         target=folder(PREFIX+'evidence/'+out.name)
         for name in ('summary.json','run-manifest.json','schedule.json','answers.csv','human-review.csv',
-                     'RESULTS_SUMMARY.md','condition-comparison.png','container-lifecycle.json'):
+                     'RESULTS_SUMMARY.md','condition-comparison.png','container-lifecycle.json','execution-overrides.json'):
             source=out/name
             if source.exists():
                 shutil.copyfile(source,target/name)
@@ -407,7 +407,7 @@ class Workflow:
                     for p in sorted(source.rglob('*')):
                         if p.is_file():
                             z.write(p,p.relative_to(out))
-            for name in ('all-answers.json','study-report.html','condition-comparison.png','summary.json','run-manifest.json'):
+            for name in ('all-answers.json','study-report.html','condition-comparison.png','summary.json','run-manifest.json','execution-overrides.json'):
                 if (out/name).exists():
                     z.write(out/name,name)
         shutil.copyfile(out/'RESULTS_SUMMARY.md',safe('docs/RESULTS_SUMMARY.md'))
@@ -455,11 +455,12 @@ class Workflow:
         with zipfile.ZipFile(handin,'w',zipfile.ZIP_DEFLATED) as z:
             for name in [*names,'TERM_PAPER.md','TERM_PAPER.html','RESULTS_SUMMARY.md','summary.json','run-manifest.json',
                          'answers.csv','human-review.csv','study-report.html','condition-comparison.png',
-                         'worked-example.json','reference-validation.json','area-mach.png']:
+                         'worked-example.json','reference-validation.json','area-mach.png','execution-overrides.json']:
                 z.write(out/name,name)
             evidence=safe(PREFIX+'evidence/'+out.name+'/raw-experiment-evidence.zip')
             z.write(evidence,'raw-experiment-evidence.zip')
             z.write(safe('configs/study-protocol.json'),'study-protocol.json')
+            z.write(safe(PREFIX+'TRANSPORT_TIMEOUT_REPAIR.md'),'TRANSPORT_TIMEOUT_REPAIR.md')
             z.write(safe(PREFIX+'PROFESSOR_DEMO.md'),'PROFESSOR_DEMO.md')
             z.write(safe(PREFIX+'source-material/Guidelines.pdf'),'Professor_Guidelines.pdf')
         release_dir=folder(PREFIX+'handin')
@@ -469,6 +470,7 @@ class Workflow:
         final=dict(status='FINAL_LOCAL_READY',completed_utc=utc(),profile=summary['profile'],run_id=out.name,
             actual_responses=summary['completed'],scheduled_responses=summary['scheduled'],
             scientific_source_commit=summary['source_commit'],fingerprint=summary['fingerprint'],
+            execution_overrides=json.loads((out/'execution-overrides.json').read_text()),
             validation=validation,rendering_qc=proof,files=outputs,
             guideline_mapping={'1 rationale':[2,3],'2 motivation':[4],'3 state of art':[5],
                 '4 gap and challenges':[6],'5 approach':[11,12,14],'6 justification':[7,8,10],

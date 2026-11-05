@@ -86,7 +86,10 @@ Only project-owned interrupted containers/networks are cleaned up.
 Inference resumes a compatible active run by source/runtime fingerprint.
 Use `--new-run` only to request a distinct preserved measurement. The default
 per-invocation inference budget is 720 minutes, not a predicted running time.
-Each request has a 300-second timeout. Budget exhaustion saves a partial run.
+The original per-request HTTP read limit was 300 seconds. A documented
+transport-only correction extends resumed reads to 1800 seconds after actual CPU
+requests reached that limit. Model inputs, decoding and scoring remain frozen;
+`execution-overrides.json` records this operational change. Budget exhaustion saves a partial run.
 Rerunning the same command resumes the remaining requests.
 
 ## Presentation compliance
