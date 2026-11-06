@@ -19,6 +19,7 @@ sys.dont_write_bytecode = True
 
 from complete_project import Workflow, utc  # noqa: E402
 from host_common import ROOT, ProjectError, folder, safe, write_json  # noqa: E402
+from presentation_render_compat import ensure_impress, normalize_pptx  # noqa: E402
 
 A = "http://schemas.openxmlformats.org/drawingml/2006/main"
 P = "http://schemas.openxmlformats.org/presentationml/2006/main"
@@ -134,6 +135,7 @@ def main():
             raise ProjectError("Need at least 512 MiB free disk for the presentation package")
         workflow.connect_docker()
         workflow.rendering_tools()
+        renderer=ensure_impress(workflow)
         image=manifest["images"]["worker"]["id"]
         if workflow.jobs.inspect(image,kind="image") is None:
             raise ProjectError("The saved worker image is missing; no lengthy rebuild was started")
@@ -158,13 +160,15 @@ def main():
         print("Saved",summary["all_saved_responses"],"responses; analysing",summary["completed_pair_count"],"matched pairs. Rendering only.",flush=True)
         from completion.presentation import reduce_text_size
         deck=out/"Rocket_Nozzle_LLM_Presentation_Preliminary.pptx"
+        normalize_pptx(deck)
         pdf=out/(deck.stem+".pdf")
         bbox=out/"presentation-text-bounds.xhtml"
         profile=folder("tmp/libreoffice/"+out.name)
         for attempt in range(4):
             pdf.unlink(missing_ok=True)
-            workflow.runner.run(["libreoffice","-env:UserInstallation="+profile.as_uri(),"--headless",
-                "--convert-to","pdf:impress_pdf_Export","--outdir",str(out),str(deck)],timeout=600)
+            workflow.runner.run([renderer,"-env:UserInstallation="+profile.as_uri(),"--headless",
+                "--infilter=Impress MS PowerPoint 2007 XML",
+                "--convert-to","pdf:impress_pdf_Export","--outdir",str(out),deck.as_uri()],timeout=600)
             if not pdf.exists():
                 raise ProjectError("Presentation PDF was not created")
             workflow.runner.run(["pdftotext","-bbox",str(pdf),str(bbox)],timeout=90)
