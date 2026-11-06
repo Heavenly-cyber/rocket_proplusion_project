@@ -2,51 +2,51 @@
   "run_id": "study-full-20261104t230605_054765z-213fdc07",
   "profile": "full",
   "scheduled": 216,
-  "completed": 35,
+  "completed": 95,
   "status": "partial",
   "fingerprint": "c1bf3edb0d2c956e8e7136df9bda87faf5d6bb22e4266dec7b7daa2c39de9954",
   "source_commit": "d4affd1f11cf62e592aa4134212b00cde7da4f89",
   "conditions": {
     "llm_only": {
       "scheduled": 108,
-      "completed": 17,
-      "correct": 9,
-      "accuracy": 0.08333333333333333,
-      "schema_valid": 14,
-      "unit_correct": 4,
+      "completed": 44,
+      "correct": 13,
+      "accuracy": 0.12037037037037036,
+      "schema_valid": 30,
+      "unit_correct": 14,
       "numeric_scheduled": 72,
       "empty_answers": 0,
-      "median_seconds": 68.08945235799911,
-      "measured_request_seconds": 1667.960495313997,
+      "median_seconds": 75.74499937450128,
+      "measured_request_seconds": 5379.085140821004,
       "mean_citation_id_precision": null,
       "mean_retrieval_recall": null,
       "failures": {
-        "schema": 3,
-        "decision": 1,
+        "schema": 14,
+        "decision": 3,
         "issue": 0,
         "unit": 0,
-        "numeric": 4
+        "numeric": 14
       }
     },
     "rag": {
       "scheduled": 108,
-      "completed": 18,
-      "correct": 11,
-      "accuracy": 0.10185185185185185,
-      "schema_valid": 18,
-      "unit_correct": 8,
+      "completed": 51,
+      "correct": 20,
+      "accuracy": 0.18518518518518517,
+      "schema_valid": 46,
+      "unit_correct": 27,
       "numeric_scheduled": 72,
       "empty_answers": 0,
-      "median_seconds": 66.4162371174989,
-      "measured_request_seconds": 1548.2629137909898,
-      "mean_citation_id_precision": 0.6666666666666666,
-      "mean_retrieval_recall": 0.9722222222222222,
+      "median_seconds": 75.51321805500629,
+      "measured_request_seconds": 5173.382436401029,
+      "mean_citation_id_precision": 0.5869565217391305,
+      "mean_retrieval_recall": 0.9803921568627451,
       "failures": {
-        "schema": 0,
+        "schema": 5,
         "decision": 0,
         "issue": 0,
         "unit": 0,
-        "numeric": 7
+        "numeric": 26
       }
     }
   },
@@ -55,13 +55,13 @@
       "llm_only": {
         "correct": 0,
         "scheduled": 18,
-        "completed": 2,
+        "completed": 11,
         "accuracy": 0.0
       },
       "rag": {
         "correct": 0,
         "scheduled": 18,
-        "completed": 4,
+        "completed": 6,
         "accuracy": 0.0
       }
     },
@@ -69,13 +69,13 @@
       "llm_only": {
         "correct": 0,
         "scheduled": 18,
-        "completed": 1,
+        "completed": 6,
         "accuracy": 0.0
       },
       "rag": {
         "correct": 0,
         "scheduled": 18,
-        "completed": 1,
+        "completed": 7,
         "accuracy": 0.0
       }
     },
@@ -83,13 +83,13 @@
       "llm_only": {
         "correct": 0,
         "scheduled": 18,
-        "completed": 3,
+        "completed": 6,
         "accuracy": 0.0
       },
       "rag": {
         "correct": 0,
         "scheduled": 18,
-        "completed": 1,
+        "completed": 9,
         "accuracy": 0.0
       }
     },
@@ -97,59 +97,59 @@
       "llm_only": {
         "correct": 0,
         "scheduled": 18,
-        "completed": 2,
+        "completed": 7,
         "accuracy": 0.0
       },
       "rag": {
         "correct": 1,
         "scheduled": 18,
-        "completed": 2,
+        "completed": 10,
         "accuracy": 0.05555555555555555
       }
     },
     "applicability": {
       "llm_only": {
-        "correct": 2,
+        "correct": 3,
         "scheduled": 18,
-        "completed": 2,
-        "accuracy": 0.1111111111111111
+        "completed": 4,
+        "accuracy": 0.16666666666666666
       },
       "rag": {
-        "correct": 5,
+        "correct": 9,
         "scheduled": 18,
-        "completed": 5,
-        "accuracy": 0.2777777777777778
+        "completed": 9,
+        "accuracy": 0.5
       }
     },
     "missing_inputs": {
       "llm_only": {
-        "correct": 7,
+        "correct": 10,
         "scheduled": 18,
-        "completed": 7,
-        "accuracy": 0.3888888888888889
+        "completed": 10,
+        "accuracy": 0.5555555555555556
       },
       "rag": {
-        "correct": 5,
+        "correct": 10,
         "scheduled": 18,
-        "completed": 5,
-        "accuracy": 0.2777777777777778
+        "completed": 10,
+        "accuracy": 0.5555555555555556
       }
     }
   },
   "paired": {
-    "both_correct": 0,
-    "rag_only_correct": 0,
+    "both_correct": 5,
+    "rag_only_correct": 1,
     "baseline_only_correct": 0,
-    "both_incorrect": 0
+    "both_incorrect": 12
   },
   "human_review": "pending",
   "limits": "One quantized local model, small original correlated templates, fixed ideal physics. Human review of reasoning and claim support remains pending. No significance or real-engine claim.",
-  "delta_percentage_points": 1.8518518518518516,
+  "delta_percentage_points": 6.481481481481481,
   "seeds": [
     17,
     43,
     89
   ],
   "unique_evaluation_cases": 36,
-  "measured_request_seconds": 3216.223409104987
+  "measured_request_seconds": 10552.467577222033
 }

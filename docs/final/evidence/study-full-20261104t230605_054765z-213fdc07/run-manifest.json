@@ -90,5 +90,11 @@
     "downloaded": false,
     "inference_verified": false
   },
-  "planned_requests": 216
+  "planned_requests": 216,
+  "execution_overrides": {
+    "record": "execution-overrides.json",
+    "current_http_read_timeout_seconds": 1800,
+    "original_protocol_http_timeout_seconds": 300,
+    "scientific_generation_and_scoring_unchanged": true
+  }
 }
