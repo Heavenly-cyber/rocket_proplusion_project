@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "slides": 25,
+  "native_result_tables_match_metrics": true,
+  "pdf_pages": 25,
+  "slide_bounds": true,
+  "pdf_text_coverage": true,
+  "new_model_requests": 0,
+  "scope": "Automated data, structural and PDF rendering checks. Slide images remain available for visual review."
+}

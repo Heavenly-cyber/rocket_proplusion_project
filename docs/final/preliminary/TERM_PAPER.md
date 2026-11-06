@@ -1,0 +1,105 @@
+# Local LLM Reliability for Ideal Rocket Nozzles
+
+**Ideal Rocket-Nozzle Performance: An Evidence and Physics Audit**  
+Heavenly, Aerospace Engineering, IIT Kharagpur. Rocket Propulsion term paper.  
+Run: `preliminary-20261106T034641`. Profile: **preliminary completed pairs**. Status: **preliminary**.  
+Scientific source commit: `d4affd1f11cf62e592aa4134212b00cde7da4f89`. Experiment fingerprint: `0e53eb834115330c35ae1c0cda2d095cc55798bf5aea2d17ade387bf5992f779`.
+
+**PRELIMINARY EVALUATION. 95 actual model responses were saved from the planned 216-request schedule. The primary comparison uses all 18 case/seed pairs (36 responses) for which both conditions completed. The other 59 unpaired responses remain in all-observed.csv and the raw evidence ZIP. The run stopped for the presentation deadline. Pair inclusion did not depend on correctness. The full 216-response study remains unfinished. Rates refer to this observed paired subset only.**
+
+## Abstract
+
+This project evaluates Qwen3.5-4B Q4_K_M on ideal rocket-nozzle questions with and without three BM25-retrieved technical passages. An independent evaluator checks structured output, answer or abstention decisions, issue codes, dimensions and numerical values. This run recorded 36 of 36 scheduled responses. LLM-only produced 5/18 correct scheduled responses. BM25 RAG produced 6/18. The descriptive difference is +5.6 percentage points. These counts describe this frozen benchmark and quantized local model. They do not measure real-engine accuracy or establish a general causal benefit of RAG. If the recorded status is partial, the counts are incomplete and cannot support a completed-study claim.
+
+## 1. Topic rationale and motivation
+
+The selected broad course topic is ML-Based Rocket Nozzle Performance Prediction. This work studies a pretrained language model rather than training a CFD surrogate. Nozzle mass flow, exhaust speed and thrust give interpretable targets with conservation-based ideal references. Fluent answers can still confuse static and stagnation pressure, miss pressure thrust or mishandle squared-length conversions. A useful engineering assistant should also identify when information is missing or the requested physical model is inappropriate.
+
+The objective is a reproducible reliability measurement. The deterministic solver serves as the evaluator and never corrects a model answer before scoring. A weaker or unchanged RAG result is scientifically useful because it identifies the limits of supplying equations alone.
+
+## 2. Related work and bounded research gap
+
+Yang et al. introduce domain knowledge injection and evaluation in combustion science [1]. ThermoQA uses programmatic ground truth for engineering thermodynamics [2]. PhyNiKCE couples neural agents with physical constraints for CFD [3]. ChatCFD covers structured CFD automation, including nozzle precedent [4]. These are related approaches with different tasks and model budgets. Their reported percentages are not performance targets or findings of this experiment. The three cited 2026 records are preprints. The repository retains a fuller scoped literature-search record and its limitations.
+
+Within the studies reviewed, the joint local-model evaluation of ideal-nozzle values, units, evidence IDs, applicability and abstention remains insufficiently characterised. This is a bounded working gap, not an exhaustive novelty claim. Ordinary RAG and deterministic physical checking are established techniques. The contribution here is their controlled, inspectable application to this specific small local-model setting.
+
+## 3. Physics and assumptions
+
+Assume steady one-dimensional inviscid adiabatic flow of a calorically perfect ideal gas. Chamber p0 and T0 denote stagnation conditions, R is the specific gas constant, At is sonic throat area and Ae is exit area. For appropriate choked, shock-free cases:
+
+`F = mdot Ve + (pe - pa) Ae`
+
+`mdot = p0 At / sqrt(T0) sqrt(gamma/R) [2/(gamma+1)]^[(gamma+1)/(2(gamma-1))]`
+
+`Ae/At = (1/Me) [(2/(gamma+1))(1+(gamma-1)Me^2/2)]^[(gamma+1)/(2(gamma-1))]`
+
+`Te = T0/[1+(gamma-1)Me^2/2]`, `pe = p0(Te/T0)^[gamma/(gamma-1)]`, `Ve = Me sqrt(gamma R Te)`.
+
+The area-Mach solver explicitly selects the supersonic branch. Bisection roots are cross-checked against SciPy brentq over 35 combinations. The Mach-two identity gives Ae/At=1.6875 for gamma=1.4. Mass continuity and an independently expressed energy relation add consistency checks. A worked case uses p0=1 MPa, T0=900 K, At=0.001 m^2, Me=2, gamma=1.4, R=287 J/(kg K), pa=100 kPa. Full-precision computed values appear in `worked-example.json`.
+
+These checks validate implementation consistency within an ideal model. They do not validate combustion chemistry, viscous losses, internal shocks, separation or real-engine performance. Supplied-state thrust questions use the given exit state directly. Applicability questions ask whether the specifically requested ideal formula can be applied.
+
+## 4. Frozen benchmark and controlled method
+
+The original dataset contains 48 template-generated cases in six families. Each family has two development and six evaluation cases, giving 12 development and 36 evaluation cases. Development cases enter reference checks and tests, not the scored evaluation. Full mode uses all 36 evaluation cases in two conditions and seeds 17, 43 and 89, giving 216 responses. The seeds preserve the committed CPU profile. The earlier presentation notes mentioned another third seed, so this frozen protocol is authoritative. Presentation mode uses one fixed evaluation case per family and seed 17 for 12 responses. This run used 15 evaluation cases and seeds [17, 43, 89].
+
+Both conditions use the same model file, quantization, runtime, decoding settings and question inputs. The conditions differ only in supplied passages. BM25 uses the Lucene variant with k1=1.2, b=0.75 and top-k=3 without stemming or stopword removal [7]. The short corpus contains original educational paraphrases and source links, not numerical benchmark answers. The request schedule uses a frozen shuffle to reduce systematic order effects. No generated code is executed. Reference inputs, expected decisions and numerical targets never enter model prompts. The raw response is saved before the evaluator computes a reference.
+
+## 5. Scoring and evidence
+
+The primary score requires a valid seven-field JSON response, the correct answer/abstention decision and issue, and for numerical cases a finite value with compatible dimensions within `max(atol, 0.01*abs(reference))`. Pint converts units before comparison. Invalid JSON, empty direct answers and invalid units count as incorrect. Transport failures remain unavailable in scheduled denominators and make the run partial. Incorrect observed answers are never retried to improve the score.
+
+Separate records retain schema validity, dimensionality, raw-number agreement, numerical error, decisions, source retrieval recall, citation-ID precision, request runtime and exposed token counts. Citation IDs are scored within RAG. An ID match does not prove semantic support. `human-review.csv` leaves physical reasoning and citation-support judgement pending. Resource limits are configuration, not measured peak RAM.
+
+## 6. Recorded results
+
+| Family | LLM only correct/scheduled | BM25 RAG correct/scheduled |
+|---|---:|---:|
+| Mass flow | 0/4 | 0/4 |
+| Thrust | 0/2 | 0/2 |
+| Exit speed | 0/3 | 0/3 |
+| Mixed units | 0/3 | 0/3 |
+| Applicability | 0/1 | 1/1 |
+| Missing inputs | 5/5 | 5/5 |
+
+Overall LLM-only accuracy on scheduled requests is 27.8%. BM25 RAG accuracy is 33.3%. The difference is +5.6 percentage points. Schema-valid outputs were 14/18 and 16/18, respectively. The run recorded 3413.4 seconds of model-request wall time, including prompt processing and response generation. This sum excludes model loading, test execution and presentation rendering.
+
+Paired outcomes: both correct 5, RAG alone correct 1, baseline alone correct 0, both incorrect 12. The HTML report exposes the exact questions, raw answers, retrieved passages and independent scores. There is no synthetic model response in these metrics.
+
+## 7. Discussion and expected outcomes
+
+The observed difference describes the tested system. Higher citation traceability can coexist with numerical failure because retrieving a relation and calculating its value are distinct operations. A negative difference can reflect the supplied context and the model's response to it, but this experiment does not isolate individual causes. Repeated seeds and shared templates are correlated. Their response counts must not be represented as hundreds of independent engineering tasks or evidence of statistical significance.
+
+Before measurement, retrieval could plausibly improve access to equations or applicability rules while arithmetic errors persist. Zero or negative improvement was also plausible. No minimum accuracy gain was promised. The quantitative expectations concerned execution coverage: 36 evaluation cases, two conditions, three seeds and 216 retained responses in full mode. Measured findings above are separate from those expectations.
+
+## 8. Impact, limitations and next steps
+
+The immediate contribution is a reproducible teaching and research audit that links local LLM output to nozzle physics and keeps failures inspectable. The main limitations are one model and quantization, a small original corpus, template correlation, strict structured-output requirements, limited ideal-flow validity and pending expert review. Prompts reveal the problem inputs and the issue-code vocabulary to both conditions, as required for fair structured evaluation. This does not claim resistance to benchmark memorization or template recognition.
+
+A future controlled experiment could add a calculator or a required-input validator to target observed errors. Those are proposals, not implemented remedies or measured improvements here. Expert review, independent question authoring and richer thermophysical models would be needed before expanding the scientific claim.
+
+## 9. Reproduction and saved evidence
+
+The host launcher performs repository, disk, RAM, Docker, image, model-checksum and publication checks. Scientific code runs in bounded nonroot disposable containers on a private internal network with no published model port. Source and benchmark checkpoints precede inference. Raw requests, raw responses, metrics, figures and reports persist under `resutls/`; operational records use `logs/`. Model and image caches remain reusable. Published evidence snapshots contain the actual run artifacts. Git push failures preserve local work and are reported separately from local scientific completion.
+
+Run `python3 -B scripts/complete_project.py all` in the repository. The default is the full study and it resumes the compatible unfinished run. Use `publish` to retry publication without repeating inference. `docs/final/FINAL_MANIFEST.json` identifies the final files and stage evidence.
+
+## References
+
+1. Yang et al., *A unified foundational framework for knowledge injection and evaluation of Large Language Models in Combustion Science*, 2026 preprint. https://arxiv.org/abs/2603.04452
+2. Duzkar, *ThermoQA: A Three-Tier Benchmark for Evaluating Thermodynamic Reasoning in Large Language Models*, 2026 preprint. https://arxiv.org/abs/2604.19758
+3. Fan et al., *PhyNiKCE: A Neurosymbolic Agentic Framework for Autonomous Computational Fluid Dynamics*, 2026 preprint. https://arxiv.org/abs/2602.11666
+4. Fan et al., *ChatCFD: An LLM-Driven Agent for End-to-End CFD Automation with Structured Knowledge and Reasoning*, 2025, arXiv v3 2026. https://arxiv.org/abs/2506.02019
+5. NASA Glenn, *Thrust Equations Summary*. https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/
+6. NASA Glenn, *Compressible Area Ratio*. https://www.grc.nasa.gov/www/k-12/rocket/astar.html
+7. BM25S implementation and documentation. https://github.com/xhluca/bm25s
+8. NIST, *Guide for the Use of the International System of Units*, SP 811. https://www.nist.gov/pml/special-publication-811
+
+Literature descriptions use the supplied scoped review, with the four primary arXiv records rechecked on 5 November 2026. No outside study's accuracy is substituted for this project's measurements.
+
+
+## Time cutoff and selection limitation
+
+PRELIMINARY EVALUATION. 95 actual model responses were saved from the planned 216-request schedule. The primary comparison uses all 18 case/seed pairs (36 responses) for which both conditions completed. The other 59 unpaired responses remain in all-observed.csv and the raw evidence ZIP. The run stopped for the presentation deadline. Pair inclusion did not depend on correctness. The full 216-response study remains unfinished. Rates refer to this observed paired subset only.
+
+No paired data for a family means unmeasured, not zero accuracy. Stop-time availability may depend on problem difficulty. The paired subset need not represent the whole benchmark.
