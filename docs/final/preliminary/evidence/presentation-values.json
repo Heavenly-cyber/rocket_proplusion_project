@@ -1,0 +1,42 @@
+{
+  "family_table": [
+    [
+      "Family",
+      "LLM only",
+      "BM25 RAG"
+    ],
+    [
+      "Mass flow",
+      "0/4 (0.0%)",
+      "0/4 (0.0%)"
+    ],
+    [
+      "Thrust",
+      "0/2 (0.0%)",
+      "0/2 (0.0%)"
+    ],
+    [
+      "Exit speed",
+      "0/3 (0.0%)",
+      "0/3 (0.0%)"
+    ],
+    [
+      "Mixed units",
+      "0/3 (0.0%)",
+      "0/3 (0.0%)"
+    ],
+    [
+      "Applicability",
+      "0/1 (0.0%)",
+      "1/1 (100.0%)"
+    ],
+    [
+      "Missing inputs",
+      "5/5 (100.0%)",
+      "5/5 (100.0%)"
+    ]
+  ],
+  "preliminary_statement": "PRELIMINARY EVALUATION. 95 actual model responses were saved from the planned 216-request schedule. The primary comparison uses all 18 case/seed pairs (36 responses) for which both conditions completed. The other 59 unpaired responses remain in all-observed.csv and the raw evidence ZIP. The run stopped for the presentation deadline. Pair inclusion did not depend on correctness. The full 216-response study remains unfinished. Rates refer to this observed paired subset only.",
+  "tests_previously_passed": 106,
+  "new_inference_requests": 0
+}

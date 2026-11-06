@@ -1,0 +1,344 @@
+{
+  "run_id": "preliminary-20261106T031532",
+  "profile": "preliminary completed pairs",
+  "status": "preliminary",
+  "scheduled": 36,
+  "completed": 36,
+  "source_commit": "d4affd1f11cf62e592aa4134212b00cde7da4f89",
+  "fingerprint": "0e53eb834115330c35ae1c0cda2d095cc55798bf5aea2d17ade387bf5992f779",
+  "conditions": {
+    "llm_only": {
+      "scheduled": 18,
+      "completed": 18,
+      "correct": 5,
+      "accuracy": 0.2777777777777778,
+      "schema_valid": 14,
+      "unit_correct": 9,
+      "numeric_scheduled": 12,
+      "empty_answers": 0,
+      "median_seconds": 71.78866976550125,
+      "measured_request_seconds": 1742.6293047350046,
+      "mean_citation_id_precision": null,
+      "mean_retrieval_recall": null,
+      "failures": {
+        "schema": 4,
+        "decision": 0,
+        "issue": 0,
+        "unit": 0,
+        "numeric": 9
+      }
+    },
+    "rag": {
+      "scheduled": 18,
+      "completed": 18,
+      "correct": 6,
+      "accuracy": 0.3333333333333333,
+      "schema_valid": 16,
+      "unit_correct": 10,
+      "numeric_scheduled": 12,
+      "empty_answers": 0,
+      "median_seconds": 76.32791895750779,
+      "measured_request_seconds": 1670.78372885102,
+      "mean_citation_id_precision": 0.6875,
+      "mean_retrieval_recall": 1.0,
+      "failures": {
+        "schema": 2,
+        "decision": 0,
+        "issue": 0,
+        "unit": 0,
+        "numeric": 10
+      }
+    }
+  },
+  "families": {
+    "mass_flow": {
+      "llm_only": {
+        "correct": 0,
+        "scheduled": 4,
+        "completed": 4,
+        "accuracy": 0.0
+      },
+      "rag": {
+        "correct": 0,
+        "scheduled": 4,
+        "completed": 4,
+        "accuracy": 0.0
+      }
+    },
+    "thrust": {
+      "llm_only": {
+        "correct": 0,
+        "scheduled": 2,
+        "completed": 2,
+        "accuracy": 0.0
+      },
+      "rag": {
+        "correct": 0,
+        "scheduled": 2,
+        "completed": 2,
+        "accuracy": 0.0
+      }
+    },
+    "exit_velocity": {
+      "llm_only": {
+        "correct": 0,
+        "scheduled": 3,
+        "completed": 3,
+        "accuracy": 0.0
+      },
+      "rag": {
+        "correct": 0,
+        "scheduled": 3,
+        "completed": 3,
+        "accuracy": 0.0
+      }
+    },
+    "mixed_units": {
+      "llm_only": {
+        "correct": 0,
+        "scheduled": 3,
+        "completed": 3,
+        "accuracy": 0.0
+      },
+      "rag": {
+        "correct": 0,
+        "scheduled": 3,
+        "completed": 3,
+        "accuracy": 0.0
+      }
+    },
+    "applicability": {
+      "llm_only": {
+        "correct": 0,
+        "scheduled": 1,
+        "completed": 1,
+        "accuracy": 0.0
+      },
+      "rag": {
+        "correct": 1,
+        "scheduled": 1,
+        "completed": 1,
+        "accuracy": 1.0
+      }
+    },
+    "missing_inputs": {
+      "llm_only": {
+        "correct": 5,
+        "scheduled": 5,
+        "completed": 5,
+        "accuracy": 1.0
+      },
+      "rag": {
+        "correct": 5,
+        "scheduled": 5,
+        "completed": 5,
+        "accuracy": 1.0
+      }
+    }
+  },
+  "paired": {
+    "both_correct": 5,
+    "rag_only_correct": 1,
+    "baseline_only_correct": 0,
+    "both_incorrect": 12
+  },
+  "human_review": "pending",
+  "all_saved_responses": 95,
+  "original_full_schedule": 216,
+  "original_full_run_status": "incomplete",
+  "unpaired_responses_retained": 59,
+  "completed_pair_count": 18,
+  "selection_rule": "All case/seed pairs with both received responses at the interruption cutoff; no score-based filtering",
+  "selected_keys": [
+    [
+      "applicability-08",
+      43,
+      "llm_only"
+    ],
+    [
+      "applicability-08",
+      43,
+      "rag"
+    ],
+    [
+      "exit_velocity-04",
+      17,
+      "llm_only"
+    ],
+    [
+      "exit_velocity-04",
+      17,
+      "rag"
+    ],
+    [
+      "exit_velocity-04",
+      89,
+      "llm_only"
+    ],
+    [
+      "exit_velocity-04",
+      89,
+      "rag"
+    ],
+    [
+      "exit_velocity-07",
+      89,
+      "llm_only"
+    ],
+    [
+      "exit_velocity-07",
+      89,
+      "rag"
+    ],
+    [
+      "mass_flow-05",
+      17,
+      "llm_only"
+    ],
+    [
+      "mass_flow-05",
+      17,
+      "rag"
+    ],
+    [
+      "mass_flow-06",
+      89,
+      "llm_only"
+    ],
+    [
+      "mass_flow-06",
+      89,
+      "rag"
+    ],
+    [
+      "mass_flow-07",
+      43,
+      "llm_only"
+    ],
+    [
+      "mass_flow-07",
+      43,
+      "rag"
+    ],
+    [
+      "mass_flow-07",
+      89,
+      "llm_only"
+    ],
+    [
+      "mass_flow-07",
+      89,
+      "rag"
+    ],
+    [
+      "missing_inputs-03",
+      89,
+      "llm_only"
+    ],
+    [
+      "missing_inputs-03",
+      89,
+      "rag"
+    ],
+    [
+      "missing_inputs-04",
+      17,
+      "llm_only"
+    ],
+    [
+      "missing_inputs-04",
+      17,
+      "rag"
+    ],
+    [
+      "missing_inputs-04",
+      89,
+      "llm_only"
+    ],
+    [
+      "missing_inputs-04",
+      89,
+      "rag"
+    ],
+    [
+      "missing_inputs-06",
+      43,
+      "llm_only"
+    ],
+    [
+      "missing_inputs-06",
+      43,
+      "rag"
+    ],
+    [
+      "missing_inputs-07",
+      89,
+      "llm_only"
+    ],
+    [
+      "missing_inputs-07",
+      89,
+      "rag"
+    ],
+    [
+      "mixed_units-04",
+      43,
+      "llm_only"
+    ],
+    [
+      "mixed_units-04",
+      43,
+      "rag"
+    ],
+    [
+      "mixed_units-05",
+      17,
+      "llm_only"
+    ],
+    [
+      "mixed_units-05",
+      17,
+      "rag"
+    ],
+    [
+      "mixed_units-07",
+      43,
+      "llm_only"
+    ],
+    [
+      "mixed_units-07",
+      43,
+      "rag"
+    ],
+    [
+      "thrust-04",
+      43,
+      "llm_only"
+    ],
+    [
+      "thrust-04",
+      43,
+      "rag"
+    ],
+    [
+      "thrust-08",
+      43,
+      "llm_only"
+    ],
+    [
+      "thrust-08",
+      43,
+      "rag"
+    ]
+  ],
+  "seeds": [
+    17,
+    43,
+    89
+  ],
+  "unique_evaluation_cases": 15,
+  "measured_request_seconds": 3413.4130335860245,
+  "all_saved_request_seconds": 10552.467577222033,
+  "limits": "Time-limited preliminary evaluation. Availability at the interruption cutoff determined inclusion. The planned 216-response study is incomplete. Templates and repeated seeds are correlated. No significance, expert-review or real-engine validation claim.",
+  "delta_percentage_points": 5.555555555555553
+}

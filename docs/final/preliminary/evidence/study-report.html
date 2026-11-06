@@ -1,0 +1,1451 @@
+<!doctype html><html><meta charset='utf-8'><title>Rocket nozzle reliability study</title>
+<style>body{font:17px system-ui;max-width:1150px;margin:35px auto;padding:20px;color:#142c40}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #ccd5dd;padding:12px;text-align:left}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5f8;padding:15px}details{margin:16px 0;border:1px solid #ced8df;padding:14px}img{max-width:100%}</style>
+<p><strong>PRELIMINARY EVALUATION. 95 actual model responses were saved from the planned 216-request schedule. The primary comparison uses all 18 case/seed pairs (36 responses) for which both conditions completed. The other 59 unpaired responses remain in all-observed.csv and the raw evidence ZIP. The run stopped for the presentation deadline. Pair inclusion did not depend on correctness. The full 216-response study remains unfinished. Rates refer to this observed paired subset only.</strong></p><h1>Local LLM Reliability for Ideal Rocket Nozzles</h1><p>Run preliminary-20261106T031532. Status: <strong>PRELIMINARY</strong>. 36/36 recorded responses.</p>
+<p>These are actual local model responses checked against ideal reference equations. A partial run does not support final accuracy conclusions. Missing requests remain in scheduled denominators.</p>
+<table><tr><th>Condition</th><th>Correct / scheduled</th><th>Schema valid</th><th>Median request time</th></tr>
+<tr><td>llm_only</td><td>5/18 (27.8%)</td><td>14/18</td><td>71.8 s</td></tr>
+<tr><td>rag</td><td>6/18 (33.3%)</td><td>16/18</td><td>76.3 s</td></tr>
+</table><img src="condition-comparison.png" alt="Measured accuracy by family">
+<p>RAG minus baseline: +5.6 percentage points. Descriptive paired comparison. Repeated seeds and question templates are correlated.</p>
+<p>Citation-ID precision and retrieval recall describe traceability. They do not establish semantic support. Physical explanations and citation support await human review.</p>
+<details><summary>applicability-08 / 43 / llm_only: schema</summary><h3>Question</h3><p>Measured specific heats vary strongly along the nozzle and no caloric or thermochemical model is supplied. Given p0=1.5 MPa, T0=1250 K, At=0.001 m^2, Ae/At=3, nominal gamma=1.4 and R=287 J/(kg*K). Calculate an exact exit speed using one constant-gamma calorically perfect gas model. If the specified reference model is inapplicable, abstain and identify the relevant issue.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;abstain&quot;,&quot;value&quot;:null,&quot;unit&quot;:null,&quot;issue&quot;:&quot;variable_gamma&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Using nominal gamma=1.4 implies a constant-gamma model, but the prompt states specific heats vary strongly along the nozzle and no caloric or thermochemical model is supplied.&quot;]}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: false,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: false,
+  &quot;issue_correct&quot;: false,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: null,
+  &quot;reference_unit&quot;: null,
+  &quot;expected_decision&quot;: &quot;abstain&quot;,
+  &quot;expected_issue&quot;: &quot;variable_gamma&quot;,
+  &quot;failure&quot;: &quot;schema&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: false
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>applicability-08 / 43 / rag: correct</summary><h3>Question</h3><p>Measured specific heats vary strongly along the nozzle and no caloric or thermochemical model is supplied. Given p0=1.5 MPa, T0=1250 K, At=0.001 m^2, Ae/At=3, nominal gamma=1.4 and R=287 J/(kg*K). Calculate an exact exit speed using one constant-gamma calorically perfect gas model. If the specified reference model is inapplicable, abstain and identify the relevant issue.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;abstain&quot;,&quot;value&quot;:null,&quot;unit&quot;:null,&quot;issue&quot;:&quot;variable_gamma&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Assumption of constant gamma is invalid because measured specific heats vary strongly along the nozzle&quot;],&quot;explanation&quot;:&quot;The problem states that specific heats vary strongly, which violates the requirement for a constant-gamma calorically perfect gas model. Per the retrieved passages, such incompatibility requires abstention with the &#x27;variable_gamma&#x27; issue.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: true,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: null,
+  &quot;reference_unit&quot;: null,
+  &quot;expected_decision&quot;: &quot;abstain&quot;,
+  &quot;expected_issue&quot;: &quot;variable_gamma&quot;,
+  &quot;failure&quot;: &quot;none&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: 0.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;abstain&quot;,
+    &quot;value&quot;: null,
+    &quot;unit&quot;: null,
+    &quot;issue&quot;: &quot;variable_gamma&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [
+      &quot;Assumption of constant gamma is invalid because measured specific heats vary strongly along the nozzle&quot;
+    ],
+    &quot;explanation&quot;: &quot;The problem states that specific heats vary strongly, which violates the requirement for a constant-gamma calorically perfect gas model. Per the retrieved passages, such incompatibility requires abstention with the &#x27;variable_gamma&#x27; issue.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N02&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/mflchk.html&quot;,
+    &quot;text&quot;: &quot;For steady one-dimensional calorically perfect ideal gas with a choked sonic throat, mdot = p0*At/sqrt(T0)*sqrt(gamma/R)*(2/(gamma+1))^((gamma+1)/(2*(gamma-1))). p0 and T0 are stagnation conditions in Pa and K, At is throat area in m^2, R is specific gas constant in J/(kg*K), gamma&gt;1. This choked formula requires throat Mach number 1.&quot;,
+    &quot;bm25_score&quot;: 9.085550308227539
+  },
+  {
+    &quot;id&quot;: &quot;N06&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;A single shock-free constant-gamma isentropic model has a restricted domain. An internal normal shock breaks isentropic evolution across the whole nozzle. Strongly changing specific heats invalidate a single constant gamma. A subsonic unchoked throat invalidates the sonic-throat choked mass-flow formula. A request that insists on these incompatible assumptions requires abstention with the specific issue. This is an applicability rubric for this benchmark, not a general prohibition on solving such flows with richer models.&quot;,
+    &quot;bm25_score&quot;: 8.159567832946777
+  },
+  {
+    &quot;id&quot;: &quot;N07&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Missing required inputs prevent a unique numerical answer. Supplied-state thrust needs mdot, Ve, pe, pa and Ae unless a term is explicitly specified as zero. Choked mass flow needs p0, T0, At, gamma and R. Exit speed from area ratio needs T0, gamma, R and the stated branch. Do not assume standard air properties or atmospheric pressure when the question forbids assumptions.&quot;,
+    &quot;bm25_score&quot;: 7.378268718719482
+  }
+]</pre></details>
+<details><summary>exit_velocity-04 / 17 / llm_only: numeric</summary><h3>Question</h3><p>A steady, shock-free, calorically perfect ideal nozzle has a sonic throat and a supersonic exit. Ae/At=2.2, chamber stagnation T0=1250 K, gamma=1.4, specific R=330 J/(kg*K). Calculate exit speed in m/s using the supersonic area-Mach branch.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:2967.8,&quot;unit&quot;:&quot;m/s&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Steady, shock-free flow&quot;,&quot;Calorically perfect gas with gamma=1.4&quot;,&quot;Chamber stagnation temperature T0=1250 K&quot;,&quot;Area ratio Ae/At=2.2 corresponds to supersonic Mach number&quot;],&quot;explanation&quot;:&quot;For a calorically perfect ideal gas with gamma=1.4 and area ratio Ae/At=2.2, the supersonic Mach number is approximately 2.396. The exit speed Ve is calculated as Ve = sqrt(gamma*R*T0) * M_e, where M_e is derived from the area-Mach relation for the given conditions.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 2967.8,
+  &quot;relative_error&quot;: 1.4340947865327156,
+  &quot;reference_value&quot;: 1219.2622967766713,
+  &quot;reference_unit&quot;: &quot;m/s&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 2967.8,
+    &quot;unit&quot;: &quot;m/s&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [
+      &quot;Steady, shock-free flow&quot;,
+      &quot;Calorically perfect gas with gamma=1.4&quot;,
+      &quot;Chamber stagnation temperature T0=1250 K&quot;,
+      &quot;Area ratio Ae/At=2.2 corresponds to supersonic Mach number&quot;
+    ],
+    &quot;explanation&quot;: &quot;For a calorically perfect ideal gas with gamma=1.4 and area ratio Ae/At=2.2, the supersonic Mach number is approximately 2.396. The exit speed Ve is calculated as Ve = sqrt(gamma*R*T0) * M_e, where M_e is derived from the area-Mach relation for the given conditions.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>exit_velocity-04 / 17 / rag: schema</summary><h3>Question</h3><p>A steady, shock-free, calorically perfect ideal nozzle has a sonic throat and a supersonic exit. Ae/At=2.2, chamber stagnation T0=1250 K, gamma=1.4, specific R=330 J/(kg*K). Calculate exit speed in m/s using the supersonic area-Mach branch.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:3680.5,&quot;unit&quot;:&quot;m/s&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Steady, one-dimensional, calorically perfect ideal gas flow with constant gamma=1.4.&quot;,&quot;Flow is shock-free and isentropic from stagnation conditions to exit.&quot;,&quot;Throat is choked (Mach 1) and nozzle is supersonic, selecting the Ae/At &gt; 1 branch for Mach number calculation.&quot;,&quot;Specific gas constant R = 330 J/(kg*K), gamma = 1.4, T0 = 1250 K, Ae/At = 2.2.&quot;,&quot;Assumption of negligible potential energy changes and steady flow.&quot;,&quot;Exit velocity calculated using Ve = Me * sqrt(gamma * R * Te) where Te is derived from isentropic relations with the determined Mach number.&quot;]</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: false,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: false,
+  &quot;issue_correct&quot;: false,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: 1219.2622967766713,
+  &quot;reference_unit&quot;: &quot;m/s&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;schema&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: false
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N02&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/mflchk.html&quot;,
+    &quot;text&quot;: &quot;For steady one-dimensional calorically perfect ideal gas with a choked sonic throat, mdot = p0*At/sqrt(T0)*sqrt(gamma/R)*(2/(gamma+1))^((gamma+1)/(2*(gamma-1))). p0 and T0 are stagnation conditions in Pa and K, At is throat area in m^2, R is specific gas constant in J/(kg*K), gamma&gt;1. This choked formula requires throat Mach number 1.&quot;,
+    &quot;bm25_score&quot;: 8.221162796020508
+  },
+  {
+    &quot;id&quot;: &quot;N03&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/rocket/astar.html&quot;,
+    &quot;text&quot;: &quot;The ideal isentropic area-Mach relation is Ae/At = (1/Me)*[(2/(gamma+1))*(1+(gamma-1)*Me^2/2)]^((gamma+1)/(2*(gamma-1))). Ratios greater than 1 have subsonic and supersonic roots. A stated shock-free supersonic nozzle requires Me&gt;1. At the sonic throat the ratio is 1.&quot;,
+    &quot;bm25_score&quot;: 8.014521598815918
+  },
+  {
+    &quot;id&quot;: &quot;N04&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first.&quot;,
+    &quot;bm25_score&quot;: 5.523022651672363
+  }
+]</pre></details>
+<details><summary>exit_velocity-04 / 89 / llm_only: numeric</summary><h3>Question</h3><p>A steady, shock-free, calorically perfect ideal nozzle has a sonic throat and a supersonic exit. Ae/At=2.2, chamber stagnation T0=1250 K, gamma=1.4, specific R=330 J/(kg*K). Calculate exit speed in m/s using the supersonic area-Mach branch.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:2968.7,&quot;unit&quot;:&quot;m/s&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Steady flow, calorically perfect gas, shock-free nozzle, sonic throat (M=1 at throat), supersonic exit branch (Ae/At=2.2). Gamma=1.4 and R=330 J/(kg*K) are used with T0=1250 K.&quot;,&quot;Note: Standard isentropic flow relations for gamma=1.4 yield Ae/At=2.2 at M≈2.887, which is the correct supersonic branch for this area ratio.&quot;],&quot;explanation&quot;:&quot;For a calorically perfect gas (gamma=1.4), the specific heat ratio implies that an area ratio of Ae/At=2.2 corresponds to a Mach number of approximately 2.887 at the exit. Using the energy equation T0 = Te + v^2/(2*c_p) and the ideal gas law, the exit temperature is derived from the isentropic relation Te/T0 = (1 + ((gamma-1)/2)*M^2)^(-1). With c_p = R*gamma/(gamma-1), the velocity v = sqrt(2*c_p*T0*(1 - Te/T0)) calculates to approximately 2968.7 m/s.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 2968.7,
+  &quot;relative_error&quot;: 1.4348329377921936,
+  &quot;reference_value&quot;: 1219.2622967766713,
+  &quot;reference_unit&quot;: &quot;m/s&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 2968.7,
+    &quot;unit&quot;: &quot;m/s&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [
+      &quot;Steady flow, calorically perfect gas, shock-free nozzle, sonic throat (M=1 at throat), supersonic exit branch (Ae/At=2.2). Gamma=1.4 and R=330 J/(kg*K) are used with T0=1250 K.&quot;,
+      &quot;Note: Standard isentropic flow relations for gamma=1.4 yield Ae/At=2.2 at M\u22482.887, which is the correct supersonic branch for this area ratio.&quot;
+    ],
+    &quot;explanation&quot;: &quot;For a calorically perfect gas (gamma=1.4), the specific heat ratio implies that an area ratio of Ae/At=2.2 corresponds to a Mach number of approximately 2.887 at the exit. Using the energy equation T0 = Te + v^2/(2*c_p) and the ideal gas law, the exit temperature is derived from the isentropic relation Te/T0 = (1 + ((gamma-1)/2)*M^2)^(-1). With c_p = R*gamma/(gamma-1), the velocity v = sqrt(2*c_p*T0*(1 - Te/T0)) calculates to approximately 2968.7 m/s.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>exit_velocity-04 / 89 / rag: numeric</summary><h3>Question</h3><p>A steady, shock-free, calorically perfect ideal nozzle has a sonic throat and a supersonic exit. Ae/At=2.2, chamber stagnation T0=1250 K, gamma=1.4, specific R=330 J/(kg*K). Calculate exit speed in m/s using the supersonic area-Mach branch.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:2598.4,&quot;unit&quot;:&quot;m/s&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[&quot;N03&quot;,&quot;N04&quot;],&quot;assumptions&quot;:[],&quot;explanation&quot;:&quot;Using the supersonic branch of the area-Mach relation (N03) with Ae/At=2.2 and gamma=1.4 yields Me_exit ≈ 2.598. Then, using the isentropic temperature relation (N04), Te = T0 / (1 + (gamma-1)*Me^2/2). Finally, calculating velocity Ve = Me * sqrt(gamma*R*Te) with given T0=1250 K and R=330 J/(kg*K).&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 2598.4,
+  &quot;relative_error&quot;: 1.131124702920213,
+  &quot;reference_value&quot;: 1219.2622967766713,
+  &quot;reference_unit&quot;: &quot;m/s&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [
+    &quot;N03&quot;,
+    &quot;N04&quot;
+  ],
+  &quot;citation_id_precision&quot;: 1.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: false,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 2598.4,
+    &quot;unit&quot;: &quot;m/s&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [
+      &quot;N03&quot;,
+      &quot;N04&quot;
+    ],
+    &quot;assumptions&quot;: [],
+    &quot;explanation&quot;: &quot;Using the supersonic branch of the area-Mach relation (N03) with Ae/At=2.2 and gamma=1.4 yields Me_exit \u2248 2.598. Then, using the isentropic temperature relation (N04), Te = T0 / (1 + (gamma-1)*Me^2/2). Finally, calculating velocity Ve = Me * sqrt(gamma*R*Te) with given T0=1250 K and R=330 J/(kg*K).&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N02&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/mflchk.html&quot;,
+    &quot;text&quot;: &quot;For steady one-dimensional calorically perfect ideal gas with a choked sonic throat, mdot = p0*At/sqrt(T0)*sqrt(gamma/R)*(2/(gamma+1))^((gamma+1)/(2*(gamma-1))). p0 and T0 are stagnation conditions in Pa and K, At is throat area in m^2, R is specific gas constant in J/(kg*K), gamma&gt;1. This choked formula requires throat Mach number 1.&quot;,
+    &quot;bm25_score&quot;: 8.221162796020508
+  },
+  {
+    &quot;id&quot;: &quot;N03&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/rocket/astar.html&quot;,
+    &quot;text&quot;: &quot;The ideal isentropic area-Mach relation is Ae/At = (1/Me)*[(2/(gamma+1))*(1+(gamma-1)*Me^2/2)]^((gamma+1)/(2*(gamma-1))). Ratios greater than 1 have subsonic and supersonic roots. A stated shock-free supersonic nozzle requires Me&gt;1. At the sonic throat the ratio is 1.&quot;,
+    &quot;bm25_score&quot;: 8.014521598815918
+  },
+  {
+    &quot;id&quot;: &quot;N04&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first.&quot;,
+    &quot;bm25_score&quot;: 5.523022651672363
+  }
+]</pre></details>
+<details><summary>exit_velocity-07 / 89 / llm_only: numeric</summary><h3>Question</h3><p>A steady, shock-free, calorically perfect ideal nozzle has a sonic throat and a supersonic exit. Ae/At=6, chamber stagnation T0=1700 K, gamma=1.4, specific R=360 J/(kg*K). Calculate exit speed in m/s using the supersonic area-Mach branch.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:2598.3,&quot;unit&quot;:&quot;m/s&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Steady, shock-free flow&quot;,&quot;Calorically perfect gas with constant gamma=1.4&quot;,&quot;Ideal nozzle behavior (isentropic)&quot;,&quot;Chamber conditions are stagnation conditions (T0=1700 K)&quot;],&quot;explanation&quot;:&quot;For a calorically perfect ideal gas with gamma=1.4 and an area ratio Ae/At=6 on the supersonic branch, the exit Mach number is approximately 2.943. Using the speed of sound formula c = sqrt(gamma*R*T) where T is the static temperature derived from isentropic relations (T/T0 = (1 + (gamma-1)/2 * M^2)^(-1)), and then calculating velocity V = M*c, yields an exit speed of approximately 2598.3 m/s.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 2598.3,
+  &quot;relative_error&quot;: 0.5068465794541532,
+  &quot;reference_value&quot;: 1724.3294940757803,
+  &quot;reference_unit&quot;: &quot;m/s&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 2598.3,
+    &quot;unit&quot;: &quot;m/s&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [
+      &quot;Steady, shock-free flow&quot;,
+      &quot;Calorically perfect gas with constant gamma=1.4&quot;,
+      &quot;Ideal nozzle behavior (isentropic)&quot;,
+      &quot;Chamber conditions are stagnation conditions (T0=1700 K)&quot;
+    ],
+    &quot;explanation&quot;: &quot;For a calorically perfect ideal gas with gamma=1.4 and an area ratio Ae/At=6 on the supersonic branch, the exit Mach number is approximately 2.943. Using the speed of sound formula c = sqrt(gamma*R*T) where T is the static temperature derived from isentropic relations (T/T0 = (1 + (gamma-1)/2 * M^2)^(-1)), and then calculating velocity V = M*c, yields an exit speed of approximately 2598.3 m/s.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>exit_velocity-07 / 89 / rag: numeric</summary><h3>Question</h3><p>A steady, shock-free, calorically perfect ideal nozzle has a sonic throat and a supersonic exit. Ae/At=6, chamber stagnation T0=1700 K, gamma=1.4, specific R=360 J/(kg*K). Calculate exit speed in m/s using the supersonic area-Mach branch.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:3147.5,&quot;unit&quot;:&quot;m/s&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[&quot;N03&quot;,&quot;N04&quot;],&quot;assumptions&quot;:[&quot;Steady, one-dimensional, isentropic flow with constant gamma (calorically perfect gas).&quot;,&quot;Choked throat condition (M_throat=1) implies sonic flow at the minimum area.&quot;,&quot;Supersonic exit branch selected based on Ae/At &gt; 1 and shock-free requirement.&quot;,&quot;Gas constant R = 360 J/(kg*K), gamma = 1.4, T0 = 1700 K, Ae/At = 6.&quot;],&quot;explanation&quot;:&quot;First, calculate the Mach number at the exit (Me) using the area-Mach relation for gamma=1.4 and Ae/At=6 on the supersonic branch, yielding Me ≈ 2.938. Second, determine the static temperature at the exit using Te = T0 / (1 + (gamma-1)*Me^2/2). Third, calculate the exit velocity using Ve = Me * sqrt(gamma*R*Te).&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 3147.5,
+  &quot;relative_error&quot;: 0.8253471919454825,
+  &quot;reference_value&quot;: 1724.3294940757803,
+  &quot;reference_unit&quot;: &quot;m/s&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [
+    &quot;N03&quot;,
+    &quot;N04&quot;
+  ],
+  &quot;citation_id_precision&quot;: 1.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 3147.5,
+    &quot;unit&quot;: &quot;m/s&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [
+      &quot;N03&quot;,
+      &quot;N04&quot;
+    ],
+    &quot;assumptions&quot;: [
+      &quot;Steady, one-dimensional, isentropic flow with constant gamma (calorically perfect gas).&quot;,
+      &quot;Choked throat condition (M_throat=1) implies sonic flow at the minimum area.&quot;,
+      &quot;Supersonic exit branch selected based on Ae/At &gt; 1 and shock-free requirement.&quot;,
+      &quot;Gas constant R = 360 J/(kg*K), gamma = 1.4, T0 = 1700 K, Ae/At = 6.&quot;
+    ],
+    &quot;explanation&quot;: &quot;First, calculate the Mach number at the exit (Me) using the area-Mach relation for gamma=1.4 and Ae/At=6 on the supersonic branch, yielding Me \u2248 2.938. Second, determine the static temperature at the exit using Te = T0 / (1 + (gamma-1)*Me^2/2). Third, calculate the exit velocity using Ve = Me * sqrt(gamma*R*Te).&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N02&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/mflchk.html&quot;,
+    &quot;text&quot;: &quot;For steady one-dimensional calorically perfect ideal gas with a choked sonic throat, mdot = p0*At/sqrt(T0)*sqrt(gamma/R)*(2/(gamma+1))^((gamma+1)/(2*(gamma-1))). p0 and T0 are stagnation conditions in Pa and K, At is throat area in m^2, R is specific gas constant in J/(kg*K), gamma&gt;1. This choked formula requires throat Mach number 1.&quot;,
+    &quot;bm25_score&quot;: 8.221162796020508
+  },
+  {
+    &quot;id&quot;: &quot;N03&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/rocket/astar.html&quot;,
+    &quot;text&quot;: &quot;The ideal isentropic area-Mach relation is Ae/At = (1/Me)*[(2/(gamma+1))*(1+(gamma-1)*Me^2/2)]^((gamma+1)/(2*(gamma-1))). Ratios greater than 1 have subsonic and supersonic roots. A stated shock-free supersonic nozzle requires Me&gt;1. At the sonic throat the ratio is 1.&quot;,
+    &quot;bm25_score&quot;: 8.014521598815918
+  },
+  {
+    &quot;id&quot;: &quot;N04&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first.&quot;,
+    &quot;bm25_score&quot;: 5.523022651672363
+  }
+]</pre></details>
+<details><summary>mass_flow-05 / 17 / llm_only: numeric</summary><h3>Question</h3><p>A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=1.4e+06 Pa, T0=1100 K, throat area At=0.0007 m^2, gamma=1.35, specific R=360 J/(kg*K). Calculate mass flow in kg/s.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:94.6,&quot;unit&quot;:&quot;kg/s&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Steady 1D flow, calorically perfect ideal gas, choked throat (M=1), isentropic expansion from stagnation conditions&quot;],&quot;explanation&quot;:&quot;Mass flow rate through a choked nozzle is calculated using the critical mass flow function: m_dot = A_t * p0 * sqrt(gamma/(R*T0)) * ((gamma+1)/2)^(-(gamma+1)/(2*(gamma-1))). Substituting p0=1.4e6 Pa, T0=1100 K, At=0.0007 m^2, gamma=1.35, R=360 J/(kg*K) yields approximately 94.6 kg/s.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 94.6,
+  &quot;relative_error&quot;: 88.84065157982333,
+  &quot;reference_value&quot;: 1.0529754441501127,
+  &quot;reference_unit&quot;: &quot;kg/s&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 94.6,
+    &quot;unit&quot;: &quot;kg/s&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [
+      &quot;Steady 1D flow, calorically perfect ideal gas, choked throat (M=1), isentropic expansion from stagnation conditions&quot;
+    ],
+    &quot;explanation&quot;: &quot;Mass flow rate through a choked nozzle is calculated using the critical mass flow function: m_dot = A_t * p0 * sqrt(gamma/(R*T0)) * ((gamma+1)/2)^(-(gamma+1)/(2*(gamma-1))). Substituting p0=1.4e6 Pa, T0=1100 K, At=0.0007 m^2, gamma=1.35, R=360 J/(kg*K) yields approximately 94.6 kg/s.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>mass_flow-05 / 17 / rag: numeric</summary><h3>Question</h3><p>A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=1.4e+06 Pa, T0=1100 K, throat area At=0.0007 m^2, gamma=1.35, specific R=360 J/(kg*K). Calculate mass flow in kg/s.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:16.78,&quot;unit&quot;:&quot;kg/s&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[&quot;N02&quot;],&quot;assumptions&quot;:[&quot;Steady 1D calorically perfect ideal gas flow with constant gamma=1.35&quot;,&quot;Choked throat condition (Mach=1) at sonic area At&quot;,&quot;Use of provided stagnation p0, T0, and specific gas constant R&quot;],&quot;explanation&quot;:&quot;Using the choked mass flow formula from N02: mdot = p0*At/sqrt(T0)*sqrt(gamma/R)*(2/(gamma+1))^((gamma+1)/(2*(gamma-1))). Substituting p0=1.4e6 Pa, T0=1100 K, At=0.0007 m^2, gamma=1.35, R=360 J/kgK yields approximately 16.78 kg/s.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 16.78,
+  &quot;relative_error&quot;: 14.935794223144141,
+  &quot;reference_value&quot;: 1.0529754441501127,
+  &quot;reference_unit&quot;: &quot;kg/s&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [
+    &quot;N02&quot;
+  ],
+  &quot;citation_id_precision&quot;: 1.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 16.78,
+    &quot;unit&quot;: &quot;kg/s&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [
+      &quot;N02&quot;
+    ],
+    &quot;assumptions&quot;: [
+      &quot;Steady 1D calorically perfect ideal gas flow with constant gamma=1.35&quot;,
+      &quot;Choked throat condition (Mach=1) at sonic area At&quot;,
+      &quot;Use of provided stagnation p0, T0, and specific gas constant R&quot;
+    ],
+    &quot;explanation&quot;: &quot;Using the choked mass flow formula from N02: mdot = p0*At/sqrt(T0)*sqrt(gamma/R)*(2/(gamma+1))^((gamma+1)/(2*(gamma-1))). Substituting p0=1.4e6 Pa, T0=1100 K, At=0.0007 m^2, gamma=1.35, R=360 J/kgK yields approximately 16.78 kg/s.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N02&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/mflchk.html&quot;,
+    &quot;text&quot;: &quot;For steady one-dimensional calorically perfect ideal gas with a choked sonic throat, mdot = p0*At/sqrt(T0)*sqrt(gamma/R)*(2/(gamma+1))^((gamma+1)/(2*(gamma-1))). p0 and T0 are stagnation conditions in Pa and K, At is throat area in m^2, R is specific gas constant in J/(kg*K), gamma&gt;1. This choked formula requires throat Mach number 1.&quot;,
+    &quot;bm25_score&quot;: 11.28142261505127
+  },
+  {
+    &quot;id&quot;: &quot;N06&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;A single shock-free constant-gamma isentropic model has a restricted domain. An internal normal shock breaks isentropic evolution across the whole nozzle. Strongly changing specific heats invalidate a single constant gamma. A subsonic unchoked throat invalidates the sonic-throat choked mass-flow formula. A request that insists on these incompatible assumptions requires abstention with the specific issue. This is an applicability rubric for this benchmark, not a general prohibition on solving such flows with richer models.&quot;,
+    &quot;bm25_score&quot;: 4.321383476257324
+  },
+  {
+    &quot;id&quot;: &quot;N04&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first.&quot;,
+    &quot;bm25_score&quot;: 3.9509239196777344
+  }
+]</pre></details>
+<details><summary>mass_flow-06 / 89 / llm_only: numeric</summary><h3>Question</h3><p>A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=1.6e+06 Pa, T0=1200 K, throat area At=0.0008 m^2, gamma=1.4, specific R=380 J/(kg*K). Calculate mass flow in kg/s.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:11.67,&quot;unit&quot;:&quot;kg/s&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Choked flow at throat (M=1), calorically perfect gas with gamma=1.4, R=380 J/(kg*K), using standard isentropic relations for mass flow rate&quot;],&quot;explanation&quot;:&quot;For a choked nozzle, the mass flow rate is determined by the stagnation conditions and throat area using the critical pressure ratio and density/velocity relations derived from the isentropic flow equations.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 11.67,
+  &quot;relative_error&quot;: 7.991311172221451,
+  &quot;reference_value&quot;: 1.29791971120456,
+  &quot;reference_unit&quot;: &quot;kg/s&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 11.67,
+    &quot;unit&quot;: &quot;kg/s&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [
+      &quot;Choked flow at throat (M=1), calorically perfect gas with gamma=1.4, R=380 J/(kg*K), using standard isentropic relations for mass flow rate&quot;
+    ],
+    &quot;explanation&quot;: &quot;For a choked nozzle, the mass flow rate is determined by the stagnation conditions and throat area using the critical pressure ratio and density/velocity relations derived from the isentropic flow equations.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>mass_flow-06 / 89 / rag: numeric</summary><h3>Question</h3><p>A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=1.6e+06 Pa, T0=1200 K, throat area At=0.0008 m^2, gamma=1.4, specific R=380 J/(kg*K). Calculate mass flow in kg/s.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:40.87,&quot;unit&quot;:&quot;kg/s&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[&quot;N02&quot;],&quot;assumptions&quot;:[],&quot;explanation&quot;:&quot;The problem provides all necessary inputs (p0, T0, At, gamma, R) and specifies a choked throat, allowing direct application of the standard mass flow equation for an ideal gas with constant specific heats. No internal shocks or variable gamma issues are present.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 40.87,
+  &quot;relative_error&quot;: 30.48885069483211,
+  &quot;reference_value&quot;: 1.29791971120456,
+  &quot;reference_unit&quot;: &quot;kg/s&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [
+    &quot;N02&quot;
+  ],
+  &quot;citation_id_precision&quot;: 1.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: false,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 40.87,
+    &quot;unit&quot;: &quot;kg/s&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [
+      &quot;N02&quot;
+    ],
+    &quot;assumptions&quot;: [],
+    &quot;explanation&quot;: &quot;The problem provides all necessary inputs (p0, T0, At, gamma, R) and specifies a choked throat, allowing direct application of the standard mass flow equation for an ideal gas with constant specific heats. No internal shocks or variable gamma issues are present.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N02&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/mflchk.html&quot;,
+    &quot;text&quot;: &quot;For steady one-dimensional calorically perfect ideal gas with a choked sonic throat, mdot = p0*At/sqrt(T0)*sqrt(gamma/R)*(2/(gamma+1))^((gamma+1)/(2*(gamma-1))). p0 and T0 are stagnation conditions in Pa and K, At is throat area in m^2, R is specific gas constant in J/(kg*K), gamma&gt;1. This choked formula requires throat Mach number 1.&quot;,
+    &quot;bm25_score&quot;: 11.28142261505127
+  },
+  {
+    &quot;id&quot;: &quot;N06&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;A single shock-free constant-gamma isentropic model has a restricted domain. An internal normal shock breaks isentropic evolution across the whole nozzle. Strongly changing specific heats invalidate a single constant gamma. A subsonic unchoked throat invalidates the sonic-throat choked mass-flow formula. A request that insists on these incompatible assumptions requires abstention with the specific issue. This is an applicability rubric for this benchmark, not a general prohibition on solving such flows with richer models.&quot;,
+    &quot;bm25_score&quot;: 4.321383476257324
+  },
+  {
+    &quot;id&quot;: &quot;N04&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first.&quot;,
+    &quot;bm25_score&quot;: 3.9509239196777344
+  }
+]</pre></details>
+<details><summary>mass_flow-07 / 43 / llm_only: numeric</summary><h3>Question</h3><p>A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=1.8e+06 Pa, T0=1300 K, throat area At=0.0009 m^2, gamma=1.22, specific R=400 J/(kg*K). Calculate mass flow in kg/s.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:15.67,&quot;unit&quot;:&quot;kg/s&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Choked flow at throat implies Mach number M=1.&quot;,&quot;Calorically perfect gas implies constant gamma and specific heat ratio.&quot;,&quot;Stagnation properties given allow direct use of choked mass flow equation.&quot;],&quot;explanation&quot;:&quot;For a calorically perfect ideal gas with a choked throat (M=1), the mass flow rate is calculated using the formula: mdot = p0 * At * sqrt(gamma/R) * ((2/(gamma+1))^((gamma+1)/(2*(gamma-1))))/sqrt(1). Substituting p0=1.8e6 Pa, At=0.0009 m^2, gamma=1.22, and R=400 J/(kg*K) yields approximately 15.67 kg/s.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 15.67,
+  &quot;relative_error&quot;: 9.691798558763292,
+  &quot;reference_value&quot;: 1.465609355982155,
+  &quot;reference_unit&quot;: &quot;kg/s&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 15.67,
+    &quot;unit&quot;: &quot;kg/s&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [
+      &quot;Choked flow at throat implies Mach number M=1.&quot;,
+      &quot;Calorically perfect gas implies constant gamma and specific heat ratio.&quot;,
+      &quot;Stagnation properties given allow direct use of choked mass flow equation.&quot;
+    ],
+    &quot;explanation&quot;: &quot;For a calorically perfect ideal gas with a choked throat (M=1), the mass flow rate is calculated using the formula: mdot = p0 * At * sqrt(gamma/R) * ((2/(gamma+1))^((gamma+1)/(2*(gamma-1))))/sqrt(1). Substituting p0=1.8e6 Pa, At=0.0009 m^2, gamma=1.22, and R=400 J/(kg*K) yields approximately 15.67 kg/s.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>mass_flow-07 / 43 / rag: numeric</summary><h3>Question</h3><p>A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=1.8e+06 Pa, T0=1300 K, throat area At=0.0009 m^2, gamma=1.22, specific R=400 J/(kg*K). Calculate mass flow in kg/s.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:60.95,&quot;unit&quot;:&quot;kg/s&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[&quot;N02&quot;],&quot;assumptions&quot;:[&quot;Steady 1D calorically perfect ideal gas&quot;,&quot;Choked throat (M=1)&quot;,&quot;Constant gamma=1.22&quot;,&quot;Specific R=400 J/(kg*K)&quot;,&quot;p0 and T0 are stagnation conditions&quot;],&quot;explanation&quot;:&quot;The provided parameters satisfy all requirements for the choked mass flow formula in passage N02: steady 1D calorically perfect gas, choked throat (M=1), constant gamma&gt;1, and specified stagnation p0, T0, area At, R, and gamma. No internal shock or variable gamma issues exist given the problem statement.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 60.95,
+  &quot;relative_error&quot;: 40.586797840243946,
+  &quot;reference_value&quot;: 1.465609355982155,
+  &quot;reference_unit&quot;: &quot;kg/s&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [
+    &quot;N02&quot;
+  ],
+  &quot;citation_id_precision&quot;: 1.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 60.95,
+    &quot;unit&quot;: &quot;kg/s&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [
+      &quot;N02&quot;
+    ],
+    &quot;assumptions&quot;: [
+      &quot;Steady 1D calorically perfect ideal gas&quot;,
+      &quot;Choked throat (M=1)&quot;,
+      &quot;Constant gamma=1.22&quot;,
+      &quot;Specific R=400 J/(kg*K)&quot;,
+      &quot;p0 and T0 are stagnation conditions&quot;
+    ],
+    &quot;explanation&quot;: &quot;The provided parameters satisfy all requirements for the choked mass flow formula in passage N02: steady 1D calorically perfect gas, choked throat (M=1), constant gamma&gt;1, and specified stagnation p0, T0, area At, R, and gamma. No internal shock or variable gamma issues exist given the problem statement.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N02&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/mflchk.html&quot;,
+    &quot;text&quot;: &quot;For steady one-dimensional calorically perfect ideal gas with a choked sonic throat, mdot = p0*At/sqrt(T0)*sqrt(gamma/R)*(2/(gamma+1))^((gamma+1)/(2*(gamma-1))). p0 and T0 are stagnation conditions in Pa and K, At is throat area in m^2, R is specific gas constant in J/(kg*K), gamma&gt;1. This choked formula requires throat Mach number 1.&quot;,
+    &quot;bm25_score&quot;: 11.28142261505127
+  },
+  {
+    &quot;id&quot;: &quot;N06&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;A single shock-free constant-gamma isentropic model has a restricted domain. An internal normal shock breaks isentropic evolution across the whole nozzle. Strongly changing specific heats invalidate a single constant gamma. A subsonic unchoked throat invalidates the sonic-throat choked mass-flow formula. A request that insists on these incompatible assumptions requires abstention with the specific issue. This is an applicability rubric for this benchmark, not a general prohibition on solving such flows with richer models.&quot;,
+    &quot;bm25_score&quot;: 4.321383476257324
+  },
+  {
+    &quot;id&quot;: &quot;N04&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first.&quot;,
+    &quot;bm25_score&quot;: 3.9509239196777344
+  }
+]</pre></details>
+<details><summary>mass_flow-07 / 89 / llm_only: numeric</summary><h3>Question</h3><p>A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=1.8e+06 Pa, T0=1300 K, throat area At=0.0009 m^2, gamma=1.22, specific R=400 J/(kg*K). Calculate mass flow in kg/s.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:37.5,&quot;unit&quot;:&quot;kg/s&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Steady 1D flow, calorically perfect ideal gas, choked throat condition (M=1 at throat)&quot;], &quot;explanation&quot;:&quot;For a choked nozzle, mass flow rate mdot = p0 * At * sqrt(gamma/R) * ((gamma+1)/2)^(-(gamma+1)/(2*(gamma-1))). Given p0=1.8e6 Pa, T0=1300 K (not needed for choked flow formula), At=0.0009 m^2, gamma=1.22, R=400 J/(kg*K). Calculation: 1.8e6 * 0.0009 * sqrt(1.22/400) * ((2.22)/2)^(-(2.22)/(2*0.22)) = 1620 * 0.055377 * (1.11)^-5.0909 ≈ 89.7 * 0.418 ≈ 37.5 kg/s.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 37.5,
+  &quot;relative_error&quot;: 24.586627055113173,
+  &quot;reference_value&quot;: 1.465609355982155,
+  &quot;reference_unit&quot;: &quot;kg/s&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 37.5,
+    &quot;unit&quot;: &quot;kg/s&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [
+      &quot;Steady 1D flow, calorically perfect ideal gas, choked throat condition (M=1 at throat)&quot;
+    ],
+    &quot;explanation&quot;: &quot;For a choked nozzle, mass flow rate mdot = p0 * At * sqrt(gamma/R) * ((gamma+1)/2)^(-(gamma+1)/(2*(gamma-1))). Given p0=1.8e6 Pa, T0=1300 K (not needed for choked flow formula), At=0.0009 m^2, gamma=1.22, R=400 J/(kg*K). Calculation: 1.8e6 * 0.0009 * sqrt(1.22/400) * ((2.22)/2)^(-(2.22)/(2*0.22)) = 1620 * 0.055377 * (1.11)^-5.0909 \u2248 89.7 * 0.418 \u2248 37.5 kg/s.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>mass_flow-07 / 89 / rag: numeric</summary><h3>Question</h3><p>A steady 1D calorically perfect ideal-gas nozzle has a choked sonic throat. Chamber stagnation p0=1.8e+06 Pa, T0=1300 K, throat area At=0.0009 m^2, gamma=1.22, specific R=400 J/(kg*K). Calculate mass flow in kg/s.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:43.69,&quot;unit&quot;:&quot;kg/s&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[&quot;N02&quot;],&quot;assumptions&quot;:[&quot;Steady 1D flow&quot;,&quot;Calorically perfect ideal gas&quot;,&quot;Choked throat (M=1)&quot;,&quot;Constant gamma=1.22&quot;,&quot;Specific R=400 J/(kg*K)&quot;],&quot;explanation&quot;:&quot;The problem specifies a choked sonic throat for a calorically perfect ideal gas with constant gamma, allowing the use of the standard choked mass flow formula from [N02]. All required inputs (p0, T0, At, gamma, R) are provided and consistent with the model assumptions. No internal shock or unchoked conditions are indicated.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 43.69,
+  &quot;relative_error&quot;: 28.810126294343853,
+  &quot;reference_value&quot;: 1.465609355982155,
+  &quot;reference_unit&quot;: &quot;kg/s&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [
+    &quot;N02&quot;
+  ],
+  &quot;citation_id_precision&quot;: 1.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 43.69,
+    &quot;unit&quot;: &quot;kg/s&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [
+      &quot;N02&quot;
+    ],
+    &quot;assumptions&quot;: [
+      &quot;Steady 1D flow&quot;,
+      &quot;Calorically perfect ideal gas&quot;,
+      &quot;Choked throat (M=1)&quot;,
+      &quot;Constant gamma=1.22&quot;,
+      &quot;Specific R=400 J/(kg*K)&quot;
+    ],
+    &quot;explanation&quot;: &quot;The problem specifies a choked sonic throat for a calorically perfect ideal gas with constant gamma, allowing the use of the standard choked mass flow formula from [N02]. All required inputs (p0, T0, At, gamma, R) are provided and consistent with the model assumptions. No internal shock or unchoked conditions are indicated.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N02&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/mflchk.html&quot;,
+    &quot;text&quot;: &quot;For steady one-dimensional calorically perfect ideal gas with a choked sonic throat, mdot = p0*At/sqrt(T0)*sqrt(gamma/R)*(2/(gamma+1))^((gamma+1)/(2*(gamma-1))). p0 and T0 are stagnation conditions in Pa and K, At is throat area in m^2, R is specific gas constant in J/(kg*K), gamma&gt;1. This choked formula requires throat Mach number 1.&quot;,
+    &quot;bm25_score&quot;: 11.28142261505127
+  },
+  {
+    &quot;id&quot;: &quot;N06&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;A single shock-free constant-gamma isentropic model has a restricted domain. An internal normal shock breaks isentropic evolution across the whole nozzle. Strongly changing specific heats invalidate a single constant gamma. A subsonic unchoked throat invalidates the sonic-throat choked mass-flow formula. A request that insists on these incompatible assumptions requires abstention with the specific issue. This is an applicability rubric for this benchmark, not a general prohibition on solving such flows with richer models.&quot;,
+    &quot;bm25_score&quot;: 4.321383476257324
+  },
+  {
+    &quot;id&quot;: &quot;N04&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first.&quot;,
+    &quot;bm25_score&quot;: 3.9509239196777344
+  }
+]</pre></details>
+<details><summary>missing_inputs-03 / 89 / llm_only: correct</summary><h3>Question</h3><p>A supplied nozzle exit state has mdot=2 kg/s, Ve=1200 m/s, pe=150 kPa and Ae=0.004 m^2. Ambient pressure is not supplied. Calculate total thrust including pressure thrust. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;abstain&quot;,&quot;value&quot;:null,&quot;unit&quot;:null,&quot;issue&quot;:&quot;missing_inputs&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[],&quot;explanation&quot;:&quot;Total thrust requires ambient pressure (Pa) to calculate pressure thrust (Ae*(pe-Pa)). The problem states ambient pressure is not supplied and instructs not to substitute standard air properties. Therefore, the answer cannot be uniquely determined.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: true,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: null,
+  &quot;reference_unit&quot;: null,
+  &quot;expected_decision&quot;: &quot;abstain&quot;,
+  &quot;expected_issue&quot;: &quot;missing_inputs&quot;,
+  &quot;failure&quot;: &quot;none&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: false,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;abstain&quot;,
+    &quot;value&quot;: null,
+    &quot;unit&quot;: null,
+    &quot;issue&quot;: &quot;missing_inputs&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [],
+    &quot;explanation&quot;: &quot;Total thrust requires ambient pressure (Pa) to calculate pressure thrust (Ae*(pe-Pa)). The problem states ambient pressure is not supplied and instructs not to substitute standard air properties. Therefore, the answer cannot be uniquely determined.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>missing_inputs-03 / 89 / rag: correct</summary><h3>Question</h3><p>A supplied nozzle exit state has mdot=2 kg/s, Ve=1200 m/s, pe=150 kPa and Ae=0.004 m^2. Ambient pressure is not supplied. Calculate total thrust including pressure thrust. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;abstain&quot;,&quot;value&quot;:null,&quot;unit&quot;:null,&quot;issue&quot;:&quot;missing_inputs&quot;,&quot;evidence_ids&quot;:[&quot;N07&quot;],&quot;assumptions&quot;:[],&quot;explanation&quot;:&quot;Total thrust requires ambient pressure (pa) to calculate the pressure thrust term (pe-pa)*Ae. The prompt explicitly states ambient pressure is not supplied and forbids assuming standard air properties or atmospheric pressure. Without pa, the thrust cannot be uniquely determined.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: true,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: null,
+  &quot;reference_unit&quot;: null,
+  &quot;expected_decision&quot;: &quot;abstain&quot;,
+  &quot;expected_issue&quot;: &quot;missing_inputs&quot;,
+  &quot;failure&quot;: &quot;none&quot;,
+  &quot;cited_ids&quot;: [
+    &quot;N07&quot;
+  ],
+  &quot;citation_id_precision&quot;: 1.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: false,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;abstain&quot;,
+    &quot;value&quot;: null,
+    &quot;unit&quot;: null,
+    &quot;issue&quot;: &quot;missing_inputs&quot;,
+    &quot;evidence_ids&quot;: [
+      &quot;N07&quot;
+    ],
+    &quot;assumptions&quot;: [],
+    &quot;explanation&quot;: &quot;Total thrust requires ambient pressure (pa) to calculate the pressure thrust term (pe-pa)*Ae. The prompt explicitly states ambient pressure is not supplied and forbids assuming standard air properties or atmospheric pressure. Without pa, the thrust cannot be uniquely determined.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N07&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Missing required inputs prevent a unique numerical answer. Supplied-state thrust needs mdot, Ve, pe, pa and Ae unless a term is explicitly specified as zero. Choked mass flow needs p0, T0, At, gamma and R. Exit speed from area ratio needs T0, gamma, R and the stated branch. Do not assume standard air properties or atmospheric pressure when the question forbids assumptions.&quot;,
+    &quot;bm25_score&quot;: 12.761198043823242
+  },
+  {
+    &quot;id&quot;: &quot;N01&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Axial nozzle thrust F = mdot*Ve + (pe-pa)*Ae. mdot is mass flow in kg/s, Ve exit velocity in m/s, pe exit static pressure and pa ambient pressure in Pa, Ae exit area in m^2. Both terms have units N. Pressure thrust can be positive, zero, or negative. Do not omit it merely because exhaust velocity is given.&quot;,
+    &quot;bm25_score&quot;: 9.357401847839355
+  },
+  {
+    &quot;id&quot;: &quot;N04&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first.&quot;,
+    &quot;bm25_score&quot;: 5.635732173919678
+  }
+]</pre></details>
+<details><summary>missing_inputs-04 / 17 / llm_only: correct</summary><h3>Question</h3><p>A supplied nozzle exit state has mdot=1.5 kg/s, Ve=1300 m/s, pe=180 kPa and pa=100 kPa. Exit area is not supplied. Calculate total thrust including pressure thrust. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;abstain&quot;,&quot;value&quot;:null,&quot;unit&quot;:null,&quot;issue&quot;:&quot;missing_inputs&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[],&quot;explanation&quot;:&quot;The total thrust calculation requires the exit area (Ae) to determine the momentum flux term (mdot * Ve) and potentially pressure thrust terms depending on the reference. Since Ae is not supplied and cannot be derived from the given data without knowing the stagnation conditions or specific gas properties to solve for it, the answer is not uniquely determined.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: true,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: null,
+  &quot;reference_unit&quot;: null,
+  &quot;expected_decision&quot;: &quot;abstain&quot;,
+  &quot;expected_issue&quot;: &quot;missing_inputs&quot;,
+  &quot;failure&quot;: &quot;none&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: false,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;abstain&quot;,
+    &quot;value&quot;: null,
+    &quot;unit&quot;: null,
+    &quot;issue&quot;: &quot;missing_inputs&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [],
+    &quot;explanation&quot;: &quot;The total thrust calculation requires the exit area (Ae) to determine the momentum flux term (mdot * Ve) and potentially pressure thrust terms depending on the reference. Since Ae is not supplied and cannot be derived from the given data without knowing the stagnation conditions or specific gas properties to solve for it, the answer is not uniquely determined.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>missing_inputs-04 / 17 / rag: correct</summary><h3>Question</h3><p>A supplied nozzle exit state has mdot=1.5 kg/s, Ve=1300 m/s, pe=180 kPa and pa=100 kPa. Exit area is not supplied. Calculate total thrust including pressure thrust. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;abstain&quot;,&quot;value&quot;:null,&quot;unit&quot;:null,&quot;issue&quot;:&quot;missing_inputs&quot;,&quot;evidence_ids&quot;:[&quot;N07&quot;],&quot;assumptions&quot;:[],&quot;explanation&quot;:&quot;The thrust calculation requires the exit area (Ae) to compute the pressure thrust term (pe-pa)*Ae. The prompt explicitly states &#x27;Exit area is not supplied&#x27; and forbids assuming missing numerical inputs or standard properties. Therefore, the total thrust cannot be uniquely determined.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: true,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: null,
+  &quot;reference_unit&quot;: null,
+  &quot;expected_decision&quot;: &quot;abstain&quot;,
+  &quot;expected_issue&quot;: &quot;missing_inputs&quot;,
+  &quot;failure&quot;: &quot;none&quot;,
+  &quot;cited_ids&quot;: [
+    &quot;N07&quot;
+  ],
+  &quot;citation_id_precision&quot;: 1.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: false,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;abstain&quot;,
+    &quot;value&quot;: null,
+    &quot;unit&quot;: null,
+    &quot;issue&quot;: &quot;missing_inputs&quot;,
+    &quot;evidence_ids&quot;: [
+      &quot;N07&quot;
+    ],
+    &quot;assumptions&quot;: [],
+    &quot;explanation&quot;: &quot;The thrust calculation requires the exit area (Ae) to compute the pressure thrust term (pe-pa)*Ae. The prompt explicitly states &#x27;Exit area is not supplied&#x27; and forbids assuming missing numerical inputs or standard properties. Therefore, the total thrust cannot be uniquely determined.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N07&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Missing required inputs prevent a unique numerical answer. Supplied-state thrust needs mdot, Ve, pe, pa and Ae unless a term is explicitly specified as zero. Choked mass flow needs p0, T0, At, gamma and R. Exit speed from area ratio needs T0, gamma, R and the stated branch. Do not assume standard air properties or atmospheric pressure when the question forbids assumptions.&quot;,
+    &quot;bm25_score&quot;: 12.897082328796387
+  },
+  {
+    &quot;id&quot;: &quot;N01&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Axial nozzle thrust F = mdot*Ve + (pe-pa)*Ae. mdot is mass flow in kg/s, Ve exit velocity in m/s, pe exit static pressure and pa ambient pressure in Pa, Ae exit area in m^2. Both terms have units N. Pressure thrust can be positive, zero, or negative. Do not omit it merely because exhaust velocity is given.&quot;,
+    &quot;bm25_score&quot;: 8.783967018127441
+  },
+  {
+    &quot;id&quot;: &quot;N04&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first.&quot;,
+    &quot;bm25_score&quot;: 5.785546779632568
+  }
+]</pre></details>
+<details><summary>missing_inputs-04 / 89 / llm_only: correct</summary><h3>Question</h3><p>A supplied nozzle exit state has mdot=1.5 kg/s, Ve=1300 m/s, pe=180 kPa and pa=100 kPa. Exit area is not supplied. Calculate total thrust including pressure thrust. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;abstain&quot;,&quot;value&quot;:null,&quot;unit&quot;:null,&quot;issue&quot;:&quot;missing_inputs&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[],&quot;explanation&quot;:&quot;Exit area (Ae) is required to calculate mass flow rate (mdot = rho*Ae*Ve) or thrust components involving density/area. Without Ae, specific gas constant R, and gamma, the exit density cannot be determined from Ve alone, making total thrust calculation impossible.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: true,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: null,
+  &quot;reference_unit&quot;: null,
+  &quot;expected_decision&quot;: &quot;abstain&quot;,
+  &quot;expected_issue&quot;: &quot;missing_inputs&quot;,
+  &quot;failure&quot;: &quot;none&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: false,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;abstain&quot;,
+    &quot;value&quot;: null,
+    &quot;unit&quot;: null,
+    &quot;issue&quot;: &quot;missing_inputs&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [],
+    &quot;explanation&quot;: &quot;Exit area (Ae) is required to calculate mass flow rate (mdot = rho*Ae*Ve) or thrust components involving density/area. Without Ae, specific gas constant R, and gamma, the exit density cannot be determined from Ve alone, making total thrust calculation impossible.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>missing_inputs-04 / 89 / rag: correct</summary><h3>Question</h3><p>A supplied nozzle exit state has mdot=1.5 kg/s, Ve=1300 m/s, pe=180 kPa and pa=100 kPa. Exit area is not supplied. Calculate total thrust including pressure thrust. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;abstain&quot;,&quot;value&quot;:null,&quot;unit&quot;:null,&quot;issue&quot;:&quot;missing_inputs&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[],&quot;explanation&quot;:&quot;Total thrust requires the exit area (Ae) to calculate the pressure thrust term (pe-pa)*Ae. The prompt explicitly states &#x27;Exit area is not supplied&#x27; and forbids substituting standard air properties or assuming missing numerical inputs. Without Ae, the thrust cannot be uniquely determined.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: true,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: null,
+  &quot;reference_unit&quot;: null,
+  &quot;expected_decision&quot;: &quot;abstain&quot;,
+  &quot;expected_issue&quot;: &quot;missing_inputs&quot;,
+  &quot;failure&quot;: &quot;none&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: 0.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: false,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;abstain&quot;,
+    &quot;value&quot;: null,
+    &quot;unit&quot;: null,
+    &quot;issue&quot;: &quot;missing_inputs&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [],
+    &quot;explanation&quot;: &quot;Total thrust requires the exit area (Ae) to calculate the pressure thrust term (pe-pa)*Ae. The prompt explicitly states &#x27;Exit area is not supplied&#x27; and forbids substituting standard air properties or assuming missing numerical inputs. Without Ae, the thrust cannot be uniquely determined.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N07&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Missing required inputs prevent a unique numerical answer. Supplied-state thrust needs mdot, Ve, pe, pa and Ae unless a term is explicitly specified as zero. Choked mass flow needs p0, T0, At, gamma and R. Exit speed from area ratio needs T0, gamma, R and the stated branch. Do not assume standard air properties or atmospheric pressure when the question forbids assumptions.&quot;,
+    &quot;bm25_score&quot;: 12.897082328796387
+  },
+  {
+    &quot;id&quot;: &quot;N01&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Axial nozzle thrust F = mdot*Ve + (pe-pa)*Ae. mdot is mass flow in kg/s, Ve exit velocity in m/s, pe exit static pressure and pa ambient pressure in Pa, Ae exit area in m^2. Both terms have units N. Pressure thrust can be positive, zero, or negative. Do not omit it merely because exhaust velocity is given.&quot;,
+    &quot;bm25_score&quot;: 8.783967018127441
+  },
+  {
+    &quot;id&quot;: &quot;N04&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first.&quot;,
+    &quot;bm25_score&quot;: 5.785546779632568
+  }
+]</pre></details>
+<details><summary>missing_inputs-06 / 43 / llm_only: correct</summary><h3>Question</h3><p>A choked ideal nozzle has p0=900 kPa, T0=800 K, At=0.0008 m^2 and gamma=1.4. The gas constant and composition are not supplied. Calculate mass flow. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;abstain&quot;,&quot;value&quot;:null,&quot;unit&quot;:null,&quot;issue&quot;:&quot;missing_inputs&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Assumed choked flow at throat for maximum mass flow&quot;], &quot;explanation&quot;:&quot;Mass flow rate for an ideal gas is given by mdot = p0 * At * sqrt(gamma/(R*T0)) * M_flow_factor. While p0, T0, At, and gamma are provided, the specific gas constant R is explicitly stated as not supplied and cannot be substituted with standard air properties per instructions. Without R, the calculation cannot be uniquely determined.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: true,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: null,
+  &quot;reference_unit&quot;: null,
+  &quot;expected_decision&quot;: &quot;abstain&quot;,
+  &quot;expected_issue&quot;: &quot;missing_inputs&quot;,
+  &quot;failure&quot;: &quot;none&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;abstain&quot;,
+    &quot;value&quot;: null,
+    &quot;unit&quot;: null,
+    &quot;issue&quot;: &quot;missing_inputs&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [
+      &quot;Assumed choked flow at throat for maximum mass flow&quot;
+    ],
+    &quot;explanation&quot;: &quot;Mass flow rate for an ideal gas is given by mdot = p0 * At * sqrt(gamma/(R*T0)) * M_flow_factor. While p0, T0, At, and gamma are provided, the specific gas constant R is explicitly stated as not supplied and cannot be substituted with standard air properties per instructions. Without R, the calculation cannot be uniquely determined.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>missing_inputs-06 / 43 / rag: correct</summary><h3>Question</h3><p>A choked ideal nozzle has p0=900 kPa, T0=800 K, At=0.0008 m^2 and gamma=1.4. The gas constant and composition are not supplied. Calculate mass flow. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;abstain&quot;,&quot;value&quot;:null,&quot;unit&quot;:null,&quot;issue&quot;:&quot;missing_inputs&quot;,&quot;evidence_ids&quot;:[&quot;N07&quot;,&quot;N02&quot;],&quot;assumptions&quot;:[],&quot;explanation&quot;:&quot;The choked mass flow rate formula requires the specific gas constant R, which is not supplied in the inputs and cannot be assumed as standard air properties. Additionally, if R were known, it would need to be converted from Pa/K to SI base units (Pa) for p0 before calculation.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: true,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: null,
+  &quot;reference_unit&quot;: null,
+  &quot;expected_decision&quot;: &quot;abstain&quot;,
+  &quot;expected_issue&quot;: &quot;missing_inputs&quot;,
+  &quot;failure&quot;: &quot;none&quot;,
+  &quot;cited_ids&quot;: [
+    &quot;N07&quot;,
+    &quot;N02&quot;
+  ],
+  &quot;citation_id_precision&quot;: 1.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: false,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;abstain&quot;,
+    &quot;value&quot;: null,
+    &quot;unit&quot;: null,
+    &quot;issue&quot;: &quot;missing_inputs&quot;,
+    &quot;evidence_ids&quot;: [
+      &quot;N07&quot;,
+      &quot;N02&quot;
+    ],
+    &quot;assumptions&quot;: [],
+    &quot;explanation&quot;: &quot;The choked mass flow rate formula requires the specific gas constant R, which is not supplied in the inputs and cannot be assumed as standard air properties. Additionally, if R were known, it would need to be converted from Pa/K to SI base units (Pa) for p0 before calculation.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N07&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Missing required inputs prevent a unique numerical answer. Supplied-state thrust needs mdot, Ve, pe, pa and Ae unless a term is explicitly specified as zero. Choked mass flow needs p0, T0, At, gamma and R. Exit speed from area ratio needs T0, gamma, R and the stated branch. Do not assume standard air properties or atmospheric pressure when the question forbids assumptions.&quot;,
+    &quot;bm25_score&quot;: 11.052473068237305
+  },
+  {
+    &quot;id&quot;: &quot;N02&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/mflchk.html&quot;,
+    &quot;text&quot;: &quot;For steady one-dimensional calorically perfect ideal gas with a choked sonic throat, mdot = p0*At/sqrt(T0)*sqrt(gamma/R)*(2/(gamma+1))^((gamma+1)/(2*(gamma-1))). p0 and T0 are stagnation conditions in Pa and K, At is throat area in m^2, R is specific gas constant in J/(kg*K), gamma&gt;1. This choked formula requires throat Mach number 1.&quot;,
+    &quot;bm25_score&quot;: 5.990601062774658
+  },
+  {
+    &quot;id&quot;: &quot;N04&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first.&quot;,
+    &quot;bm25_score&quot;: 5.88772439956665
+  }
+]</pre></details>
+<details><summary>missing_inputs-07 / 89 / llm_only: correct</summary><h3>Question</h3><p>A supplied exit state has Ve=1500 m/s, pe=170 kPa, pa=100 kPa and Ae=0.005 m^2. Mass flow is not supplied. Calculate total thrust. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;abstain&quot;,&quot;value&quot;:null,&quot;unit&quot;:null,&quot;issue&quot;:&quot;missing_inputs&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[],&quot;explanation&quot;:&quot;Mass flow rate cannot be calculated without density or temperature at the exit (to find mass flow via Froude/continuity) or pressure ratio assumptions to determine if choked, and total thrust requires either mass flow rate or chamber conditions. With only exit static state provided, specific gas constant R is needed for ideal gas relations but cannot determine stagnation properties uniquely without additional constraints.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: true,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: null,
+  &quot;reference_unit&quot;: null,
+  &quot;expected_decision&quot;: &quot;abstain&quot;,
+  &quot;expected_issue&quot;: &quot;missing_inputs&quot;,
+  &quot;failure&quot;: &quot;none&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: false,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;abstain&quot;,
+    &quot;value&quot;: null,
+    &quot;unit&quot;: null,
+    &quot;issue&quot;: &quot;missing_inputs&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [],
+    &quot;explanation&quot;: &quot;Mass flow rate cannot be calculated without density or temperature at the exit (to find mass flow via Froude/continuity) or pressure ratio assumptions to determine if choked, and total thrust requires either mass flow rate or chamber conditions. With only exit static state provided, specific gas constant R is needed for ideal gas relations but cannot determine stagnation properties uniquely without additional constraints.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>missing_inputs-07 / 89 / rag: correct</summary><h3>Question</h3><p>A supplied exit state has Ve=1500 m/s, pe=170 kPa, pa=100 kPa and Ae=0.005 m^2. Mass flow is not supplied. Calculate total thrust. Do not assume any missing numerical input or substitute standard air properties. Abstain if the answer is not uniquely determined.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;abstain&quot;,&quot;value&quot;:null,&quot;unit&quot;:null,&quot;issue&quot;:&quot;missing_inputs&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[],&quot;explanation&quot;:&quot;Thrust requires mass flow rate (mdot). The prompt states mdot is not supplied. While [N01] provides the thrust equation, calculating mdot from Ve and Ae requires knowledge of stagnation conditions (p0, T0) or a specific branch to determine density/temperature at the exit, which are explicitly defined as &#x27;not supplied&#x27; in the input and forbidden to substitute standard values for.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: true,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: null,
+  &quot;reference_unit&quot;: null,
+  &quot;expected_decision&quot;: &quot;abstain&quot;,
+  &quot;expected_issue&quot;: &quot;missing_inputs&quot;,
+  &quot;failure&quot;: &quot;none&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: 0.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: false,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;abstain&quot;,
+    &quot;value&quot;: null,
+    &quot;unit&quot;: null,
+    &quot;issue&quot;: &quot;missing_inputs&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [],
+    &quot;explanation&quot;: &quot;Thrust requires mass flow rate (mdot). The prompt states mdot is not supplied. While [N01] provides the thrust equation, calculating mdot from Ve and Ae requires knowledge of stagnation conditions (p0, T0) or a specific branch to determine density/temperature at the exit, which are explicitly defined as &#x27;not supplied&#x27; in the input and forbidden to substitute standard values for.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N07&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Missing required inputs prevent a unique numerical answer. Supplied-state thrust needs mdot, Ve, pe, pa and Ae unless a term is explicitly specified as zero. Choked mass flow needs p0, T0, At, gamma and R. Exit speed from area ratio needs T0, gamma, R and the stated branch. Do not assume standard air properties or atmospheric pressure when the question forbids assumptions.&quot;,
+    &quot;bm25_score&quot;: 12.016448020935059
+  },
+  {
+    &quot;id&quot;: &quot;N01&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Axial nozzle thrust F = mdot*Ve + (pe-pa)*Ae. mdot is mass flow in kg/s, Ve exit velocity in m/s, pe exit static pressure and pa ambient pressure in Pa, Ae exit area in m^2. Both terms have units N. Pressure thrust can be positive, zero, or negative. Do not omit it merely because exhaust velocity is given.&quot;,
+    &quot;bm25_score&quot;: 6.331205368041992
+  },
+  {
+    &quot;id&quot;: &quot;N04&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first.&quot;,
+    &quot;bm25_score&quot;: 5.085232257843018
+  }
+]</pre></details>
+<details><summary>mixed_units-04 / 43 / llm_only: schema</summary><h3>Question</h3><p>A nozzle exit state is supplied: mdot=1225 g/s, Ve=1.46 km/s, exit static pressure pe=205 kPa, ambient pressure pa=0.1 MPa and Ae=30 cm^2. Calculate total axial thrust in N including pressure thrust. Convert every unit consistently.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:17684.0,&quot;unit&quot;:&quot;N&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Mass flow rate converted to kg/s: 1225 g/s = 1.225 kg/s.&quot;,&quot;Exit velocity converted to m/s: 1.46 km/s = 1460 m/s.&quot;,&quot;Exit area converted to m^2: 30 cm^2 = 0.003 m^2.&quot;,&quot;Ambient pressure converted to Pa: 0.1 MPa = 100,000 Pa.&quot;,&quot;Axial thrust formula used: F = mdot*Ve + (pe - pa)*Ae.&quot;,&quot;Pressure difference: pe(205 kPa) - pa(100 kPa) = 105 kPa = 105,000 Pa.&quot;,&quot;Pressure thrust term: 105,000 Pa * 0.003 m^2 = 315 N.&quot;,&quot;Momentum thrust term: 1.225 kg/s * 1460 m/s = 1788.5 N.&quot;,&quot;Total thrust: 1788.5 + 315 = 2103.5 N.&quot;,&quot;Correction on calculation during thought process: 1.225 * 1460 = 1788.5. 105000 * 0.003 = 315. Sum = 2103.5. Wait, re-reading the prompt numbers. mdot=1225 g/s (1.225 kg/s). Ve=1.46 km/s (1460 m/s). Ae=30 cm^2 (0.003 m^2). pe=205 kPa (205000 Pa). pa=0.1 MPa (100000 Pa). Pressure diff = 105000 Pa. Pressure force = 315 N. Momentum thrust = 1788.5 N. Total = 2103.5 N. Why did I estimate 17684 earlier? Ah, if mdot was 1225 kg/s, then 1225*1460=1,788,500. No. If Ae was 30 m^2? No. Let&#x27;s re-calculate carefully. 1.225 * 1460 = 1788.5. (205000-100000)*0.003 = 315. Sum = 2103.5 N. The previous mental estimate was way off. I will provide the correct calculated value based on the inputs.&quot;]&quot;,&quot;explanation&quot;:&quot;Calculated total axial thrust using F = mdot*Ve + (pe-pa)*Ae with unit conversions applied to all given parameters.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: false,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: false,
+  &quot;issue_correct&quot;: false,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: 2103.5,
+  &quot;reference_unit&quot;: &quot;N&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;schema&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: false
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>mixed_units-04 / 43 / rag: schema</summary><h3>Question</h3><p>A nozzle exit state is supplied: mdot=1225 g/s, Ve=1.46 km/s, exit static pressure pe=205 kPa, ambient pressure pa=0.1 MPa and Ae=30 cm^2. Calculate total axial thrust in N including pressure thrust. Convert every unit consistently.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:4065,&quot;unit&quot;:&quot;N&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Assumed standard atmospheric pressure for ambient condition (pa = 101325 Pa) as no specific ambient value was provided in the prompt, though pa=0.1 MPa is listed; used N07 logic that explicit zero terms are required to skip calculation, which is not met here despite redundant inputs.&quot;,&quot;Assumed standard sea-level atmospheric pressure (101325 Pa) for &#x27;ambient pressure&#x27; since the prompt&#x27;s &#x27;pa=0.1 MPa&#x27; might be a typo or partial data, but N07 states missing inputs prevent unique answer unless term is zero. Wait, looking closer: The prompt explicitly lists &#x27;pa=0.1 MPa&#x27;. I must use the supplied input. If pa=0.1 MPa is the ambient pressure, then it is given. I will re-evaluate based on strict adherence to supplied inputs. Input says pa=0.1 MPa. I will use 100000 Pa. Let&#x27;s re-calculate mentally. mdot=12.25 kg/s, Ve=1460 m/s -&gt; Momentum = 17835 N. pe=205 kPa = 205000 Pa. pa=0.1 MPa = 100000 Pa. Delta P = 105000 Pa. Ae = 0.003 m^2. Pressure thrust = 105000 * 0.003 = 315 N. Total = 17835 + 315 = 18150 N. My previous mental check was wrong because I assumed sea level. The prompt gives pa=0.1 MPa explicitly. So the answer is based on that. Decision: Answer with value derived from supplied inputs.]&quot;, &quot;explanation&quot;:&quot;Using the thrust equation F = mdot*Ve + (pe-pa)*Ae. First, convert all units to SI: mdot = 12.25 kg/s, Ve = 1460 m/s, pe = 205000 Pa, pa = 100000 Pa (from 0.1 MPa), Ae = 0.003 m^2 (from 30 cm^2). Calculate momentum term: 12.25 * 1460 = 17885 N. Calculate pressure thrust term: (205000 - 100000) * 0.003 = 105000 * 0.003 = 315 N. Sum them: 17885 + 315 = 18200 N.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: false,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: false,
+  &quot;issue_correct&quot;: false,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: 2103.5,
+  &quot;reference_unit&quot;: &quot;N&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;schema&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: false
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N01&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Axial nozzle thrust F = mdot*Ve + (pe-pa)*Ae. mdot is mass flow in kg/s, Ve exit velocity in m/s, pe exit static pressure and pa ambient pressure in Pa, Ae exit area in m^2. Both terms have units N. Pressure thrust can be positive, zero, or negative. Do not omit it merely because exhaust velocity is given.&quot;,
+    &quot;bm25_score&quot;: 10.392141342163086
+  },
+  {
+    &quot;id&quot;: &quot;N05&quot;,
+    &quot;source&quot;: &quot;https://www.nist.gov/pml/special-publication-811&quot;,
+    &quot;text&quot;: &quot;Use coherent SI units in products: 1 kPa=1000 Pa, 1 MPa=1000000 Pa, 1 cm^2=0.0001 m^2, 1 g/s=0.001 kg/s, 1 km/s=1000 m/s, 1 kN=1000 N. Convert area as a squared length. A numerical answer needs a dimensionally compatible unit.&quot;,
+    &quot;bm25_score&quot;: 6.584616184234619
+  },
+  {
+    &quot;id&quot;: &quot;N07&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Missing required inputs prevent a unique numerical answer. Supplied-state thrust needs mdot, Ve, pe, pa and Ae unless a term is explicitly specified as zero. Choked mass flow needs p0, T0, At, gamma and R. Exit speed from area ratio needs T0, gamma, R and the stated branch. Do not assume standard air properties or atmospheric pressure when the question forbids assumptions.&quot;,
+    &quot;bm25_score&quot;: 6.129838943481445
+  }
+]</pre></details>
+<details><summary>mixed_units-05 / 17 / llm_only: numeric</summary><h3>Question</h3><p>A nozzle exit state is supplied: mdot=1350 g/s, Ve=1.58 km/s, exit static pressure pe=220 kPa, ambient pressure pa=0.08 MPa and Ae=34 cm^2. Calculate total axial thrust in N including pressure thrust. Convert every unit consistently.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:5976.0,&quot;unit&quot;:&quot;N&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Conservation of momentum and pressure force balance applied to the control volume surrounding the nozzle exit&quot;],&quot;explanation&quot;:&quot;Total thrust F = mdot*Ve + (pe - pa)*Ae. Converting inputs: mdot=1.35 kg/s, Ve=1580 m/s, pe=220000 Pa, pa=80000 Pa, Ae=0.0034 m^2. F = 1.35*1580 + (220000-80000)*0.0034 = 2133 + 476 = 2609 N. Wait, re-calculation: mdot*Ve = 1.35 * 1580 = 2133 N. Pressure term = (220000 - 80000) * 0.0034 = 140000 * 0.0034 = 476 N. Sum = 2609 N.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 5976.0,
+  &quot;relative_error&quot;: 1.290532771176696,
+  &quot;reference_value&quot;: 2609.0,
+  &quot;reference_unit&quot;: &quot;N&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 5976.0,
+    &quot;unit&quot;: &quot;N&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [
+      &quot;Conservation of momentum and pressure force balance applied to the control volume surrounding the nozzle exit&quot;
+    ],
+    &quot;explanation&quot;: &quot;Total thrust F = mdot*Ve + (pe - pa)*Ae. Converting inputs: mdot=1.35 kg/s, Ve=1580 m/s, pe=220000 Pa, pa=80000 Pa, Ae=0.0034 m^2. F = 1.35*1580 + (220000-80000)*0.0034 = 2133 + 476 = 2609 N. Wait, re-calculation: mdot*Ve = 1.35 * 1580 = 2133 N. Pressure term = (220000 - 80000) * 0.0034 = 140000 * 0.0034 = 476 N. Sum = 2609 N.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>mixed_units-05 / 17 / rag: numeric</summary><h3>Question</h3><p>A nozzle exit state is supplied: mdot=1350 g/s, Ve=1.58 km/s, exit static pressure pe=220 kPa, ambient pressure pa=0.08 MPa and Ae=34 cm^2. Calculate total axial thrust in N including pressure thrust. Convert every unit consistently.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:4870.0,&quot;unit&quot;:&quot;N&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[],&quot;explanation&quot;:&quot;Using the thrust equation F = mdot*Ve + (pe-pa)*Ae, I converted inputs to SI units: mdot=1350 g/s -&gt; 1.35 kg/s, Ve=1.58 km/s -&gt; 1580 m/s, pe=220 kPa -&gt; 220000 Pa, pa=0.08 MPa -&gt; 80000 Pa, Ae=34 cm^2 -&gt; 0.0034 m^2. The momentum term is 1.35*1580 = 2133 N. The pressure thrust term is (220000-80000)*0.0034 = 140000*0.0034 = 476 N. Total thrust = 2133 + 476 = 2609 N.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 4870.0,
+  &quot;relative_error&quot;: 0.8666155615178229,
+  &quot;reference_value&quot;: 2609.0,
+  &quot;reference_unit&quot;: &quot;N&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: 0.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: false,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 4870.0,
+    &quot;unit&quot;: &quot;N&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [],
+    &quot;explanation&quot;: &quot;Using the thrust equation F = mdot*Ve + (pe-pa)*Ae, I converted inputs to SI units: mdot=1350 g/s -&gt; 1.35 kg/s, Ve=1.58 km/s -&gt; 1580 m/s, pe=220 kPa -&gt; 220000 Pa, pa=0.08 MPa -&gt; 80000 Pa, Ae=34 cm^2 -&gt; 0.0034 m^2. The momentum term is 1.35*1580 = 2133 N. The pressure thrust term is (220000-80000)*0.0034 = 140000*0.0034 = 476 N. Total thrust = 2133 + 476 = 2609 N.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N01&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Axial nozzle thrust F = mdot*Ve + (pe-pa)*Ae. mdot is mass flow in kg/s, Ve exit velocity in m/s, pe exit static pressure and pa ambient pressure in Pa, Ae exit area in m^2. Both terms have units N. Pressure thrust can be positive, zero, or negative. Do not omit it merely because exhaust velocity is given.&quot;,
+    &quot;bm25_score&quot;: 10.392141342163086
+  },
+  {
+    &quot;id&quot;: &quot;N05&quot;,
+    &quot;source&quot;: &quot;https://www.nist.gov/pml/special-publication-811&quot;,
+    &quot;text&quot;: &quot;Use coherent SI units in products: 1 kPa=1000 Pa, 1 MPa=1000000 Pa, 1 cm^2=0.0001 m^2, 1 g/s=0.001 kg/s, 1 km/s=1000 m/s, 1 kN=1000 N. Convert area as a squared length. A numerical answer needs a dimensionally compatible unit.&quot;,
+    &quot;bm25_score&quot;: 6.584616184234619
+  },
+  {
+    &quot;id&quot;: &quot;N07&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Missing required inputs prevent a unique numerical answer. Supplied-state thrust needs mdot, Ve, pe, pa and Ae unless a term is explicitly specified as zero. Choked mass flow needs p0, T0, At, gamma and R. Exit speed from area ratio needs T0, gamma, R and the stated branch. Do not assume standard air properties or atmospheric pressure when the question forbids assumptions.&quot;,
+    &quot;bm25_score&quot;: 6.129838943481445
+  }
+]</pre></details>
+<details><summary>mixed_units-07 / 43 / llm_only: schema</summary><h3>Question</h3><p>A nozzle exit state is supplied: mdot=1600 g/s, Ve=1.82 km/s, exit static pressure pe=250 kPa, ambient pressure pa=0.08 MPa and Ae=42 cm^2. Calculate total axial thrust in N including pressure thrust. Convert every unit consistently.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:31680.0,&quot;unit&quot;:&quot;N&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Mass flow rate converted to kg/s: 1600 g/s = 1.6 kg/s.&quot;,&quot;Velocity converted to m/s: 1.82 km/s = 1820 m/s.&quot;,&quot;Pressure converted to Pa: pe=250 kPa = 250,000 Pa, pa=0.08 MPa = 80,000 Pa.&quot;,&quot;Area converted to m^2: Ae=42 cm^2 = 0.0042 m^2.&quot;,&quot;Thrust formula applied: F = mdot*Ve + (pe - pa)*Ae&quot;,&quot;Calculation: F = (1.6 * 1820) + (250000 - 80000) * 0.0042 = 2912 + 726 = 3638 N? Wait, re-evaluating calculation.&quot;,&quot;Re-calculation: mdot*Ve = 1.6 * 1820 = 2912 N. (pe-pa)*Ae = (250000-80000)*0.0042 = 170000*0.0042 = 714 N. Total = 2912 + 714 = 3626 N.&quot;,&quot;Correction on previous thought: Let&#x27;s re-read the inputs carefully. mdot=1600 g/s = 1.6 kg/s. Ve=1.82 km/s = 1820 m/s. pe=250 kPa = 250,000 Pa. pa=0.08 MPa = 80,000 Pa. Ae=42 cm^2 = 0.0042 m^2. F = mdot*Ve + (pe-pa)*Ae. F = 1.6*1820 + (250000-80000)*0.0042. F = 2912 + 170000*0.0042. F = 2912 + 714 = 3626 N.&quot;,&quot;Wait, I need to check the arithmetic again. 1.6 * 1820 = 2912. (250-80) kPa = 170 kPa = 170,000 Pa. 170,000 * 0.0042 = 714. Sum = 3626 N. The previous thought of 31680 was a hallucination or mis-scaling.&quot;,&quot;Final check: Is the mass flow rate 1600 kg/s or g/s? Prompt says &quot;g/s&quot;. So 1.6 kg/s is correct. Is velocity 1.82 km/s? Yes. Is pressure 250 kPa? Yes. Is ambient 0.08 MPa? Yes. Is area 42 cm^2? Yes. Calculation: 2912 + 714 = 3626 N.&quot;,&quot;Decision: Answer is 3626 N.&quot;,&quot;Value: 3626.0&quot;,&quot;Unit&quot;: &quot;N&quot;,&quot;Issue&quot;: &quot;none&quot;,&quot;Evidence IDs&quot;: [], &quot;Assumptions&quot;:</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: false,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: false,
+  &quot;issue_correct&quot;: false,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: 3626.0,
+  &quot;reference_unit&quot;: &quot;N&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;schema&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: false
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>mixed_units-07 / 43 / rag: numeric</summary><h3>Question</h3><p>A nozzle exit state is supplied: mdot=1600 g/s, Ve=1.82 km/s, exit static pressure pe=250 kPa, ambient pressure pa=0.08 MPa and Ae=42 cm^2. Calculate total axial thrust in N including pressure thrust. Convert every unit consistently.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:34600.0,&quot;unit&quot;:&quot;N&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Assumed standard unit conversions for mass flow, velocity, pressure, and area as defined in retrieved passages.&quot;,&quot;Assumed the supplied state represents a unique physical solution without internal shocks or variable gamma effects not specified in the problem statement.&quot;],&quot;explanation&quot;:&quot;Using the thrust equation F = mdot*Ve + (pe-pa)*Ae with consistent SI units: mdot=1.6 kg/s, Ve=1820 m/s, pe=250000 Pa, pa=80000 Pa, Ae=0.0042 m^2. The momentum term is 1.6*1820 = 2912 N. The pressure thrust term is (250000-80000)*0.0042 = 714 N. Total thrust = 2912 + 714 = 3626 N.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 34600.0,
+  &quot;relative_error&quot;: 8.542195256480971,
+  &quot;reference_value&quot;: 3626.0,
+  &quot;reference_unit&quot;: &quot;N&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: 0.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 34600.0,
+    &quot;unit&quot;: &quot;N&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [
+      &quot;Assumed standard unit conversions for mass flow, velocity, pressure, and area as defined in retrieved passages.&quot;,
+      &quot;Assumed the supplied state represents a unique physical solution without internal shocks or variable gamma effects not specified in the problem statement.&quot;
+    ],
+    &quot;explanation&quot;: &quot;Using the thrust equation F = mdot*Ve + (pe-pa)*Ae with consistent SI units: mdot=1.6 kg/s, Ve=1820 m/s, pe=250000 Pa, pa=80000 Pa, Ae=0.0042 m^2. The momentum term is 1.6*1820 = 2912 N. The pressure thrust term is (250000-80000)*0.0042 = 714 N. Total thrust = 2912 + 714 = 3626 N.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N01&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Axial nozzle thrust F = mdot*Ve + (pe-pa)*Ae. mdot is mass flow in kg/s, Ve exit velocity in m/s, pe exit static pressure and pa ambient pressure in Pa, Ae exit area in m^2. Both terms have units N. Pressure thrust can be positive, zero, or negative. Do not omit it merely because exhaust velocity is given.&quot;,
+    &quot;bm25_score&quot;: 10.392141342163086
+  },
+  {
+    &quot;id&quot;: &quot;N05&quot;,
+    &quot;source&quot;: &quot;https://www.nist.gov/pml/special-publication-811&quot;,
+    &quot;text&quot;: &quot;Use coherent SI units in products: 1 kPa=1000 Pa, 1 MPa=1000000 Pa, 1 cm^2=0.0001 m^2, 1 g/s=0.001 kg/s, 1 km/s=1000 m/s, 1 kN=1000 N. Convert area as a squared length. A numerical answer needs a dimensionally compatible unit.&quot;,
+    &quot;bm25_score&quot;: 6.584616184234619
+  },
+  {
+    &quot;id&quot;: &quot;N07&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Missing required inputs prevent a unique numerical answer. Supplied-state thrust needs mdot, Ve, pe, pa and Ae unless a term is explicitly specified as zero. Choked mass flow needs p0, T0, At, gamma and R. Exit speed from area ratio needs T0, gamma, R and the stated branch. Do not assume standard air properties or atmospheric pressure when the question forbids assumptions.&quot;,
+    &quot;bm25_score&quot;: 6.129838943481445
+  }
+]</pre></details>
+<details><summary>thrust-04 / 43 / llm_only: schema</summary><h3>Question</h3><p>For the supplied ideal nozzle exit state, mdot=1.75 kg/s, Ve=1200 m/s, pe=140000 Pa, ambient pa=60000 Pa and Ae=0.0035 m^2. Calculate axial thrust in N including momentum and pressure contributions.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:798.75,&quot;unit&quot;:&quot;N&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Thrust calculated using the standard rocket equation: F = mdot*Ve + (pe - pa)*Ae, assuming no internal shocks or variable gamma effects as per ideal nozzle assumptions with given inputs.&quot;],&quot;explanation&quot;:&quot;Axial thrust is the sum of momentum thrust (1.75 kg/s * 1200 m/s = 2100 N) and pressure thrust ((140000 Pa - 60000 Pa) * 0.0035 m^2 = 280 N). Total = 2100 + 280 = 2380 N. Wait, re-calculation: Momentum = 1.75 * 1200 = 2100. Pressure diff = 140000 - 60000 = 80000. Pressure thrust = 80000 * 0.0035 = 280. Total = 2100 + 280 = 2380 N. My previous mental draft had a calculation error in the thought trace, but the final logic holds. Let me re-verify: 1.75 * 1200 = 2100. (140k - 60k) * 0.0035 = 80k * 0.0035 = 280. Sum = 2380 N.&quot;}
+
+{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:2380.0,&quot;unit&quot;:&quot;N&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Standard thrust definition applied: F = mdot*Ve + (pe - pa)*Ae&quot;],&quot;explanation&quot;:&quot;Momentum contribution is 1.75 kg/s * 1200 m/s = 2100 N. Pressure contribution is (140,000 Pa - 60,000 Pa) * 0.0035 m^2 = 280 N. Summing these gives 2380 N.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: false,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: false,
+  &quot;issue_correct&quot;: false,
+  &quot;numeric_correct&quot;: null,
+  &quot;unit_correct&quot;: null,
+  &quot;raw_number_correct&quot;: null,
+  &quot;converted_value&quot;: null,
+  &quot;relative_error&quot;: null,
+  &quot;reference_value&quot;: 2380.0,
+  &quot;reference_unit&quot;: &quot;N&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;schema&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: false
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>thrust-04 / 43 / rag: numeric</summary><h3>Question</h3><p>For the supplied ideal nozzle exit state, mdot=1.75 kg/s, Ve=1200 m/s, pe=140000 Pa, ambient pa=60000 Pa and Ae=0.0035 m^2. Calculate axial thrust in N including momentum and pressure contributions.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:4375.0,&quot;unit&quot;:&quot;N&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[&quot;N01&quot;],&quot;assumptions&quot;:[],&quot;explanation&quot;:&quot;Using the thrust equation F = mdot*Ve + (pe-pa)*Ae from N01: Momentum term = 1.75 kg/s * 1200 m/s = 2100 N. Pressure term = (140000 Pa - 60000 Pa) * 0.0035 m^2 = 80000 Pa * 0.0035 m^2 = 280 N. Total thrust = 2100 + 280 = 2380 N. Wait, recalculation: 1.75*1200=2100. (140000-60000)=80000. 80000*0.0035=280. Sum=2380. Correction in thought process: 1.75 * 1200 = 2100. (140000-60000)*0.0035 = 80000*0.0035 = 280. Total = 2380 N.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 4375.0,
+  &quot;relative_error&quot;: 0.8382352941176471,
+  &quot;reference_value&quot;: 2380.0,
+  &quot;reference_unit&quot;: &quot;N&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [
+    &quot;N01&quot;
+  ],
+  &quot;citation_id_precision&quot;: 1.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: false,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 4375.0,
+    &quot;unit&quot;: &quot;N&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [
+      &quot;N01&quot;
+    ],
+    &quot;assumptions&quot;: [],
+    &quot;explanation&quot;: &quot;Using the thrust equation F = mdot*Ve + (pe-pa)*Ae from N01: Momentum term = 1.75 kg/s * 1200 m/s = 2100 N. Pressure term = (140000 Pa - 60000 Pa) * 0.0035 m^2 = 80000 Pa * 0.0035 m^2 = 280 N. Total thrust = 2100 + 280 = 2380 N. Wait, recalculation: 1.75*1200=2100. (140000-60000)=80000. 80000*0.0035=280. Sum=2380. Correction in thought process: 1.75 * 1200 = 2100. (140000-60000)*0.0035 = 80000*0.0035 = 280. Total = 2380 N.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N01&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Axial nozzle thrust F = mdot*Ve + (pe-pa)*Ae. mdot is mass flow in kg/s, Ve exit velocity in m/s, pe exit static pressure and pa ambient pressure in Pa, Ae exit area in m^2. Both terms have units N. Pressure thrust can be positive, zero, or negative. Do not omit it merely because exhaust velocity is given.&quot;,
+    &quot;bm25_score&quot;: 8.40528678894043
+  },
+  {
+    &quot;id&quot;: &quot;N07&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Missing required inputs prevent a unique numerical answer. Supplied-state thrust needs mdot, Ve, pe, pa and Ae unless a term is explicitly specified as zero. Choked mass flow needs p0, T0, At, gamma and R. Exit speed from area ratio needs T0, gamma, R and the stated branch. Do not assume standard air properties or atmospheric pressure when the question forbids assumptions.&quot;,
+    &quot;bm25_score&quot;: 5.367102146148682
+  },
+  {
+    &quot;id&quot;: &quot;N04&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first.&quot;,
+    &quot;bm25_score&quot;: 3.80759596824646
+  }
+]</pre></details>
+<details><summary>thrust-08 / 43 / llm_only: numeric</summary><h3>Question</h3><p>For the supplied ideal nozzle exit state, mdot=2.75 kg/s, Ve=1600 m/s, pe=220000 Pa, ambient pa=60000 Pa and Ae=0.0055 m^2. Calculate axial thrust in N including momentum and pressure contributions.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:1783.7,&quot;unit&quot;:&quot;N&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[],&quot;assumptions&quot;:[&quot;Assumes steady, one-dimensional flow with given exit state parameters.&quot;,&quot;Includes momentum thrust (mdot*Ve) and pressure thrust ((pe-pa)*Ae).&quot;],&quot;explanation&quot;:&quot;Thrust F = mdot*Ve + (pe-pa)*Ae = 2.75*1600 + (220000-60000)*0.0055 = 4400 + 880 = 5280 N.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 1783.7,
+  &quot;relative_error&quot;: 0.6621780303030304,
+  &quot;reference_value&quot;: 5280.0,
+  &quot;reference_unit&quot;: &quot;N&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [],
+  &quot;citation_id_precision&quot;: null,
+  &quot;retrieved_reference_recall&quot;: null,
+  &quot;assumptions_present&quot;: true,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 1783.7,
+    &quot;unit&quot;: &quot;N&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [],
+    &quot;assumptions&quot;: [
+      &quot;Assumes steady, one-dimensional flow with given exit state parameters.&quot;,
+      &quot;Includes momentum thrust (mdot*Ve) and pressure thrust ((pe-pa)*Ae).&quot;
+    ],
+    &quot;explanation&quot;: &quot;Thrust F = mdot*Ve + (pe-pa)*Ae = 2.75*1600 + (220000-60000)*0.0055 = 4400 + 880 = 5280 N.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[]</pre></details>
+<details><summary>thrust-08 / 43 / rag: numeric</summary><h3>Question</h3><p>For the supplied ideal nozzle exit state, mdot=2.75 kg/s, Ve=1600 m/s, pe=220000 Pa, ambient pa=60000 Pa and Ae=0.0055 m^2. Calculate axial thrust in N including momentum and pressure contributions.</p><h3>Raw direct answer</h3><pre>{&quot;decision&quot;:&quot;answer&quot;,&quot;value&quot;:3875.0,&quot;unit&quot;:&quot;N&quot;,&quot;issue&quot;:&quot;none&quot;,&quot;evidence_ids&quot;:[&quot;N01&quot;],&quot;assumptions&quot;:[],&quot;explanation&quot;:&quot;Using the thrust equation from N01: F = mdot*Ve + (pe-pa)*Ae. Substituting values: (2.75 * 1600) + ((220000 - 60000) * 0.0055) = 4400 + 880 = 5280 N.&quot;}</pre><h3>Independent score</h3><pre>{
+  &quot;schema_valid&quot;: true,
+  &quot;correct&quot;: false,
+  &quot;decision_correct&quot;: true,
+  &quot;issue_correct&quot;: true,
+  &quot;numeric_correct&quot;: false,
+  &quot;unit_correct&quot;: true,
+  &quot;raw_number_correct&quot;: false,
+  &quot;converted_value&quot;: 3875.0,
+  &quot;relative_error&quot;: 0.26609848484848486,
+  &quot;reference_value&quot;: 5280.0,
+  &quot;reference_unit&quot;: &quot;N&quot;,
+  &quot;expected_decision&quot;: &quot;answer&quot;,
+  &quot;expected_issue&quot;: &quot;none&quot;,
+  &quot;failure&quot;: &quot;numeric&quot;,
+  &quot;cited_ids&quot;: [
+    &quot;N01&quot;
+  ],
+  &quot;citation_id_precision&quot;: 1.0,
+  &quot;retrieved_reference_recall&quot;: 1.0,
+  &quot;assumptions_present&quot;: false,
+  &quot;parsed_answer&quot;: {
+    &quot;decision&quot;: &quot;answer&quot;,
+    &quot;value&quot;: 3875.0,
+    &quot;unit&quot;: &quot;N&quot;,
+    &quot;issue&quot;: &quot;none&quot;,
+    &quot;evidence_ids&quot;: [
+      &quot;N01&quot;
+    ],
+    &quot;assumptions&quot;: [],
+    &quot;explanation&quot;: &quot;Using the thrust equation from N01: F = mdot*Ve + (pe-pa)*Ae. Substituting values: (2.75 * 1600) + ((220000 - 60000) * 0.0055) = 4400 + 880 = 5280 N.&quot;
+  }
+}</pre><h3>Retrieved passages</h3><pre>[
+  {
+    &quot;id&quot;: &quot;N01&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Axial nozzle thrust F = mdot*Ve + (pe-pa)*Ae. mdot is mass flow in kg/s, Ve exit velocity in m/s, pe exit static pressure and pa ambient pressure in Pa, Ae exit area in m^2. Both terms have units N. Pressure thrust can be positive, zero, or negative. Do not omit it merely because exhaust velocity is given.&quot;,
+    &quot;bm25_score&quot;: 8.40528678894043
+  },
+  {
+    &quot;id&quot;: &quot;N07&quot;,
+    &quot;source&quot;: &quot;https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-equations-summary/&quot;,
+    &quot;text&quot;: &quot;Missing required inputs prevent a unique numerical answer. Supplied-state thrust needs mdot, Ve, pe, pa and Ae unless a term is explicitly specified as zero. Choked mass flow needs p0, T0, At, gamma and R. Exit speed from area ratio needs T0, gamma, R and the stated branch. Do not assume standard air properties or atmospheric pressure when the question forbids assumptions.&quot;,
+    &quot;bm25_score&quot;: 5.367102146148682
+  },
+  {
+    &quot;id&quot;: &quot;N04&quot;,
+    &quot;source&quot;: &quot;https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html&quot;,
+    &quot;text&quot;: &quot;For constant-gamma isentropic ideal flow, Te=T0/(1+(gamma-1)*Me^2/2), pe=p0*(Te/T0)^(gamma/(gamma-1)), and Ve=Me*sqrt(gamma*R*Te). These use exit static temperature and pressure, not chamber stagnation quantities in their place. If area ratio is supplied, determine the correct Mach branch first.&quot;,
+    &quot;bm25_score&quot;: 3.80759596824646
+  }
+]</pre></details>
+<h2>Limits</h2><p>Time-limited preliminary evaluation. Availability at the interruption cutoff determined inclusion. The planned 216-response study is incomplete. Templates and repeated seeds are correlated. No significance, expert-review or real-engine validation claim.</p><h2>All received responses</h2><p>Includes unmatched observations. These rows are not pooled into the paired accuracy comparison.</p><table><tr><th>Case</th><th>Seed</th><th>Condition</th><th>Correct</th><th>Failure label</th></tr><tr><td>thrust-06</td><td>89</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>mass_flow-05</td><td>17</td><td>llm_only</td><td>False</td><td>numeric</td></tr><tr><td>missing_inputs-04</td><td>17</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>mass_flow-05</td><td>43</td><td>llm_only</td><td>False</td><td>schema</td></tr><tr><td>mixed_units-08</td><td>17</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>missing_inputs-05</td><td>89</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>exit_velocity-07</td><td>43</td><td>llm_only</td><td>False</td><td>numeric</td></tr><tr><td>missing_inputs-07</td><td>89</td><td>llm_only</td><td>True</td><td>none</td></tr><tr><td>missing_inputs-07</td><td>43</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>missing_inputs-03</td><td>89</td><td>llm_only</td><td>True</td><td>none</td></tr><tr><td>missing_inputs-03</td><td>17</td><td>llm_only</td><td>True</td><td>none</td></tr><tr><td>exit_velocity-04</td><td>17</td><td>llm_only</td><td>False</td><td>numeric</td></tr><tr><td>mixed_units-07</td><td>17</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>missing_inputs-04</td><td>89</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>exit_velocity-05</td><td>17</td><td>llm_only</td><td>False</td><td>decision</td></tr><tr><td>applicability-05</td><td>43</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>applicability-03</td><td>89</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>missing_inputs-08</td><td>43</td><td>llm_only</td><td>True</td><td>none</td></tr><tr><td>missing_inputs-06</td><td>17</td><td>llm_only</td><td>True</td><td>none</td></tr><tr><td>applicability-06</td><td>17</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>applicability-05</td><td>17</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>exit_velocity-07</td><td>89</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>mass_flow-05</td><td>89</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>missing_inputs-06</td><td>43</td><td>llm_only</td><td>True</td><td>none</td></tr><tr><td>applicability-08</td><td>89</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>mass_flow-07</td><td>43</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>mass_flow-06</td><td>89</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>mixed_units-05</td><td>17</td><td>llm_only</td><td>False</td><td>numeric</td></tr><tr><td>missing_inputs-08</td><td>17</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>applicability-04</td><td>17</td><td>llm_only</td><td>True</td><td>none</td></tr><tr><td>missing_inputs-06</td><td>89</td><td>llm_only</td><td>True</td><td>none</td></tr><tr><td>thrust-05</td><td>89</td><td>llm_only</td><td>False</td><td>schema</td></tr><tr><td>applicability-03</td><td>17</td><td>llm_only</td><td>True</td><td>none</td></tr><tr><td>mass_flow-03</td><td>43</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>mixed_units-04</td><td>43</td><td>llm_only</td><td>False</td><td>schema</td></tr><tr><td>mixed_units-05</td><td>17</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>thrust-07</td><td>89</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>mixed_units-07</td><td>43</td><td>llm_only</td><td>False</td><td>schema</td></tr><tr><td>applicability-08</td><td>43</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>mass_flow-03</td><td>17</td><td>llm_only</td><td>False</td><td>numeric</td></tr><tr><td>mass_flow-07</td><td>89</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>mass_flow-04</td><td>89</td><td>llm_only</td><td>False</td><td>numeric</td></tr><tr><td>thrust-08</td><td>43</td><td>llm_only</td><td>False</td><td>numeric</td></tr><tr><td>mass_flow-08</td><td>43</td><td>llm_only</td><td>False</td><td>schema</td></tr><tr><td>mass_flow-08</td><td>89</td><td>llm_only</td><td>False</td><td>schema</td></tr><tr><td>applicability-05</td><td>89</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>exit_velocity-03</td><td>43</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>missing_inputs-04</td><td>89</td><td>llm_only</td><td>True</td><td>none</td></tr><tr><td>applicability-08</td><td>43</td><td>llm_only</td><td>False</td><td>schema</td></tr><tr><td>mixed_units-07</td><td>43</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>thrust-03</td><td>43</td><td>llm_only</td><td>False</td><td>schema</td></tr><tr><td>thrust-04</td><td>89</td><td>llm_only</td><td>False</td><td>schema</td></tr><tr><td>applicability-06</td><td>89</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>exit_velocity-04</td><td>17</td><td>rag</td><td>False</td><td>schema</td></tr><tr><td>mixed_units-03</td><td>17</td><td>rag</td><td>False</td><td>schema</td></tr><tr><td>thrust-08</td><td>43</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>exit_velocity-08</td><td>43</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>mixed_units-03</td><td>89</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>exit_velocity-05</td><td>43</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>mixed_units-05</td><td>43</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>missing_inputs-05</td><td>17</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>thrust-04</td><td>43</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>mixed_units-05</td><td>89</td><td>llm_only</td><td>False</td><td>schema</td></tr><tr><td>thrust-04</td><td>17</td><td>llm_only</td><td>False</td><td>decision</td></tr><tr><td>thrust-05</td><td>17</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>mixed_units-04</td><td>43</td><td>rag</td><td>False</td><td>schema</td></tr><tr><td>mixed_units-06</td><td>43</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>missing_inputs-04</td><td>17</td><td>llm_only</td><td>True</td><td>none</td></tr><tr><td>mixed_units-04</td><td>17</td><td>llm_only</td><td>False</td><td>decision</td></tr><tr><td>thrust-06</td><td>43</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>mass_flow-08</td><td>17</td><td>llm_only</td><td>False</td><td>numeric</td></tr><tr><td>mass_flow-03</td><td>89</td><td>llm_only</td><td>False</td><td>numeric</td></tr><tr><td>exit_velocity-08</td><td>17</td><td>llm_only</td><td>False</td><td>schema</td></tr><tr><td>mixed_units-06</td><td>89</td><td>rag</td><td>False</td><td>schema</td></tr><tr><td>missing_inputs-05</td><td>43</td><td>llm_only</td><td>True</td><td>none</td></tr><tr><td>exit_velocity-06</td><td>89</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>applicability-03</td><td>43</td><td>llm_only</td><td>True</td><td>none</td></tr><tr><td>mass_flow-06</td><td>89</td><td>llm_only</td><td>False</td><td>numeric</td></tr><tr><td>exit_velocity-04</td><td>89</td><td>llm_only</td><td>False</td><td>numeric</td></tr><tr><td>exit_velocity-07</td><td>89</td><td>llm_only</td><td>False</td><td>numeric</td></tr><tr><td>thrust-04</td><td>43</td><td>llm_only</td><td>False</td><td>schema</td></tr><tr><td>exit_velocity-05</td><td>89</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>exit_velocity-04</td><td>89</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>missing_inputs-03</td><td>89</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>missing_inputs-06</td><td>43</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>mass_flow-07</td><td>43</td><td>llm_only</td><td>False</td><td>numeric</td></tr><tr><td>mixed_units-06</td><td>17</td><td>llm_only</td><td>False</td><td>schema</td></tr><tr><td>mass_flow-07</td><td>89</td><td>llm_only</td><td>False</td><td>numeric</td></tr><tr><td>mixed_units-03</td><td>43</td><td>llm_only</td><td>False</td><td>schema</td></tr><tr><td>missing_inputs-03</td><td>43</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>missing_inputs-07</td><td>89</td><td>rag</td><td>True</td><td>none</td></tr><tr><td>mass_flow-05</td><td>17</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>thrust-08</td><td>17</td><td>rag</td><td>False</td><td>schema</td></tr><tr><td>exit_velocity-08</td><td>89</td><td>rag</td><td>False</td><td>numeric</td></tr><tr><td>applicability-07</td><td>43</td><td>rag</td><td>True</td><td>none</td></tr></table></html>
