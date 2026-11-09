@@ -54,6 +54,18 @@
       "responses_already_saved": 35,
       "read_timeout_seconds": 1800,
       "adapter_sha256": "028900beab9abdff9829c4901bc7addaa9ec5ef16fcf126e88504c5d93e1c945"
+    },
+    {
+      "started_utc": "2026-11-09T04:31:08.916878+00:00",
+      "responses_already_saved": 95,
+      "read_timeout_seconds": 1800,
+      "adapter_sha256": "028900beab9abdff9829c4901bc7addaa9ec5ef16fcf126e88504c5d93e1c945"
+    },
+    {
+      "started_utc": "2026-11-09T11:10:45.092911+00:00",
+      "responses_already_saved": 205,
+      "read_timeout_seconds": 1800,
+      "adapter_sha256": "028900beab9abdff9829c4901bc7addaa9ec5ef16fcf126e88504c5d93e1c945"
     }
   ]
 }

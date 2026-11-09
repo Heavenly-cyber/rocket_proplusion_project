@@ -1,8 +1,8 @@
 # Recorded study results
 
-Run: `study-full-20261104t230605_054765z-213fdc07`. Status: **partial**. Profile: **full**. Responses: 95/216.
+Run: `study-full-20261104t230605_054765z-213fdc07`. Status: **complete**. Profile: **full**. Responses: 216/216.
 
-LLM only: 13/108 (12.0%). RAG: 20/108 (18.5%). Difference: +6.5 percentage points.
+LLM only: 33/108 (30.6%). RAG: 37/108 (34.3%). Difference: +3.7 percentage points.
 
 | Family | LLM only | BM25 RAG |
 |---|---:|---:|
@@ -10,8 +10,8 @@ LLM only: 13/108 (12.0%). RAG: 20/108 (18.5%). Difference: +6.5 percentage point
 | Thrust | 0/18 | 0/18 |
 | Exit speed | 0/18 | 0/18 |
 | Mixed units | 0/18 | 1/18 |
-| Applicability | 3/18 | 9/18 |
-| Missing inputs | 10/18 | 10/18 |
+| Applicability | 15/18 | 18/18 |
+| Missing inputs | 18/18 | 18/18 |
 
 One quantized local model, small original correlated templates, fixed ideal physics. Human review of reasoning and claim support remains pending. No significance or real-engine claim.
 
