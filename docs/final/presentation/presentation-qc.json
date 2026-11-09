@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "slides": 25,
+  "native_chart_matches_metrics": true,
+  "editable_workbook": true,
+  "rendered_pdf_pages": 25,
+  "checks": [
+    "XML parse and object bounds",
+    "all result fields filled",
+    "chart equals recorded summary",
+    "embedded editable chart data",
+    "PDF text present on all slides",
+    "PDF text within page",
+    "PPTX-to-PDF word coverage"
+  ],
+  "scope": "Automated structural and rendering checks. PNG previews are retained for visual review."
+}
