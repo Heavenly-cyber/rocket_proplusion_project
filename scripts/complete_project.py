@@ -193,7 +193,8 @@ class Workflow:
         code,_=self.runner.run(['docker',*socket,'info'],check=False,logged=False)
         if code:
             self.sudo()
-            docker=['sudo','-n','docker',*socket]
+            # Allow a password prompt if sudo expires during inference.
+            docker=['sudo','docker',*socket]
             code,_=self.runner.run(docker+['info'],check=False,logged=False)
             if code:
                 self.runner.run(['sudo','-n','systemctl','start','docker'])
@@ -418,14 +419,17 @@ class Workflow:
 
     def render_and_package(self,out,validation,summary):
         from completion.presentation import create_deck, reduce_text_size, validate_deck
+        from presentation_render_compat import normalize_pptx
         deck=create_deck(out,validation)
         pdf=out/(deck.stem+'.pdf')
         profile_dir=folder('tmp/libreoffice/'+out.name)
         bbox=out/'presentation-text-bounds.xhtml'
         for attempt in range(4):
             pdf.unlink(missing_ok=True)
+            normalize_pptx(deck)
             self.runner.run(['libreoffice','-env:UserInstallation='+profile_dir.as_uri(),'--headless',
-                '--convert-to','pdf:impress_pdf_Export','--outdir',str(out),str(deck)],timeout=600)
+                '--infilter=Impress MS PowerPoint 2007 XML',
+                '--convert-to','pdf:impress_pdf_Export','--outdir',str(out),deck.as_uri()],timeout=600)
             if not pdf.is_file() or pdf.stat().st_size<10000:
                 raise ProjectError('LibreOffice did not produce the presentation PDF')
             self.runner.run(['pdftotext','-bbox',str(pdf),str(bbox)],timeout=90)
